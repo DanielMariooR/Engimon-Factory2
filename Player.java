@@ -9,6 +9,8 @@ public class Player{
     public Player(Engimon E){
         this.Active = E;
         this.playerPos = new Point();
+        this.ownedEngimon = new Inventory<>();
+        this.skillItems = new Inventory<>();
     }
 
     public Point getPos(){

@@ -6,6 +6,23 @@ public class Skill{
     private int basePower;
     private int masteryLevel;
 
+    public Skill(){
+        this.name = "XXX";
+        this.basePower = 0;
+        this.masteryLevel = 0;
+        this.elements = new ArrayList<>();
+    }
+
+    public Skill(String name, List<String> element, int power, int level){
+        this.name = name;
+        this.basePower = power;
+        this.masteryLevel = level;
+        this.elements = new ArrayList<>();
+        for(String S: element){
+            this.elements.add(S);
+        }
+    }
+
     public void setName(String name){
         this.name = name;
     }
