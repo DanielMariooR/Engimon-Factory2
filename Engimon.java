@@ -7,14 +7,14 @@ class Engimon{
     private int exp;
     private int lives;
     private int totalxp;
-    private string species;
+    private String species;
     private ArrayList<String>  Elements;
     private ArrayList<String> parentName;
     private ArrayList<String> parentSpecies;
     private ArrayList<Skill> skills;
     private Point position;
 
-    public void setLevel(int lvl){
+    public void setLvl(int lvl){
         this.level = lvl;
     }
 
@@ -52,4 +52,7 @@ class Engimon{
         return this.position;
     }
 
+    public String getName(){
+        return this.name;
+    }
 }
