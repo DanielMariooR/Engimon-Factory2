@@ -14,6 +14,15 @@ public class Player{
         ownedEngimon.masuk(E);
     }
 
+    public Player(int x, int y){
+        playerPos = new Point(x, y);
+    }
+
+    public void changePosition(int dx, int dy){
+        playerPos.setX(playerPos.getX() + dx);
+        playerPos.setY(playerPos.getY() + dy);
+    }
+
     public void switchActive(){
         System.out.println("Pick active engimon: ");
         ownedEngimon.show();

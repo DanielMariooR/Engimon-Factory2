@@ -100,9 +100,5 @@ public class Engimon{
         for(Skill S: this.skills){
             System.out.println(S.toString());
         }
-
-    public String getName(){
-        return this.name;
-
     }
 }

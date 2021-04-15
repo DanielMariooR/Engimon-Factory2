@@ -1,24 +1,31 @@
 import java.awt.*;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class Screen extends JFrame implements ActionListener {
-    private static final long serialVersionUID = 1L;
-    JButton newGame = new JButton("New Game");
-    JButton load = new JButton("Load Game");
-    JButton exit = new JButton("Exit");
 
+public class Screen extends JFrame {
+    private static final long serialVersionUID = 1L;
 
     public Screen(int width, int height){
-        addButtons();
+        Map m = new Map("map.txt");
+        Player P = new Player(0,0);
+        m.setPlayer(P);
+        add(new GameCanvas(m));
+
         setSize(width, height);
         setResizable(false);
+
         setLocationRelativeTo(null);
-        setVisible(true);
         setTitle("Engimon: Java Edition");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        requestFocus();
+    }
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            Screen sc = new Screen(640,640);
+            sc.setVisible(true);
+        });
+        
     }
 
 

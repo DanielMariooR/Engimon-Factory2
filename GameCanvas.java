@@ -3,8 +3,18 @@ import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+
+import javax.swing.AbstractAction;
+import javax.swing.InputMap;
+import javax.swing.ActionMap;
 import javax.swing.JPanel;
-import java.awt.event.keyEvent;
+import javax.swing.KeyStroke;
+import javax.swing.Timer;
+
+
+import java.awt.event.*;
+import java.sql.Time;
+
 
 
 
@@ -15,14 +25,65 @@ public class GameCanvas extends JPanel{
     private Image tundra;
     private Image character;
     private Map objects;
+    private Timer timer;
 
     public GameCanvas(Map m){
+        
         grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/grass.png");
         water = Toolkit.getDefaultToolkit().getImage("resource/tiles/water.png");
         mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/mountain.png");
         tundra = Toolkit.getDefaultToolkit().getImage("resource/tiles/ice.png");
         character = Toolkit.getDefaultToolkit().getImage("resource/tiles/char.png");
         this.objects = m;
+        addBinding();
+        timer = new Timer(10, new TimerListener());
+        timer.start();
+    }
+
+    private void addBinding(){
+        int condition = WHEN_IN_FOCUSED_WINDOW;
+        InputMap inputMap = getInputMap(condition);
+        ActionMap actionMap = getActionMap();
+        KeyStroke keyPressed;
+
+        keyPressed = KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0);
+        inputMap.put(keyPressed, "moveleft");
+        actionMap.put("moveleft", new KeyAction(-1,0));
+
+        keyPressed = KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0);
+        inputMap.put(keyPressed, "moveright");
+        actionMap.put("moveright", new KeyAction(1, 0));
+
+        keyPressed = KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0);
+        inputMap.put(keyPressed, "moveup");
+        actionMap.put("moveup", new KeyAction(0, -1));
+
+        keyPressed = KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0);
+        inputMap.put(keyPressed, "movedown");
+        actionMap.put("movedown", new KeyAction(0, 1));
+    }
+
+    class KeyAction extends AbstractAction{
+        private int dy;
+        private int dx;
+
+        public KeyAction(int dx, int dy){
+            this.dy = dy;
+            this.dx = dx;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e){
+            objects.movePlayer(dx, dy);
+            System.out.println("Pressed");
+        }
+    }
+
+    private class TimerListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e){
+            repaint();
+        }
     }
 
     @Override
@@ -47,13 +108,8 @@ public class GameCanvas extends JPanel{
             i++;
             j = 0;
         }
+        g.drawImage(character, objects.getPlayerX()*32, objects.getPlayerY()*32, this);
+        Toolkit.getDefaultToolkit().sync();
     }
 
-    public static void main(String[] args) {
-        Map m = new Map("map.txt");
-        Frame frame = new Frame();
-        frame.setSize(640,640);
-        frame.add(new GameCanvas(m));
-        frame.setVisible(true);
-    }
 }

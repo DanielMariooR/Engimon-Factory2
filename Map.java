@@ -12,6 +12,7 @@ class Map {
     private List<Engimon> wildEngimons;
     public char[][] tile;
 
+
     public Map(String filepath) {
         tile = new char[20][15];
         try{
@@ -32,6 +33,14 @@ class Map {
         }
     }
 
+    public void setPlayer(Player P){
+        this.player = P;
+    }
+
+    public void movePlayer(int x, int y){
+        player.changePosition(x, y);
+    }
+
     public void addEngimon(Engimon anEngimon) {
         wildEngimons.add(anEngimon);
         System.out.println();
@@ -41,25 +50,14 @@ class Map {
         // index adalah index wild engimon di list wildEngimons.
     }
 
-    public void keyPressed(KeyEvent e){
-        int key = e.getKeyCode();
-        int dx = 0;
-        int dy = 0;
-        if(key == KeyEvent.VK_LEFT){
 
-        } 
-        
-        if(key == KeyEvent.VK_RIGHT){
-
-        } 
-        
-        if(key == KeyEvent.VK_UP){
-
-        } 
-
-        if(key == KeyEvent.VK_DOWN){
-
-        }
+    public int getPlayerX(){
+        return player.getPos().getX();
     }
+
+    public int getPlayerY(){
+        return player.getPos().getY();
+    }
+
 
 }
