@@ -1,18 +1,32 @@
-import java.awt.Point;
 import java.util.*;
 
-class Engimon{
+public class Engimon{
     private String name;
     private int level;
     private int exp;
     private int lives;
     private int totalxp;
-    private string species;
+    private String species;
     private ArrayList<String>  Elements;
     private ArrayList<String> parentName;
     private ArrayList<String> parentSpecies;
     private ArrayList<Skill> skills;
     private Point position;
+
+    public Engimon(){
+        this.name = "XXX";
+        this.level = 0;
+        this.exp = 1;
+        this.lives = 3;
+    }
+
+    public List<String> getParentName(){
+        return this.parentName;
+    }
+
+    public String getName(){
+        return this.name;
+    }
 
     public void setLevel(int lvl){
         this.level = lvl;
@@ -43,13 +57,46 @@ class Engimon{
         this.position.setY(position.getY()+y);
     }
 
-    public void setPos(Position p){
+    public void setPos(Point p){
         this.position.setX(p.getX());
         this.position.setY(p.getY());
     }
 
-    public Position getPos(){
+    public Point getPos(){
         return this.position;
     }
 
+    public void removeSkill(int idx){
+        this.skills.remove(idx);
+    }
+
+    public List<String> getElem(){
+        return this.Elements;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        str.append("Nama: " + this.name + "\n");
+        str.append("Level: "+ this.level + "\n");
+        str.append("Lives: "+this.lives + "\n");
+        return str.toString();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(o == this) return true;
+
+        if(!(o instanceof Engimon)) return false;
+
+        Engimon E = (Engimon) o;
+
+        return this.name.equals(E.getName()) && this.species.equals(E.getSpecies()) && this.Elements.equals(E.getElem()) && this.parentName.equals(E.getParentName());
+    }
+
+    public void showSkills(){
+        for(Skill S: this.skills){
+            System.out.println(S.toString());
+        }
+    }
 }

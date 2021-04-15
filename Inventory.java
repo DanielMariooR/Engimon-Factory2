@@ -1,19 +1,4 @@
-import java.util.ArrayList;
-
-public class BaseInventory{
-    protected static int size;
-    public BaseInventory(){
-        // BaseInvetory constructor
-    }
-
-    public static void fill(){
-        size++;
-    }
-
-    public static void decr(){
-        size--;
-    }
-}
+import java.util.*;
 
 public class Inventory<T> extends BaseInventory{
     private ArrayList<T> inv;
@@ -23,29 +8,47 @@ public class Inventory<T> extends BaseInventory{
         inv = new ArrayList<>();
     }
 
+    public List<T> getInv(){
+        return this.inv;
+    }
+
     public void keluar(T outItem){
         if(!inv.isEmpty()){
             inv.remove(outItem);
             decr();
-        } else {
-            throw "Inventory is empty";
-        }
+        } 
     }
 
     public void masuk(T inItem){
         if(size < 10){
             inv.add(inItem);
             fill();
-        } else {
-            throw "Inventory is full!";
-        }
+        } 
     }
 
     public T getItem(int idx){
         return inv.get(idx);
     }
 
+    public T getItem(T searchItem){
+        for(T item: inv){
+            if(item.equals(searchItem)){
+                return item;
+            }
+        }
+        return null;
+    }
+
     public boolean itemExist(T item){
         return inv.contains(item);
     }
+
+    public void show(){
+        int idx = 1;
+        for(T item: inv){
+            System.out.printf("%d. %s%n", idx, item.toString());
+            idx++;
+        }
+    }
+
 }

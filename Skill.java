@@ -47,7 +47,16 @@ public class Skill{
         return this.name;
     }
 
-    public void skillDetail(){
-        System.out.println("Skill Detail: ");
+    public List<String> getElem(){
+        return this.elements;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        str.append("Nama: " + this.name + "\n");
+        str.append("Power: " + this.basePower + "\n");
+        str.append("Level: " + this.masteryLevel + "\n");
+        return str.toString();
     }
 }
