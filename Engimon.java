@@ -97,7 +97,7 @@ public class Engimon{
     }
 
     public void showSkills(){
-        for(Skill S: this.skills){
+        for(Skill S: this.skills) {
             System.out.println(S.toString());
         }
     }
