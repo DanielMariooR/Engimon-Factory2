@@ -29,6 +29,7 @@ public class Engimon{
     }
 
     public void setLevel(int lvl){
+
         this.level = lvl;
     }
 
@@ -66,6 +67,7 @@ public class Engimon{
         return this.position;
     }
 
+
     public void removeSkill(int idx){
         this.skills.remove(idx);
     }
@@ -98,5 +100,9 @@ public class Engimon{
         for(Skill S: this.skills){
             System.out.println(S.toString());
         }
+
+    public String getName(){
+        return this.name;
+
     }
 }
