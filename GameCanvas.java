@@ -26,12 +26,12 @@ public class GameCanvas extends JPanel{
 
     public GameCanvas(Map m){
         
-        grass = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\grass.png");
-        water = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\water.png");
-        mountain = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\mountain.png");
-        tundra = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\ice.png");
-        character = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\char.png");
-        engimon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\pokemon.png");
+        grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/grass.png");
+        water = Toolkit.getDefaultToolkit().getImage("resource/tiles/water.png");
+        mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/mountain.png");
+        tundra = Toolkit.getDefaultToolkit().getImage("resource/tiles/ice.png");
+        character = Toolkit.getDefaultToolkit().getImage("resource/tiles/char.png");
+        engimon = Toolkit.getDefaultToolkit().getImage("resource/tiles/pokemon.png");
 
         this.objects = m;
         addBinding();
