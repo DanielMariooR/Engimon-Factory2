@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.Toolkit;
@@ -13,9 +12,6 @@ import javax.swing.Timer;
 
 
 import java.awt.event.*;
-import java.sql.Time;
-
-
 
 
 public class GameCanvas extends JPanel{
@@ -24,16 +20,19 @@ public class GameCanvas extends JPanel{
     private Image mountain;
     private Image tundra;
     private Image character;
+    private Image engimon;
     private Map objects;
     private Timer timer;
 
     public GameCanvas(Map m){
         
-        grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/grass.png");
-        water = Toolkit.getDefaultToolkit().getImage("resource/tiles/water.png");
-        mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/mountain.png");
-        tundra = Toolkit.getDefaultToolkit().getImage("resource/tiles/ice.png");
-        character = Toolkit.getDefaultToolkit().getImage("resource/tiles/char.png");
+        grass = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\grass.png");
+        water = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\water.png");
+        mountain = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\mountain.png");
+        tundra = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\ice.png");
+        character = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\char.png");
+        engimon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\deepj\\OneDrive\\Desktop\\OOP\\Engimon-Factory2\\resource\\tiles\\pokemon.png");
+
         this.objects = m;
         addBinding();
         timer = new Timer(10, new TimerListener());
@@ -95,13 +94,13 @@ public class GameCanvas extends JPanel{
         while(i<20){
             while(j<15){
                 if(objects.tile[i][j] == '-'){
-                    g.drawImage(grass, i*32, j*32, this);
+                    g.drawImage(grass, j*32, i*32, this);
                 } else if(objects.tile[i][j] == 'o'){
-                    g.drawImage(water, i*32, j*32, this);
+                    g.drawImage(water, j*32, i*32, this);
                 } else if(objects.tile[i][j] == '^'){
-                    g.drawImage(mountain, i*32, j*32, this);
+                    g.drawImage(mountain, j*32, i*32, this);
                 } else {
-                    g.drawImage(tundra, i*32, j*32, this);
+                    g.drawImage(tundra, j*32, i*32, this);
                 }
                 j++;
             }
@@ -109,6 +108,7 @@ public class GameCanvas extends JPanel{
             j = 0;
         }
         g.drawImage(character, objects.getPlayerX()*32, objects.getPlayerY()*32, this);
+        g.drawImage(engimon, objects.getPlayer().getActive().getPos().getX()*32, objects.getPlayer().getActive().getPos().getY()*32 , this);
         Toolkit.getDefaultToolkit().sync();
     }
 

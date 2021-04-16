@@ -18,6 +18,7 @@ public class Engimon{
         this.level = 0;
         this.exp = 1;
         this.lives = 3;
+        position = new Point(0,0);
     }
 
     public List<String> getParentName(){

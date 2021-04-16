@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+
+import javax.swing.text.Position;
+
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileReader;
@@ -37,8 +40,19 @@ class Map {
         this.player = P;
     }
 
-    public void movePlayer(int x, int y){
-        player.changePosition(x, y);
+    public Player getPlayer(){
+        return this.player;
+    }
+
+    public void movePlayer(int dx, int dy){
+        if(isMoveVaild(getPlayerX()+dx, getPlayerY()+dy)){
+            int x = getPlayerX();
+            int y = getPlayerY();
+            Point temp = new Point(x,y);
+            player.changePosition(dx, dy);
+            moveActiveEngimon(temp);
+        }
+        
     }
 
     public void addEngimon(Engimon anEngimon) {
@@ -46,8 +60,16 @@ class Map {
         System.out.println();
     }
 
-    public void moveEngimon(int index) {
-        // index adalah index wild engimon di list wildEngimons.
+    public void moveActiveEngimon(Point playerPos) {
+        player.getActive().setPos(playerPos);
+    }
+
+    public boolean isMoveVaild(int x, int y){
+        if(x <= 14 && x >=0 && y<=19 && y>=0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 

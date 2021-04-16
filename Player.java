@@ -18,6 +18,10 @@ public class Player{
         playerPos = new Point(x, y);
     }
 
+    public void setActive(Engimon E){
+        this.Active = E;
+    }
+
     public void changePosition(int dx, int dy){
         playerPos.setX(playerPos.getX() + dx);
         playerPos.setY(playerPos.getY() + dy);
@@ -29,6 +33,7 @@ public class Player{
         Scanner scan = new Scanner(System.in);
         int idx = scan.nextInt();
         this.Active = ownedEngimon.getItem(idx-1);
+        scan.close();
     }
 
     public void addEngimon(Engimon E){
