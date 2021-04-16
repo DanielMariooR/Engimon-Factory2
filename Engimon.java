@@ -25,10 +25,30 @@ public class Engimon{
         return this.parentName;
     }
 
+    public List<String> getParentSpecies(){
+        return this.parentSpecies;
+    }
+
     public String getName(){
         return this.name;
     }
 
+    public Integer getLevel(){
+        return this.level;
+    }
+
+    public Integer getExp(){
+        return this.exp;
+    }
+
+    public Integer getLives(){
+        return this.lives;
+    }
+
+    public Integer getTotExp(){
+        return this.totalxp;
+    }
+    
     public void setLevel(int lvl){
 
         this.level = lvl;

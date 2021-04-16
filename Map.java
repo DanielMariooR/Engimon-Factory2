@@ -72,6 +72,9 @@ class Map {
         }
     }
 
+    public List<Engimon> getWildEngimons(){
+        return this.wildEngimons;
+    }
 
     public int getPlayerX(){
         return player.getPos().getX();
@@ -81,5 +84,8 @@ class Map {
         return player.getPos().getY();
     }
 
+    public char[][] getTile(){
+        return this.tile;
+    }
 
 }
