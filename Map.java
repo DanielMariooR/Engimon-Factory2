@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.io.File;
-import java.util.Random;
+import java.util.*;
 
 class Map {
     private Player player;
@@ -122,9 +122,6 @@ class Map {
         }
     }
 
-    public List<Engimon> getWildEngimons(){
-        return this.wildEngimons;
-    }
 
     public int getPlayerX(){
         return player.getPos().getX();
@@ -135,7 +132,7 @@ class Map {
     }
 
     public char[][] getTile(){
-        return this.tile;
+        return this.tiles;
     }
 
 }

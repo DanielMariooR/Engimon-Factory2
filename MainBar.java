@@ -3,6 +3,8 @@ import javax.swing.*;
 public class MainBar {
     public static Component createButtonMenu(){
 
+        JButton load = new JButton("Load Game");
+        JButton save = new JButton("Save Game");
         JButton b = new JButton("Show Active Engimon");
         JButton b1 = new JButton("Change Active Engimon");
         JButton b2 = new JButton("Breed Engimon");
@@ -11,6 +13,8 @@ public class MainBar {
         JButton b5 = new JButton("Show Engimon");
         JButton b6 = new JButton("Show Item");
         
+        load.setAlignmentX(Component.CENTER_ALIGNMENT);
+        save.setAlignmentX(Component.CENTER_ALIGNMENT);
         b.setAlignmentX(Component.CENTER_ALIGNMENT);
         b1.setAlignmentX(Component.CENTER_ALIGNMENT);
         b2.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -21,6 +25,8 @@ public class MainBar {
 
         Dimension psize = new Dimension(175,25);
 
+        load.setMinimumSize(psize);
+        save.setMinimumSize(psize);
         b.setMinimumSize(psize);
         b1.setMinimumSize(psize);
         b2.setMinimumSize(psize);
@@ -28,6 +34,9 @@ public class MainBar {
         b4.setMinimumSize(psize);
         b5.setMinimumSize(psize);
         b6.setMinimumSize(psize);
+
+        load.setMaximumSize(psize);
+        save.setMaximumSize(psize);
         b.setMaximumSize(psize);
         b1.setMaximumSize(psize);
         b2.setMaximumSize(psize);
@@ -35,6 +44,9 @@ public class MainBar {
         b4.setMaximumSize(psize);
         b5.setMaximumSize(psize);
         b6.setMaximumSize(psize);
+
+        load.setPreferredSize(psize);
+        save.setPreferredSize(psize);
         b.setPreferredSize(psize);
         b1.setPreferredSize(psize);
         b2.setPreferredSize(psize);
@@ -49,10 +61,18 @@ public class MainBar {
  
         // set Box Layout
         p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
+        JLabel space2 = new JLabel(" ");
         JLabel lul = new JLabel("Main Menu");
+        JLabel space = new JLabel(" ");
         lul.setAlignmentX(Component.CENTER_ALIGNMENT);
+        space.setAlignmentX(Component.CENTER_ALIGNMENT);
+        space2.setAlignmentX(Component.CENTER_ALIGNMENT);
         // add buttons and textfield to panel
+        p.add(space2);
         p.add(lul);
+        p.add(space);
+        p.add(load);
+        p.add(save);
         p.add(b);
         p.add(b1);
         p.add(b2);

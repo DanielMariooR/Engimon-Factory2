@@ -18,7 +18,7 @@ public class WildEngimon {
         }
     }
 
-    public List<Engimon> getEngimonList(){
+    public ArrayList<Engimon> getEngimonList(){
         return this.engimonList;
     }
 
