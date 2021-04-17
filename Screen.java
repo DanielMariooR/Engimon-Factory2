@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 
 public class Screen extends JFrame {
@@ -36,11 +36,12 @@ public class Screen extends JFrame {
 
         P.setActive(E);
         m.setPlayer(P);
+        //child container with menu
+        this.add(MainBar.createButtonMenu(), BorderLayout.EAST);
+        //other
         add(new GameCanvas(m));
-
         setSize(width, height);
         
-
         setLocationRelativeTo(null);
         setTitle("Engimon: Java Edition");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -48,7 +49,7 @@ public class Screen extends JFrame {
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
-            Screen sc = new Screen(640,720);
+            Screen sc = new Screen(665,675);
             sc.setVisible(true);
         });
         

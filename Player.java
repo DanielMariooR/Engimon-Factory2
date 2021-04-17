@@ -118,4 +118,12 @@ public class Player{
         skillItems.show();
     }
 
+    public List<Engimon> getInventoryEngimons(){
+        return ownedEngimon.getInv();
+    }
+
+    public List<Item> getInventoryItem(){
+        return skillItems.getInv();
+    }
+
 }
