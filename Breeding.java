@@ -1,24 +1,27 @@
-import java.util.ArrayList;
+import java.util.*;
+import java.lang.Exception;
 
 public class Breeding{
 
-    public static Engimon Breed(Engimon A, Engimon B,String childName){
-        if(A.getLvl() < 4 || B.getLvl() < 4) throw A.getLvl(); // Throw Exception if either parent lv < 30
+    public static Engimon Breed(Engimon A, Engimon B,String childName) throws IllegalStateException{
+        if(A.getLevel() < 4 || B.getLevel() < 4) throw new IllegalStateException(new StringBuilder("Level parents harus lebih besar dari 3").toString()); // Throw Exception if either parent lv < 4
         // get child attributes
         ArrayList<String> childElSpec = setChildElSpec(A,B);
         ArrayList<String> childEl;
         for (int i = 1; i < childElSpec.size(); i++)
         {
-            childEl.add(childElSpec[i]);
+            childEl.add(childElSpec.get(i));
         }
-        String childSpec = childElSpec[0];
+        String childSpec = childElSpec.get(0);
     
         ArrayList<Skill> childSkills = setChildSkills(A,B,childEl);
     
         //Subtract parents lv
-        A.setLvl(A.getLvl() - 3);
-        B.setLvl(B.getLvl()- 3);
-    
+        int lvlA = A.getLevel();
+        int lvlB = B.getLevel();
+        A.setLevel(lvlA - 3);
+        B.setLevel(lvlB- 3);
+        
         ArrayList<String> PName;
         ArrayList<String> PSpecies;
         PName.add(A.getName());
@@ -26,7 +29,8 @@ public class Breeding{
         PSpecies.add(A.getSpecies());
         PSpecies.add(B.getSpecies());
         Point P = new Point(0,0);
-        return new Engimon(childName,PName,PSpecies,childSkills,1,0,0,childSpec,childEl,P); 
+        return new Engimon(childName,PName,PSpecies,childSkills,childSpec,childEl,3,1,0,0,P); 
+        // childName, PName, PSpecies, childSkills ,childSpec, childEl, lives, level, xp , cumm xp , location
     }
     // Set Child Skills - Skill Unik spesies anak blm di handle ; Bypass constraint atribut anak blm di handle
     // Priority : 1. Higher Mastery Level 2. A Skill 3. Lowest index
@@ -42,18 +46,18 @@ public class Breeding{
         {
             if(childSkills.size() < 4){
                 // Bypass constraint atribut anak blm di handle
-            if(searchInVec(childSkills,mergedSkills.get(i)) == -1 && compareElSkill(mergedSkills.get(i).getElement(),El) == true){
+            if(searchInVec(childSkills,mergedSkills.get(i)) == -1 && compareElSkill(mergedSkills.get(i).getElem(),El) == true){
                 int idxA = searchInVec(aSkills,mergedSkills.get(i));
                 int idxB = searchInVec(bSkills,mergedSkills.get(i));
                 if(idxA != -1 && idxB != -1){
                     if(aSkills.get(idxA).getMasteryLevel() == bSkills.get(idxB).getMasteryLevel()){
-                        if(aSkills.get(idxA).getMasteryLevel() == 3) mergedSkills.get(i).setMasteryLevel(aSkills.get(idxA).getMasteryLevel());
-                        else mergedSkills.get(i).setMasteryLevel(aSkills.get(idxA).getMasteryLevel() + 1);
+                        if(aSkills.get(idxA).getMasteryLevel() == 3) mergedSkills.get(i).setMastery(aSkills.get(idxA).getMasteryLevel());
+                        else mergedSkills.get(i).setMastery(aSkills.get(idxA).getMasteryLevel() + 1);
                     }
                     else if(aSkills.get(idxA).getMasteryLevel() > bSkills.get(idxB).getMasteryLevel()){
-                        mergedSkills.get(i).setMasteryLevel(aSkills.get(idxA).getMasteryLevel());
+                        mergedSkills.get(i).setMastery(aSkills.get(idxA).getMasteryLevel());
                     }
-                    else mergedSkills.get(i).setMasteryLevel(bSkills.get(idxB).getMasteryLevel());
+                    else mergedSkills.get(i).setMastery(bSkills.get(idxB).getMasteryLevel());
                     childSkills.add(mergedSkills.get(i));
                 }
                 else childSkills.add(mergedSkills.get(i));
@@ -66,29 +70,29 @@ public class Breeding{
     }
     public static ArrayList<String> setChildElSpec(Engimon A, Engimon B){
         ArrayList<String> elSpec;
-        if(A.getElements().size() == 2 || B.getElements().size()==2) System.out.println("Elemen salah satu / kedua parent lebih dari 1. Akan diambil elemen pertama masing-masing parent");
-        if(A.getElements().get(0) == B.getElements().get(0)){  // Same elements
+        if(A.getElem().size() == 2 || B.getElem().size()==2) System.out.println("Elemen salah satu / kedua parent lebih dari 1. Akan diambil elemen pertama masing-masing parent");
+        if(A.getElem().get(0) == B.getElem().get(0)){  // Same elements
             elSpec.add(A.getSpecies()); // Aturan : ambil species parent A
-            elSpec.add(A.getElements().get(0));
+            elSpec.add(A.getElem().get(0));
             }
         else{ // Diff elements
-            if(strongerEl(A.getElements().get(0),B.getElements().get(0)) == 1){ // ambil elemen dan species A
+            if(strongerEl(A.getElem().get(0),B.getElem().get(0)) == 1){ // ambil elemen dan species A
                 elSpec.add(A.getSpecies());
-                elSpec.add(A.getElements().get(0));
+                elSpec.add(A.getElem().get(0));
                  
             }
-            else if(strongerEl(A.getElements().get(0),B.getElements().get(0)) == -1){ // ambil elemen dan species B
+            else if(strongerEl(A.getElem().get(0),B.getElem().get(0)) == -1){ // ambil elemen dan species B
                 elSpec.add(B.getSpecies()); 
-                elSpec.add(B.getElements().get(0));
+                elSpec.add(B.getElem().get(0));
                     
             }
             else{ // Kasus Elemen Advantage Sama
                 String aSpecies = A.getSpecies();
-                aSpecies = aSpecies.subString(0,aSpecies.size()-3);
+                aSpecies = aSpecies.subString(0,aSpecies.length()-3);
                 String species = aSpecies + B.getSpecies(); 
                 elSpec.add(species);
-                elSpec.add(A.getElements().get(0));
-                elSpec.add(B.getElements().get(0));
+                elSpec.add(A.getElem().get(0));
+                elSpec.add(B.getElem().get(0));
             }
         }
         return elSpec;
@@ -160,7 +164,7 @@ public class Breeding{
         
         return ret;
     }
-    public static int searchInVec(ArrayList<Skill> v, ArrayList<Skill> S) {
+    public static int searchInVec(ArrayList<Skill> v, Skill S) {
         int ret = -1;
         for (int i = 0; i < v.size(); i++)
         {

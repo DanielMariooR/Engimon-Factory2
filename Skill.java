@@ -47,7 +47,7 @@ public class Skill{
         return this.name;
     }
 
-    public List<String> getElem(){
+    public ArrayList<String> getElem(){
         return this.elements;
     }
 

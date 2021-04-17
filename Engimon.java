@@ -20,6 +20,20 @@ public class Engimon{
         this.lives = 3;
         position = new Point(0,0);
     }
+    // childName, PName, PSpecies, childSkills ,childSpec, childEl, lives, level, xp , cumm xp , location
+    public Engimon(String n,ArrayList<String> pn, ArrayList<String> ps, ArrayList<Skill> sk, String sp, ArrayList<String> el, int live, int lvl, int xp, int totxp, Point pos){
+        this.name = n;
+        this.parentName = pn;
+        this.parentSpecies = ps;
+        this.skills = sk;
+        this.species = sp;
+        this.Elements = el;
+        this.lives = live;
+        this.level = lvl;
+        this.exp = xp;
+        this.totalxp = totxp;
+        this.position = pos;
+    }
 
     public List<String> getParentName(){
         return this.parentName;
@@ -33,7 +47,7 @@ public class Engimon{
         return this.name;
     }
 
-    public Integer getLevel(){
+    public int getLevel(){
         return this.level;
     }
 
@@ -66,7 +80,7 @@ public class Engimon{
         this.name = name;
     }
 
-    public List<Skill> getSkills(){
+    public ArrayList<Skill> getSkills(){
         return this.skills;
     }
 
