@@ -1,23 +1,15 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
-
-import javax.swing.text.Position;
-
-import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.Random;
 
 class Map {
     private Player player;
-    private List<Engimon> wildEngimons;
-    public char[][] tile;
+    private WildEngimon wild;
+    public char[][] tiles;
 
 
     public Map(String filepath) {
-        tile = new char[20][15];
+        tiles = new char[20][15];
         try{
             Scanner input = new Scanner(new File(filepath));
             int row  = 20;
@@ -27,10 +19,12 @@ class Map {
                 for(int i=0; i<row; i++){
                     String line = input.nextLine();
                     for(int j=0; j<columns; j++){
-                        tile[i][j] = line.charAt(j);
+                        tiles[i][j] = line.charAt(j);
                     }
                 }
             }
+
+            wild = new WildEngimon();
         } catch(Exception e){
             System.out.println("File Not found error!");
         }
@@ -40,12 +34,16 @@ class Map {
         this.player = P;
     }
 
+    public WildEngimon getWildEngimon(){
+        return this.wild;
+    }
+
     public Player getPlayer(){
         return this.player;
     }
 
     public void movePlayer(int dx, int dy){
-        if(isMoveVaild(getPlayerX()+dx, getPlayerY()+dy)){
+        if(isMoveValid(getPlayerX()+dx, getPlayerY()+dy)){
             int x = getPlayerX();
             int y = getPlayerY();
             Point temp = new Point(x,y);
@@ -56,19 +54,71 @@ class Map {
     }
 
     public void addEngimon(Engimon anEngimon) {
-        wildEngimons.add(anEngimon);
-        System.out.println();
+        wild.addWildEngimon(anEngimon);
     }
 
     public void moveActiveEngimon(Point playerPos) {
         player.getActive().setPos(playerPos);
     }
 
-    public boolean isMoveVaild(int x, int y){
+    public boolean isMoveValid(int x, int y){
         if(x <= 14 && x >=0 && y<=19 && y>=0){
             return true;
-        }else {
+        } else {
             return false;
+        }
+    }
+
+    public boolean isMoveValidEngimon(int x, int y){
+        if(x <= 14 && x>=0 && y<=19 && y>= 0){
+            if(getPlayerX() != x && getPlayerY() != y && player.getActive().getPos().getX() != x && player.getActive().getPos().getY() != y){
+                for(Engimon eng: wild.getEngimonList()){
+                    if( eng.getPos().getX() == x && eng.getPos().getY() == y){
+                        return false;
+                    }
+                }
+                return true;
+
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+    }
+
+    public boolean isTileValid(Engimon E, int x, int y){
+        char tile = tiles[y][x];
+        boolean temp = true;
+        for(String element: E.getElem()){
+            if(tile == '-'){
+                temp = (element.equals("Ground") || element.equals("Electric"));
+            } else if(tile == 'o'){
+                temp = element.equals("Water");
+            } else if(tile == '^'){
+                temp = element.equals("Fire");
+            } else if(tile == '#'){
+                temp = element.equals("Ice");
+            }
+
+            if(temp) break;
+        }
+
+        return temp;
+    }
+
+
+    public void moveWildEngimon(){
+        Random rand = new Random();
+        
+        for(Engimon E: wild.getEngimonList()){
+            int dx = rand.nextInt(3) - 1;
+            int dy = rand.nextInt(3) - 1;
+
+            if(isMoveValidEngimon(E.getPos().getX()+dx, E.getPos().getY()+dy) && isTileValid(E, E.getPos().getX()+dx, E.getPos().getY()+dy)){
+                E.move(dx, dy);
+            }
         }
     }
 

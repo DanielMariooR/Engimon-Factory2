@@ -2,22 +2,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WildEngimon {
-    private List<Engimon> engimonList;
+    private ArrayList<Engimon> engimonList;
 
     public WildEngimon() {
         engimonList = new ArrayList<Engimon>();
     }
 
     public void addWildEngimon(Engimon engimon) {
-        if(this.isEngimonPresent(engimon.getPos()) == null) {
-            engimonList.add(engimon);
-        }
+        engimonList.add(engimon);
     }
 
     public void delWildEngimon(Engimon engimon) {
         if(this.isEngimonPresent(engimon.getPos()) != null) {
             engimonList.remove(engimon);
         }
+    }
+
+    public List<Engimon> getEngimonList(){
+        return this.engimonList;
     }
 
     public Engimon isEngimonPresent(Point position) {

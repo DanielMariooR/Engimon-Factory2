@@ -77,6 +77,10 @@ public class Engimon{
         return this.Elements;
     }
 
+    public void setElem(ArrayList<String> elem){
+        this.Elements = elem;
+    }
+
     @Override
     public String toString(){
         StringBuilder str = new StringBuilder();
