@@ -7,6 +7,11 @@ class Map {
     private WildEngimon wild;
     public char[][] tiles;
 
+    public Map(){
+        this.player = new Player();
+        this.wild = new WildEngimon();
+        this.tiles = new char[20][15];
+    }
 
     public Map(String filepath) {
         tiles = new char[20][15];
@@ -34,13 +39,18 @@ class Map {
         this.player = P;
     }
 
-    public WildEngimon getWildEngimon(){
-        return this.wild;
+    public void setWild(WildEngimon wild){
+        this.wild = wild;
+    }
+
+    public void setTile(char[][] tiles){
+        this.tiles = tiles;
     }
 
     public Player getPlayer(){
         return this.player;
     }
+
 
     public void movePlayer(int dx, int dy){
         if(isMoveValid(getPlayerX()+dx, getPlayerY()+dy)){

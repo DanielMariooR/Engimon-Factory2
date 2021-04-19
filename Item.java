@@ -14,6 +14,11 @@ public class Item{
         this.jumlah = 1;
     }
 
+    public Item(String name, int power, List<String> elements, int masteryLevel){
+        skill = new Skill(name, elements, power, masteryLevel);
+        this.jumlah = 1;
+    }
+
     public String getName(){
         return this.skill.getName(); 
     }

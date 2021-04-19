@@ -6,11 +6,25 @@ public class Player{
     private Inventory<Item> skillItems;
     private Point playerPos;
 
+    public Player(){
+        this.Active = new Engimon();
+        this.ownedEngimon = new Inventory<Engimon>();
+        this.skillItems = new Inventory<Item>();
+        this.playerPos = new Point();
+    }
     public Player(Engimon E){
         this.Active = E;
         this.playerPos = new Point();
         this.ownedEngimon = new Inventory<>();
         this.skillItems = new Inventory<>();
+        ownedEngimon.masuk(E);
+    }
+
+    public Player(Engimon E,Inventory<Engimon> ownedEngimon,Inventory<Item> skillItems,Point playerPos){
+        this.Active = E;
+        this.playerPos = playerPos;
+        this.ownedEngimon = ownedEngimon;
+        this.skillItems = skillItems;
         ownedEngimon.masuk(E);
     }
 
