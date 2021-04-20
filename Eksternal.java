@@ -365,7 +365,7 @@ public class Eksternal {
             while(!tempsArray[currBrs].equals("END")){
                 for(int i=0; i<row; i++){
                     for(int j=0; j<columns; j++){
-                        tiles[i][j] = tempsArray[currBrs].charAt(j);
+                        tiles[i][j] = tempsArray[currBrs+i].charAt(j);
                     }
                 }
             }
