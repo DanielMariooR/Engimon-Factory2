@@ -15,7 +15,7 @@ public class Battle{
     }
     public int Power(Engimon Active,Engimon e){
         int power;
-        power = (Active.getLvl() * AdvElmt(Active,e)) + TotSkill(Active);
+        power = (Active.getLevel() * AdvElmt(Active,e)) + TotSkill(Active);
         return power;
     }
     public void ShowStatus(Engimon Active, Engimon e){

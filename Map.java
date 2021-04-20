@@ -39,6 +39,10 @@ class Map {
         this.player = P;
     }
 
+    public WildEngimon getWildEngimon(){
+        return this.wild;
+    }
+
     public void setWild(WildEngimon wild){
         this.wild = wild;
     }

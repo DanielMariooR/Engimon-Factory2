@@ -71,7 +71,11 @@ public class Eksternal {
             file.concat(newline);
         }
         Point position = engimon.getPos();
-        file.concat(position.toString());
+        String posX = String.valueOf(position.getX());
+        String posY = String.valueOf(position.getY());
+        file.concat(posX);
+        file.concat(" ");
+        file.concat(posY);
         return file;
     }
 
@@ -112,8 +116,13 @@ public class Eksternal {
             file.concat(newline);
         }
         file.concat(pos);
+        file.concat(newline);
         Point position = player.getPos();
-        file.concat(position.toString());
+        String posX = String.valueOf(position.getX());
+        String posY = String.valueOf(position.getY());
+        file.concat(posX);
+        file.concat(" ");
+        file.concat(posY);
         return file;
     }
 
@@ -128,7 +137,8 @@ public class Eksternal {
         file.concat(newline);
         file = addPlayer(file, map.getPlayer());
         //catat wild Engimon
-        List<Engimon> wildEngimon = map.getWildEngimons();
+        WildEngimon wildEngimonn = map.getWildEngimon();
+        List<Engimon> wildEngimon = wildEngimonn.getEngimonList();
         for (Engimon elmt : wildEngimon) {
             file = addEngi(file, elmt);
             file.concat(newline);
@@ -365,7 +375,7 @@ public class Eksternal {
             while(!tempsArray[currBrs].equals("END")){
                 for(int i=0; i<row; i++){
                     for(int j=0; j<columns; j++){
-                        tiles[i][j] = tempsArray[currBrs+i].charAt(j);
+                        tiles[i][j] = tempsArray[currBrs].charAt(j);
                     }
                 }
             }
