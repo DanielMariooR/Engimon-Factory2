@@ -227,9 +227,13 @@ public class Eksternal {
                 currBrs+=5;
             }
 
+            // Position
             newBrs = currBrs;
-            Point position = new Point();
-            //Position newBrs+2;
+            String posisi = tempsArray[newBrs+2];
+            String[] arrOfPos = posisi.split(" ", -2);
+            int posX = Integer.valueOf(arrOfPos[0]);
+            int posY = Integer.valueOf(arrOfPos[1]);
+            Point position = new Point(posX,posY);
 
             // Construct Engimon Active
             Engimon Active = new Engimon(name,parentName,parentSpecies,skills,species,Elements,lives,level,exp,totalxp,position);
@@ -280,8 +284,12 @@ public class Eksternal {
                 }
 
                 newBrs = currBrs;
-                Point pos = new Point();
-                //Position newBrs+2;
+                // Position
+                String posi = tempsArray[newBrs+2];
+                String[] arrOfP = posi.split(" ", -2);
+                int X = Integer.valueOf(arrOfP[0]);
+                int Y = Integer.valueOf(arrOfP[1]);
+                Point pos = new Point(X,Y);
 
                 // Construct Engimon Active
                 Engimon inven = new Engimon(nama,pName,pSpecies,skill,spec,El,live,lev,ex,totxp,pos);
@@ -309,8 +317,12 @@ public class Eksternal {
             }
             newBrs = currBrs;
             // Load Point 
-            // newBrs + 2
-            Point point = new Point();
+            // Point
+            String pot = tempsArray[newBrs+2];
+            String[] arrOfPo = pot.split(" ", -2);
+            int iniX = Integer.valueOf(arrOfPo[0]);
+            int iniY = Integer.valueOf(arrOfPo[1]);
+            Point point = new Point(iniX,iniY);
 
             // Construct Player
             Player player = new Player(Active,ownedEngimon,skillItems,point);
@@ -361,11 +373,15 @@ public class Eksternal {
                 }
 
                 newBrs = currBrs;
-                Point pos = new Point();
-                //Position newBrs+2;
+                // Position
+                String posi = tempsArray[newBrs+2];
+                String[] arrP = posi.split(" ", -2);
+                int XX = Integer.valueOf(arrP[0]);
+                int YY = Integer.valueOf(arrP[1]);
+                Point posit = new Point(XX,YY);
 
                 // Construct WildEngimon
-                Engimon wld = new Engimon(nama,pName,pSpecies,skill,spec,El,live,lev,ex,totxp,pos);
+                Engimon wld = new Engimon(nama,pName,pSpecies,skill,spec,El,live,lev,ex,totxp,posit);
                 wild.addWildEngimon(wld);
             }
 
