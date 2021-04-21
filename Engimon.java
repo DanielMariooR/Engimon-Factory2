@@ -140,4 +140,10 @@ public class Engimon{
             System.out.println(S.toString());
         }
     }
+
+    public void showDetail(){
+        System.out.println("Nama : " + this.name);
+        System.out.println("Species : " + this.species);
+        System.out.println("Level : " + this.level);
+    }
 }

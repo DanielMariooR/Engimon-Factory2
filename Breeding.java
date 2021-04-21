@@ -1,13 +1,15 @@
 import java.util.*;
 import java.lang.Exception;
 
+//TODO : Skill Unik
+
 public class Breeding{
 
     public static Engimon Breed(Engimon A, Engimon B,String childName) throws IllegalStateException{
         if(A.getLevel() < 4 || B.getLevel() < 4) throw new IllegalStateException(new StringBuilder("Level parents harus lebih besar dari 3").toString()); // Throw Exception if either parent lv < 4
         // get child attributes
         ArrayList<String> childElSpec = setChildElSpec(A,B);
-        ArrayList<String> childEl;
+        ArrayList<String> childEl = new ArrayList<String>();
         for (int i = 1; i < childElSpec.size(); i++)
         {
             childEl.add(childElSpec.get(i));
@@ -22,8 +24,8 @@ public class Breeding{
         A.setLevel(lvlA - 3);
         B.setLevel(lvlB- 3);
         
-        ArrayList<String> PName;
-        ArrayList<String> PSpecies;
+        ArrayList<String> PName = new ArrayList<String>();
+        ArrayList<String> PSpecies = new ArrayList<String>();
         PName.add(A.getName());
         PName.add(B.getName());
         PSpecies.add(A.getSpecies());
@@ -38,15 +40,12 @@ public class Breeding{
         ArrayList<Skill> aSkills = A.getSkills();
         ArrayList<Skill> bSkills = B.getSkills();
         ArrayList<Skill> mergedSkills = concatSkill(aSkills,bSkills);
-        ArrayList<Skill> childSkills;
-        int count = 0; // Counter childSkills
-        int maxMasteryA = 0;
-        int maxMasteryB = 0;
+        ArrayList<Skill> childSkills = new ArrayList<Skill>();
         for (int i = 0; i < mergedSkills.size(); i++)
         {
             if(childSkills.size() < 4){
-                // Bypass constraint atribut anak blm di handle
-            if(searchInVec(childSkills,mergedSkills.get(i)) == -1 && compareElSkill(mergedSkills.get(i).getElem(),El) == true){
+                // Bypass constraint atribut anak blm di handle - skrg handled
+            if(searchInVec(childSkills,mergedSkills.get(i)) == -1){
                 int idxA = searchInVec(aSkills,mergedSkills.get(i));
                 int idxB = searchInVec(bSkills,mergedSkills.get(i));
                 if(idxA != -1 && idxB != -1){
@@ -69,7 +68,7 @@ public class Breeding{
         return childSkills;
     }
     public static ArrayList<String> setChildElSpec(Engimon A, Engimon B){
-        ArrayList<String> elSpec;
+        ArrayList<String> elSpec = new ArrayList<String>();
         if(A.getElem().size() == 2 || B.getElem().size()==2) System.out.println("Elemen salah satu / kedua parent lebih dari 1. Akan diambil elemen pertama masing-masing parent");
         if(A.getElem().get(0) == B.getElem().get(0)){  // Same elements
             elSpec.add(A.getSpecies()); // Aturan : ambil species parent A
@@ -88,7 +87,7 @@ public class Breeding{
             }
             else{ // Kasus Elemen Advantage Sama
                 String aSpecies = A.getSpecies();
-                aSpecies = aSpecies.subString(0,aSpecies.length()-3);
+                aSpecies = aSpecies.substring(0,aSpecies.length()-3);
                 String species = aSpecies + B.getSpecies(); 
                 elSpec.add(species);
                 elSpec.add(A.getElem().get(0));
@@ -131,14 +130,14 @@ public class Breeding{
     
         return 0;
     }
-    public static ArrayList<Skill> concatSkill(ArrayList<Skill> As, ArrayList<Skill> Bs){
-        ArrayList<Skill> ret;
+    public static ArrayList<Skill> concatSkill(ArrayList<Skill> Askill, ArrayList<Skill> Bskill){
+        ArrayList<Skill> ret = new ArrayList<Skill>();
+        ArrayList<Skill> As = new ArrayList<Skill>(Askill);
+        ArrayList<Skill> Bs = new ArrayList<Skill>(Bskill);
         int ai = 0;
         int bi = 0;
-        sort(As.begin(),As.end());
-        reverse(As.begin(),As.end());
-        sort(Bs.begin(),Bs.end());
-        reverse(Bs.begin(),Bs.end());
+        As.sort((Skill s1, Skill s2)->s2.getMasteryLevel() - s1.getMasteryLevel());
+        Bs.sort((Skill s1, Skill s2)->s2.getMasteryLevel() - s1.getMasteryLevel());
         for (int i = 0; i < As.size() + Bs.size(); i++)
         {
             if(ai != As.size() && bi != Bs.size()){
@@ -187,5 +186,28 @@ public class Breeding{
         }
         return false;
     }
+    // public static void main(String[] args) {
+    //     ArrayList<String> Pname = new ArrayList<String>();
+    //     Point Pos = new Point(11,3);
+    //     ArrayList<Skill> skillA = new ArrayList<Skill>();
+    //     ArrayList<String> elA  = new ArrayList<String>();
+    //     elA.add("Water");
+    //     Skill S = new Skill("Water Spurt",elA,100,1); // Masih ngasal
+    //     skillA.add(S);
+    //     // childName, PName, PSpecies, childSkills ,childSpec, childEl, lives, level, xp , cumm xp , location
+    //     Engimon A = new Engimon("Squirmon",Pname,Pname,skillA,"Squirmon",elA,3,5,0,0,Pos);
+
+    //     ArrayList<Skill> skillC = new ArrayList<Skill>();
+    //     ArrayList<String> elC  = new ArrayList<String>();
+    //     elC.add("Ice");
+    //     Skill U = new Skill("Frost Breath",elC,100,1);
+    //     skillC.add(U);
+    //     Engimon C = new Engimon("Glacemon",Pname,Pname,skillC,"Glacemon",elC,4,5,0,0,Pos);
+
+    //     Engimon X = Breed(A, C, "SonMon");
+    //     X.showDetail();
+        
+
+    // }
 
 }
