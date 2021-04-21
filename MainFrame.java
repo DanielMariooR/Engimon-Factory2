@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -98,8 +99,12 @@ public class MainFrame extends JFrame {
             button1.setText("Load Game");
             button1.setBackground(new Color(38, 50, 56));
             button1.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            button1.setDisplayedMnemonicIndex(1);
-            button1.setEnabled(false);
+            button1.setEnabled(false);                    
+            button1.setBorderPainted(false);
+            button1.setContentAreaFilled(false);
+            button1.setFocusPainted(false);
+            button1.setOpaque(true);
+            button1.setMargin(new Insets(10, 10, 10, 10));
             panel2.add(button1);
             button1.setBounds(0, 65, 220, button1.getPreferredSize().height);
 
@@ -107,71 +112,109 @@ public class MainFrame extends JFrame {
             button2.setText("Save Game");
             button2.setBackground(new Color(38, 50, 56));
             button2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            button2.setDisplayedMnemonicIndex(1);
+            button2.setBorderPainted(false);
+            button2.setContentAreaFilled(false);
+            button2.setFocusPainted(false);
+            button2.setOpaque(true);
+            button2.setMargin(new Insets(10, 10, 10, 10));
             button2.setEnabled(false);
             panel2.add(button2);
             button2.setBounds(0, 100, 220, 30);
 
             //---- button3 ----
-            button3.setText("Show active engimon");
+            button3.setText("Show Active Engimon");
             button3.setBackground(new Color(38, 50, 56));
+            button3.setForeground(new Color(255,255,255));
             button3.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            button3.setDisplayedMnemonicIndex(1);
-            button3.setEnabled(false);
+            button3.setBorderPainted(false);
+            button3.setContentAreaFilled(false);
+            button3.setFocusPainted(false);
+            button3.setOpaque(true);
+            button3.setMargin(new Insets(10, 10, 10, 10));
+            button3.setEnabled(true);
+            button3.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    textPane1.setText("Yes bisa");
+                }
+            });
             panel2.add(button3);
             button3.setBounds(0, 135, 220, 30);
 
             //---- button4 ----
-            button4.setText("Change active engimon");
+            button4.setText("Change Active Engimon");
             button4.setBackground(new Color(38, 50, 56));
             button4.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            button4.setDisplayedMnemonicIndex(1);
             button4.setEnabled(false);
+            button4.setBorderPainted(false);
+            button4.setContentAreaFilled(false);
+            button4.setFocusPainted(false);
+            button4.setOpaque(true);
+            button4.setMargin(new Insets(10, 10, 10, 10));
             panel2.add(button4);
             button4.setBounds(0, 170, 220, 30);
 
             //---- button5 ----
-            button5.setText("breed engimon");
+            button5.setText("Breed Engimon");
             button5.setBackground(new Color(38, 50, 56));
             button5.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            button5.setDisplayedMnemonicIndex(1);
             button5.setEnabled(false);
+            button5.setBorderPainted(false);
+            button5.setContentAreaFilled(false);
+            button5.setFocusPainted(false);
+            button5.setOpaque(true);
+            button5.setMargin(new Insets(10, 10, 10, 10));
             panel2.add(button5);
             button5.setBounds(0, 205, 220, 30);
 
             //---- button6 ----
-            button6.setText("use skill item");
+            button6.setText("Use Skill Item");
             button6.setBackground(new Color(38, 50, 56));
             button6.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            button6.setDisplayedMnemonicIndex(1);
             button6.setEnabled(false);
+            button6.setBorderPainted(false);
+            button6.setContentAreaFilled(false);
+            button6.setFocusPainted(false);
+            button6.setOpaque(true);
+            button6.setMargin(new Insets(10, 10, 10, 10));
             panel2.add(button6);
             button6.setBounds(0, 240, 220, 30);
 
             //---- button7 ----
-            button7.setText("battle");
+            button7.setText("Battle");
             button7.setBackground(new Color(38, 50, 56));
             button7.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            button7.setDisplayedMnemonicIndex(1);
             button7.setEnabled(false);
+            button7.setBorderPainted(false);
+            button7.setContentAreaFilled(false);
+            button7.setFocusPainted(false);
+            button7.setOpaque(true);
+            button7.setMargin(new Insets(10, 10, 10, 10));
             panel2.add(button7);
             button7.setBounds(0, 275, 220, 30);
 
             //---- button8 ----
-            button8.setText("show my engimon");
+            button8.setText("Show My Engimon");
             button8.setBackground(new Color(38, 50, 56));
             button8.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            button8.setDisplayedMnemonicIndex(1);
             button8.setEnabled(false);
+            button8.setBorderPainted(false);
+            button8.setContentAreaFilled(false);
+            button8.setFocusPainted(false);
+            button8.setOpaque(true);
+            button8.setMargin(new Insets(10, 10, 10, 10));
             panel2.add(button8);
             button8.setBounds(0, 310, 220, 30);
 
             //---- button9 ----
-            button9.setText("show my item");
+            button9.setText("Show My Item");
             button9.setBackground(new Color(38, 50, 56));
             button9.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            button9.setDisplayedMnemonicIndex(1);
-            button9.setEnabled(false);
+            button9.setEnabled(true);
+            button9.setBorderPainted(false);
+            button9.setContentAreaFilled(false);
+            button9.setFocusPainted(false);
+            button9.setOpaque(true);
+            button9.setMargin(new Insets(10, 10, 10, 10));
             panel2.add(button9);
             button9.setBounds(0, 345, 220, 30);
 
