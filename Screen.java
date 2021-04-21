@@ -49,7 +49,7 @@ public class Screen extends JFrame {
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
-            Screen sc = new Screen(665,675);
+            Screen sc = new Screen(670,675); // default gamecanvas : 495,675 ; 670,675
             sc.setVisible(true);
         });
         
