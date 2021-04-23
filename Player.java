@@ -30,6 +30,7 @@ public class Player{
 
     public Player(int x, int y){
         playerPos = new Point(x, y);
+        this.ownedEngimon = new Inventory<>();
     }
 
     public void setActive(Engimon E){
@@ -138,6 +139,9 @@ public class Player{
 
     public List<Item> getInventoryItem(){
         return skillItems.getInv();
+    }
+    public Inventory<Engimon> getEngi(){
+        return ownedEngimon;
     }
 
 }

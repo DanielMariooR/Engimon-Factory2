@@ -20,7 +20,7 @@ public class Inventory<T> extends BaseInventory{
     }
 
     public void masuk(T inItem){
-        if(size < 10){
+        if(size < 9){
             inv.add(inItem);
             fill();
         } 

@@ -1,45 +1,55 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.ArrayList;
+import java.util.*;
 
+// TODO : Sort Inventory, Add Element + Skill Icons, merge size inventory (size inventory kumulatif engimon + skill), Clickable Inventory (kalo bisa)
 public class MainFrame extends JFrame {
     private static final long serialVersionUID = 1L;
     public MainFrame(int width, int height) {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
         Map m = new Map("map.txt");
         Player P = new Player(1,0);
         Engimon E = new Engimon();
         Engimon E1 = new Engimon();
         Engimon E2 = new Engimon();
         Engimon E3 = new Engimon();
+        Engimon E4 = new Engimon();
         ArrayList<String> elem1 = new ArrayList<>();
         ArrayList<String> elem2 = new ArrayList<>();
         ArrayList<String> elem3 = new ArrayList<>();
-        
+        Inventory<Item> items = new Inventory<Item>();
+
+        // Inventory<Engimon> engi = P.getEngi();
+        // engi.masuk(E);
+        // engi.masuk(E);
         elem1.add("Ground");
-        elem1.add("Fire");
+        // elem1.add("Fire");
         elem2.add("Ice");
         elem3.add("Water");
-        
+        // items.masuk(null);
+        Skill S = new Skill("Water Spurt",elem3,100,1);
+        Item It = new Item(S);
+        items.masuk(It);
         E1.setPos(new Point(3,5));
         E1.setElem(elem1);
         E2.setPos(new Point(12,8));
         E2.setElem(elem2);
         E3.setPos(new Point(10,1));
         E3.setElem(elem3);
+        E.setElem(elem3);
+        E4.setElem(elem1);
         
         m.addEngimon(E1);
         m.addEngimon(E2);
         m.addEngimon(E3);
-        
+        P.addEngimon(E);
+        P.addEngimon(E4);
         P.setActive(E);
         m.setPlayer(P);
         //child container with menu
         //other
         panel1 = new GameCanvas(m);
-        invPanel = new InvenPanel();
+        invPanel = new InvenPanel(items,P.ownedEngimon);
         panel2 = new JPanel();
         button1 = new JButton();
         button2 = new JButton();
@@ -56,6 +66,8 @@ public class MainFrame extends JFrame {
         textPane1 = new JTextPane();
         scrollPane2 = new JScrollPane();
         textPane2 = new JTextPane();
+        scrollPane3 = new JScrollPane();
+        textPane3 = new JTextPane();
 
         //======== this ========
         // setMinimumSize(new Dimension(750, 675));
@@ -65,9 +77,9 @@ public class MainFrame extends JFrame {
 
         //======== InvPanel ========
         {
-            invPanel.setMinimumSize(new Dimension(495, 675));
-            invPanel.setPreferredSize(new Dimension(495, 675));
-            invPanel.setMaximumSize(new Dimension(495, 675));
+            // invPanel.setMinimumSize(new Dimension(495, 675));
+            // invPanel.setPreferredSize(new Dimension(495, 675));
+            // invPanel.setMaximumSize(new Dimension(495, 675));
             // panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
             // javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax
             // . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
@@ -93,7 +105,7 @@ public class MainFrame extends JFrame {
             // }
         }
         this.add(invPanel);
-        invPanel.setBounds(700, 300, 335, 375);
+        invPanel.setBounds(700, 350, 335, 325);
 
         //======== panel1 ========
         {
@@ -385,7 +397,7 @@ public class MainFrame extends JFrame {
             button9.setBounds(0, 345, 220, 30);
 
             //---- button10 ----
-            button10.setText("Move Player");
+            button10.setText("Walking Mode");
             button10.setBackground(new Color(38, 50, 56));
             button10.setForeground(new Color(255,255,255));
             button10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -406,7 +418,7 @@ public class MainFrame extends JFrame {
             button10.setMargin(new Insets(10, 10, 10, 10));
             button10.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    textPane1.setText("Yes bisa");
+                    textPane1.setText("Switched to walking mode");
                 }
             });
             panel2.add(button10);
@@ -435,7 +447,7 @@ public class MainFrame extends JFrame {
         {
 
             //---- textPane1 ----
-            textPane1.setText("Output :");
+            textPane1.setText("Output :\nAAAAAAAAAAA\nBBBBBBBBB");
             textPane1.setBackground(new Color(56, 38, 49));
             textPane1.setForeground(new Color(255, 255, 255));
             textPane1.setEditable(false);
@@ -444,7 +456,7 @@ public class MainFrame extends JFrame {
             scrollPane1.setBorder(null);
         }
         this.add(scrollPane1);
-        scrollPane1.setBounds(700, 0, 335, 270);
+        scrollPane1.setBounds(700, 0, 335, 290);
 
         //======== scrollPane2 ========
         {
@@ -460,7 +472,7 @@ public class MainFrame extends JFrame {
             scrollPane2.setBorder(null);
         }
         this.add(scrollPane2);
-        scrollPane2.setBounds(700, 270, 250, 30);
+        scrollPane2.setBounds(700, 290, 250, 30);
 
             //---- button11 ----
             button11.setText("Input");
@@ -485,11 +497,29 @@ public class MainFrame extends JFrame {
             button11.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     String s = textPane2.getText();
-                    if(s.equals("P")) textPane1.setText("Sukses");
+                    if(s.equals("P")) textPane1.setText(String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-1]));
                 }
             });
             this.add(button11);
-            button11.setBounds(950, 270, 85, 30);
+            button11.setBounds(950, 290, 85, 30);
+
+        //======== scrollPane3 ========
+        {
+
+            //---- textPane3 ----
+            textPane3.setText("----------------------------Inventory----------------------------");
+            textPane3.setFont(new Font("Segoe UI", Font.BOLD, 12));
+            textPane3.setBackground(new Color(255,255,255));
+            textPane3.setForeground(new Color(38, 50, 56));
+            textPane3.setEditable(false);
+            textPane3.setFocusable(false);
+            textPane3.setCaretColor(new Color(38, 50, 56));
+            scrollPane3.setViewportView(textPane3);
+            scrollPane3.setBorder(null);
+            
+        }
+        this.add(scrollPane3);
+        scrollPane3.setBounds(700, 320, 335, 30);
 
         {
             // compute preferred size
@@ -507,14 +537,12 @@ public class MainFrame extends JFrame {
         }
         setSize(width, height);
         setLocationRelativeTo(null);
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
         setTitle("Engimon: Java Edition");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+
     private JPanel panel1;
     private JPanel invPanel;
     private JPanel panel2;
@@ -533,7 +561,9 @@ public class MainFrame extends JFrame {
     private JTextPane textPane1;
     private JScrollPane scrollPane2;
     private JTextPane textPane2;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
+    private JScrollPane scrollPane3;
+    private JTextPane textPane3;
+
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {

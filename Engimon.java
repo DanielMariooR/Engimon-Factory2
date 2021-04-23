@@ -18,6 +18,7 @@ public class Engimon{
         this.level = 0;
         this.exp = 1;
         this.lives = 3;
+        this.Elements = new ArrayList<String>();
         position = new Point(0,0);
     }
     // childName, PName, PSpecies, childSkills ,childSpec, childEl, lives, level, xp , cumm xp , location

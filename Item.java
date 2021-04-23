@@ -18,6 +18,10 @@ public class Item{
         skill = new Skill(name, elements, power, masteryLevel);
         this.jumlah = 1;
     }
+    public Item(Skill S){
+        this.skill = S;
+        this.jumlah = 1;
+    }
 
     public String getName(){
         return this.skill.getName(); 
