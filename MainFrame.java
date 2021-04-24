@@ -213,7 +213,8 @@ public class MainFrame extends JFrame {
             button3.setEnabled(true);
             button3.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    textPane1.setText("Yes bisa");
+                    String details = P.showActiveDetail();
+                    textPane1.setText(details);
                 }
             });
             button3.addMouseListener(new java.awt.event.MouseAdapter() {

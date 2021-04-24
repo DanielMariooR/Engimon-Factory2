@@ -18,6 +18,10 @@ public class Engimon{
         this.level = 0;
         this.exp = 1;
         this.lives = 3;
+        this.species = "Basic";
+        this.skills = new ArrayList<>();
+        this.parentName = new ArrayList<>();
+        this.parentSpecies = new ArrayList<>();
         this.Elements = new ArrayList<String>();
         position = new Point(0,0);
     }
@@ -120,8 +124,31 @@ public class Engimon{
     public String toString(){
         StringBuilder str = new StringBuilder();
         str.append("Nama: " + this.name + "\n");
+        str.append("Spesies: "+ this.species + "\n");
         str.append("Level: "+ this.level + "\n");
         str.append("Lives: "+this.lives + "\n");
+
+        if(!skills.isEmpty()){
+            str.append("Skills:\n");
+            for(Skill S : skills){
+                str.append(S.toString());
+            }
+        }
+
+        if(!Elements.isEmpty()){
+            str.append("Elements:\n");
+            for(String s: Elements){
+                str.append(s + "\n");
+            }
+        }
+        
+        if(!parentName.isEmpty() && !parentSpecies.isEmpty()){
+            for(int i=0; i<2; i++){
+                str.append("Nama Parent: " + this.parentName.get(i) + "\n");
+                str.append("Spesies Parent: " + this.parentSpecies.get(i) + "\n");
+            }
+        }
+
         return str.toString();
     }
 

@@ -121,8 +121,8 @@ public class Player{
         return this.playerPos;
     }
 
-    public void showActiveDetail(){
-        System.out.println(Active.toString());
+    public String showActiveDetail(){
+        return Active.toString();
     }
 
     public Engimon getActive(){
