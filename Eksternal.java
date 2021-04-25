@@ -73,6 +73,8 @@ public class Eksternal {
         file += newline;
         //file.concat(String.valueOf(engimon.getSpecies()));
         file += engimon.getSpecies();
+        //file.concat(newline);
+        file += newline;
         List<String> elemen = engimon.getElem();
         for (String elmt : elemen) {
             if(elmt != null){
