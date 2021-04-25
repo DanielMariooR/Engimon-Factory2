@@ -23,6 +23,8 @@ public class MainFrame extends JFrame {
         // Inventory<Engimon> engi = P.getEngi();
         // engi.masuk(E);
         // engi.masuk(E);
+        E.setName("A");
+        E1.setName("B");
         elem1.add("Ground");
         elem1.add("Water");
         elem2.add("Ice");
@@ -48,6 +50,7 @@ public class MainFrame extends JFrame {
         E3.setElem(elem3);
         E.setElem(elem3);
         E4.setElem(elem1);
+        E.insertSkill(S);
         
         m.addEngimon(E1);
         m.addEngimon(E2);
@@ -62,8 +65,10 @@ public class MainFrame extends JFrame {
         //child container with menu
         //other
         panel1 = new GameCanvas(m);
-        invPanel = new InvenPanel(items,P.ownedEngimon);
+        invPanel = new InvenPanel(P);
+        myEngi = new EngimonStatus(P);
         panel2 = new JPanel();
+        panel3 = new JPanel();
         button1 = new JButton();
         button2 = new JButton();
         button3 = new JButton();
@@ -75,19 +80,21 @@ public class MainFrame extends JFrame {
         button9 = new JButton();
         button10 = new JButton();
         button11 = new JButton();
+        buttonstat = new JButton();
         scrollPane1 = new JScrollPane();
         textPane1 = new JTextPane();
         scrollPane2 = new JScrollPane();
         textPane2 = new JTextPane();
         scrollPane3 = new JScrollPane();
         textPane3 = new JTextPane();
+        scrollPane4 = new JScrollPane();
+        textPane4 = new JTextPane();
 
         //======== this ========
         // setMinimumSize(new Dimension(750, 675));
         setResizable(false);
         setBackground(new Color(38, 50, 56));
         this.setLayout(null);
-
         //======== InvPanel ========
         {
             // invPanel.setMinimumSize(new Dimension(495, 675));
@@ -119,6 +126,12 @@ public class MainFrame extends JFrame {
         }
         this.add(invPanel);
         invPanel.setBounds(700, 350, 335, 325);
+        this.add(myEngi);
+        myEngi.setBounds(480,500,220,32);
+        myEngi.setBorder(null);
+        // this.add(enemyEngi);
+        // enemyEngi.setBounds(987,160,32,160);
+        // enemyEngi.setBorder(null);
 
         //======== panel1 ========
         {
@@ -255,6 +268,7 @@ public class MainFrame extends JFrame {
             button4.setMargin(new Insets(10, 10, 10, 10));
             button4.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
+                    P.setActive(E4);
                     textPane1.setText("Yes bisa");
                 }
             });
@@ -455,7 +469,7 @@ public class MainFrame extends JFrame {
             }
         }
         this.add(panel2);
-        panel2.setBounds(480, 0, 220, 675);
+        panel2.setBounds(480, 0, 220, 500);
 
         //======== scrollPane1 ========
         {
@@ -512,6 +526,12 @@ public class MainFrame extends JFrame {
                 public void actionPerformed(ActionEvent e){
                     String s = textPane2.getText();
                     if(s.equals("P")) textPane1.setText(String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-1]));
+                    else if(s.toLowerCase().equals("gacha")){
+                         textPane1.setText("Gacha Engimon");
+                         P.addEngimon(E4);
+                    }
+                    textPane2.setText("");
+                    textPane4.setText( "---------------Player Status---------------\n" + "Total Owned Engimon : " + P.ownedEngimon.getInv().size() +"\nActive Engimon : "+ P.getActive().getName() + "\nTotal Owned Skill Items : "+P.skillItems.getInv().size()+"\nInventory Filled : "+(P.ownedEngimon.getInv().size() + P.skillItems.getInv().size()) + "/18");
                 }
             });
             this.add(button11);
@@ -532,8 +552,40 @@ public class MainFrame extends JFrame {
             scrollPane3.setBorder(null);
             
         }
+
         this.add(scrollPane3);
         scrollPane3.setBounds(700, 320, 335, 30);
+        String tx = "---------------Player Status---------------\n" + "Total Owned Engimon : " + P.ownedEngimon.getInv().size() +"\nActive Engimon : "+ P.getActive().getName() + "\nTotal Owned Skill Items : "+P.skillItems.getInv().size()+"\nInventory Filled : "+(P.ownedEngimon.getInv().size() + P.skillItems.getInv().size()) + "/18"; 
+        textPane4.setText(tx);
+        textPane4.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        textPane4.setBackground(new Color(56, 38, 49));
+        textPane4.setForeground(new Color(255, 255, 255));
+        textPane4.setEditable(false);
+        textPane4.setFocusable(false);
+        textPane4.setCaretColor(new Color(38, 50, 56));
+        scrollPane4.setViewportView(textPane4);
+        scrollPane4.setBorder(null);
+        
+    this.add(scrollPane4);
+    scrollPane4.setBounds(480, 532, 220, 143);
+    // panel3.setBackground(new Color(56, 38, 49));
+    // panel3.setLayout(null);
+    // this.add(panel3);
+    // panel3.setBorder(null);
+    // buttonstat.setText("Enemy Engimon Status");
+    // buttonstat.setBackground(new Color(255,255,255));
+    // buttonstat.setForeground(new Color(255,255,255));
+    // buttonstat.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+    // buttonstat.setBorderPainted(false);
+    // buttonstat.setContentAreaFilled(false);
+    // buttonstat.setFocusPainted(false);
+    // buttonstat.setOpaque(true);
+    // buttonstat.setMargin(new Insets(10, 10, 10, 10));
+    // buttonstat.setEnabled(false);
+    // panel3.add(buttonstat);
+    // buttonstat.setBounds(480,564,85,30);
+    // this.add(panel3);
+    panel3.setBounds(480,532,220,143);
 
         {
             // compute preferred size
@@ -571,12 +623,18 @@ public class MainFrame extends JFrame {
     private JButton button9;
     private JButton button10;
     private JButton button11;
+    private JButton buttonstat;
     private JScrollPane scrollPane1;
     private JTextPane textPane1;
     private JScrollPane scrollPane2;
     private JTextPane textPane2;
     private JScrollPane scrollPane3;
     private JTextPane textPane3;
+    private JPanel panel3;
+    private JPanel myEngi;
+    private JPanel enemyEngi;
+    private JScrollPane scrollPane4;
+    private JTextPane textPane4;
 
 
     public static void main(String[] args) {
