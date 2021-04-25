@@ -7,41 +7,16 @@ A
 3
 400
 Basic
-Water Ice  
- 
- 
+Water Ice 
+
+
 SKILL
 Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
+Water Ice 
 100
 1
 POSITION
-3 2
+0 0
 INVENTORY ENGIMON
 ENGIMON
 A
@@ -50,11 +25,16 @@ A
 3
 400
 Basic
-Water Ice  
- 
- 
+Water Ice 
+
+
+SKILL
+Water Spurt
+Water Ice 
+100
+1
 POSITION
-3 2
+0 0
 ENGIMON
 XXX
 4
@@ -62,68 +42,31 @@ XXX
 3
 400
 Basic
-Ground Water  
- 
- 
+Ground Water 
+
+
+SKILL
+Water Spurt
+Water Ice 
+100
+1
 POSITION
 0 0
-ENGIMON
-A
-4
-1
-3
-400
-Basic
-Water Ice  
- 
- 
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-SKILL
-Water Spurt
-Water Ice  
-100
-1
-POSITION
-3 2
 INVENTORY ITEM
 SKILL
 Ice Spurt
-Ice  
+Ice 
 100
 3
 1
 SKILL
 Water Spurt
-Water Ice  
+Water Ice 
 100
 1
 1
 POSITION
-3 3
+1 0
 WILDENGIMON
 ENGIMON
 B
@@ -132,11 +75,16 @@ B
 3
 0
 Basic
-Ground Water  
- 
- 
+Ground Water 
+
+
+SKILL
+Water Spurt
+Water Ice 
+100
+1
 POSITION
-1 6
+3 5
 ENGIMON
 XXX
 0
@@ -144,11 +92,16 @@ XXX
 3
 0
 Basic
-Ice  
- 
- 
+Ice 
+
+
+SKILL
+Water Spurt
+Water Ice 
+100
+1
 POSITION
-14 9
+12 8
 ENGIMON
 XXX
 0
@@ -156,11 +109,16 @@ XXX
 3
 0
 Basic
-Water Ice  
- 
- 
+Water Ice 
+
+
+SKILL
+Water Spurt
+Water Ice 
+100
+1
 POSITION
-10 0
+10 1
 TILES
 - - - - - - - - o o o o o o o 
 - - - - - - - - o o o o o o o 
