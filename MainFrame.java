@@ -15,6 +15,7 @@ public class MainFrame extends JFrame {
         Engimon E2 = new Engimon();
         Engimon E3 = new Engimon();
         Engimon E4 = new Engimon();
+        Battle b = new Battle();
         ArrayList<String> elem1 = new ArrayList<>();
         ArrayList<String> elem2 = new ArrayList<>();
         ArrayList<String> elem3 = new ArrayList<>();
@@ -564,6 +565,7 @@ public class MainFrame extends JFrame {
                     }
                     else if(s.equals("N")){
                         textPane1.setText("Berhasil Kabur");
+                    }
                     else if(String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-2]).equals("Choose skill to forget! Input skill index :")){
                         String out = textPane1.getText();
                         Integer input1 = Integer.valueOf(String.valueOf((textPane1.getText().split("\n")[textPane1.getText().split("\n").length-1]).split(" ")[0]));
