@@ -12,6 +12,7 @@ import javax.swing.Timer;
 
 
 import java.awt.event.*;
+import java.util.HashMap;
 
 
 public class GameCanvas extends JPanel{
@@ -21,19 +22,22 @@ public class GameCanvas extends JPanel{
     private Image tundra;
     private Image character;
     private Image engimon;
+    private HashMap<Character, Image> image = new HashMap<>();
     private Map objects;
     private Timer timer;
     private int turn;
 
     public GameCanvas(Map m){
-        
         grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/grass.png");
         water = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/water.png");
         mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/mountain.png");
         tundra = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/ice.png");
         character = Toolkit.getDefaultToolkit().getImage("resource/tiles/char.png");
         engimon = Toolkit.getDefaultToolkit().getImage("resource/tiles/pokemon.png");
-
+        image.put('-', grass);
+        image.put('o', water);
+        image.put('^', mountain);
+        image.put('#', tundra);
         this.objects = m;
         addBinding();
         timer = new Timer(10, new TimerListener());
@@ -74,14 +78,18 @@ public class GameCanvas extends JPanel{
 
         @Override
         public void actionPerformed(ActionEvent e){
-            objects.movePlayer(dx, dy);
-            System.out.println("Pressed");
+            try{
+                objects.movePlayer(dx, dy);
+            } catch (InvalidMoveException err){
+                err.message();
+            }
+            
             if(turn == 3){
                 turn = 0;
                 if(objects.getWildEngimon().getListSize() < 6){
-                    objects.getWildEngimon().spawn(5);
+                    //objects.getWildEngimon().spawn(5);
                 }
-                objects.moveWildEngimon();
+                objects.moveAllWild();
             } else {
                 turn++;
             }
@@ -103,15 +111,7 @@ public class GameCanvas extends JPanel{
         int j=0;
         while(i<20){
             while(j<15){
-                if(objects.tiles[i][j] == '-'){
-                    g.drawImage(grass, j*32, i*32, this);
-                } else if(objects.tiles[i][j] == 'o'){
-                    g.drawImage(water, j*32, i*32, this);
-                } else if(objects.tiles[i][j] == '^'){
-                    g.drawImage(mountain, j*32, i*32, this);
-                } else {
-                    g.drawImage(tundra, j*32, i*32, this);
-                }
+                g.drawImage(image.get(objects.tiles[i][j]), j*32, i*32, this);
                 j++;
             }
             i++;

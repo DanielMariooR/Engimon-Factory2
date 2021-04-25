@@ -157,10 +157,9 @@ public class Player {
         return out;
     }
 
-
-    public void addSkillItem(Item item) {
-
-        if (skillItems.itemExist(item)) {
+    public void addSkillItem(Item item){
+        
+        if(skillItems.itemExist(item)){
             Item temp = skillItems.getItem(item);
             if (temp.getJumlah() + 1 <= 10) {
                 temp.setJumlah(temp.getJumlah() + 1);

@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class Engimon{
@@ -26,6 +27,8 @@ public class Engimon{
         this.position = new Point(0,0);
         Elements.add("Ground");
     }
+
+    
     // childName, PName, PSpecies, childSkills ,childSpec, childEl, lives, level, xp , cumm xp , location
     public Engimon(String n,ArrayList<String> pn, ArrayList<String> ps, ArrayList<Skill> sk, String sp, ArrayList<String> el, int live, int lvl, int xp, int totxp, Point pos){
         this.name = n;

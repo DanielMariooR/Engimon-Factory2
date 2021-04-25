@@ -16,7 +16,7 @@ Water Ice
 100
 1
 POSITION
-0 0
+3 2
 INVENTORY ENGIMON
 ENGIMON
 A
@@ -34,7 +34,7 @@ Water Ice
 100
 1
 POSITION
-0 0
+3 2
 ENGIMON
 XXX
 4
@@ -45,6 +45,11 @@ Basic
 Ground Water 
 
 
+SKILL
+Water Spurt
+Water Ice 
+100
+1
 POSITION
 0 0
 INVENTORY ITEM
@@ -61,7 +66,7 @@ Water Ice
 1
 1
 POSITION
-1 0
+3 3
 WILDENGIMON
 ENGIMON
 B
@@ -73,8 +78,13 @@ Basic
 Ground Water 
 
 
+SKILL
+Water Spurt
+Water Ice 
+100
+1
 POSITION
-3 5
+1 6
 ENGIMON
 XXX
 0
@@ -85,8 +95,13 @@ Basic
 Ice 
 
 
+SKILL
+Water Spurt
+Water Ice 
+100
+1
 POSITION
-12 8
+14 9
 ENGIMON
 XXX
 0
@@ -97,8 +112,13 @@ Basic
 Water Ice 
 
 
+SKILL
+Water Spurt
+Water Ice 
+100
+1
 POSITION
-10 1
+10 0
 TILES
 - - - - - - - - o o o o o o o 
 - - - - - - - - o o o o o o o 
