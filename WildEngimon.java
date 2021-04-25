@@ -8,6 +8,7 @@ public class WildEngimon {
 
     public WildEngimon() {
         engimonList = new ArrayList<Engimon>();
+        spawnPoints = new HashMap<>();
         spawnPoints.put("Ground", new Point(14,14));
         spawnPoints.put("Electric", new Point(14,14));
         spawnPoints.put("Fire", new Point(0,19));

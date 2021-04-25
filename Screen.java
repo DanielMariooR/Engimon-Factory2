@@ -8,7 +8,7 @@ public class Screen extends JFrame {
     private static final long serialVersionUID = 1L;
 
     public Screen(int width, int height){
-        Map m = new Map("map.txt");
+        Map m = new Map("Map.txt");
         Player P = new Player(1,0);
         Engimon E = new Engimon();
         Engimon E1 = new Engimon();
@@ -23,6 +23,7 @@ public class Screen extends JFrame {
         elem2.add("Ice");
         elem3.add("Water");
         
+
         E1.setPos(new Point(3,5));
         E1.setElem(elem1);
         E2.setPos(new Point(12,8));

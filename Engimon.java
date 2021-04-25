@@ -22,8 +22,9 @@ public class Engimon{
         this.skills = new ArrayList<>();
         this.parentName = new ArrayList<>();
         this.parentSpecies = new ArrayList<>();
-        this.Elements = new ArrayList<String>();
-        position = new Point(0,0);
+        this.Elements = new ArrayList<>();
+        this.position = new Point(0,0);
+        Elements.add("Ground");
     }
     // childName, PName, PSpecies, childSkills ,childSpec, childEl, lives, level, xp , cumm xp , location
     public Engimon(String n,ArrayList<String> pn, ArrayList<String> ps, ArrayList<Skill> sk, String sp, ArrayList<String> el, int live, int lvl, int xp, int totxp, Point pos){

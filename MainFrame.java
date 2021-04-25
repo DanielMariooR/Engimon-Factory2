@@ -7,7 +7,7 @@ import java.util.*;
 public class MainFrame extends JFrame {
     private static final long serialVersionUID = 1L;
     public MainFrame(int width, int height) {
-        Map m = new Map("map.txt");
+        Map m = new Map("Map.txt");
         Player P = new Player(1,0);
         Engimon E = new Engimon();
         Engimon E1 = new Engimon();

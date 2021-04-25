@@ -17,6 +17,7 @@ class Map {
         forbiddenPoints.add(new Point(14,11));
         forbiddenPoints.add(new Point(14,0));
         forbiddenPoints.add(new Point(0,19));
+
     }
 
     public Map(String filepath) {
@@ -36,8 +37,13 @@ class Map {
             }
 
             wild = new WildEngimon();
+            forbiddenPoints = new HashSet<>();
+            forbiddenPoints.add(new Point(14,14));
+            forbiddenPoints.add(new Point(14,11));
+            forbiddenPoints.add(new Point(14,0));
+            forbiddenPoints.add(new Point(0,19));
         } catch(Exception e){
-            System.out.println("File Not found error!");
+            System.out.println("File Not found error bro!");
         }
     }
 
@@ -171,5 +177,6 @@ class Map {
     public char[][] getTile(){
         return this.tiles;
     }
+
 
 }

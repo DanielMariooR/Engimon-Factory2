@@ -78,6 +78,9 @@ public class GameCanvas extends JPanel{
             System.out.println("Pressed");
             if(turn == 3){
                 turn = 0;
+                if(objects.getWildEngimon().getListSize() < 6){
+                    objects.getWildEngimon().spawn(5);
+                }
                 objects.moveWildEngimon();
             } else {
                 turn++;
