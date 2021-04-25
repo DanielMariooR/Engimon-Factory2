@@ -27,10 +27,10 @@ public class GameCanvas extends JPanel{
 
     public GameCanvas(Map m){
         
-        grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/grass.png");
-        water = Toolkit.getDefaultToolkit().getImage("resource/tiles/water.png");
-        mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/mountain.png");
-        tundra = Toolkit.getDefaultToolkit().getImage("resource/tiles/ice.png");
+        grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/grass.png");
+        water = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/water.png");
+        mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/mountain.png");
+        tundra = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/ice.png");
         character = Toolkit.getDefaultToolkit().getImage("resource/tiles/char.png");
         engimon = Toolkit.getDefaultToolkit().getImage("resource/tiles/pokemon.png");
 

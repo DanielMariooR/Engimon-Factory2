@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class Player{
-    private Engimon Active;
+    public Engimon Active;
     public Inventory<Engimon> ownedEngimon;
-    private Inventory<Item> skillItems;
+    public Inventory<Item> skillItems;
     private Point playerPos;
 
     public Player(){
@@ -53,7 +53,7 @@ public class Player{
     }
 
     public void addEngimon(Engimon E){
-        ownedEngimon.masuk(E);
+        if(countEl(E.Elements) < 9) ownedEngimon.masuk(E);
     }
 
     public void showAllEngimon(){
@@ -165,6 +165,14 @@ public class Player{
             }
             else return (e1.getElem().size() - e2.getElem().size());
         });
+    }
+    public int countEl(ArrayList<String> el){
+        int count = 0;
+        for(Engimon engi :ownedEngimon.getInv()){
+            if(engi.getElem().size()==1 && engi.getElem().get(0).equals(el.get(0))) count++;
+            else if(engi.getElem().size()==2 && ((engi.getElem().get(0).equals(el.get(0)) && engi.getElem().get(1).equals(el.get(1)))||(engi.getElem().get(0).equals(el.get(1)) && engi.getElem().get(1).equals(el.get(0))))) count++;
+        }
+        return count;
     }
 
  
