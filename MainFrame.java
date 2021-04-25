@@ -135,6 +135,10 @@ public class MainFrame extends JFrame {
             button1.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     textPane1.setText("Yes bisa");
+                    Map a = new Map();
+                    a = Eksternal.Load();
+                    m.setTile(a.getTile());
+                    textPane1.setText("Load Berhasil");
                 }
             });
             button1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -162,7 +166,8 @@ public class MainFrame extends JFrame {
             button2.setEnabled(true);
             button2.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    textPane1.setText("Yes bisa\nAAAA");
+                    String baru = Eksternal.Save(m);
+                    textPane1.setText(baru);
                 }
             });
             button2.addMouseListener(new java.awt.event.MouseAdapter() {
