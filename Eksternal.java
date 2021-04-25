@@ -501,7 +501,7 @@ public class Eksternal {
             FileWriter fileWriter = new FileWriter(fileName);
             fileWriter.write(file);
             fileWriter.close();
-            String yrs="benar";
+            String yrs="berhasil di save";
             return yrs;
         } catch (IOException e) {
             //System.out.println("Terjadi kesalahan karena: " + e.getMessage());
