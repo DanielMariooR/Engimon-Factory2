@@ -110,7 +110,7 @@ public class Eksternal {
             if(elmt != null){
                 file = addSkill(file, elmt);
                 //file.concat(spasi);
-                file += spasi;
+                //file += spasi;
             }
         }
         Point position = engimon.getPos();
@@ -172,7 +172,7 @@ public class Eksternal {
                 Integer jumlah = elmt.getJumlah();
                 file = addSkill(file, skill);
                 //file.concat(newline);
-                file += newline;
+                //file += newline;
                 //file.concat(jumlah.toString());
                 file += jumlah.toString();
                 //file.concat(newline);
@@ -203,12 +203,13 @@ public class Eksternal {
         String wildEngiStr = "WILDENGIMON";
         String tiles = "TILES";
         //catat data player
+        file = addPlayer(file, map.getPlayer());
+        //catat wild Engimon
+        file += newline;
         //file.concat(wildEngiStr);
         file += wildEngiStr;
         //file.concat(newline);
         file += newline;
-        file = addPlayer(file, map.getPlayer());
-        //catat wild Engimon
         WildEngimon wildEngimonn = map.getWildEngimon();
         List<Engimon> wildEngimon = wildEngimonn.getEngimonList();
         for (Engimon elmt : wildEngimon) {
@@ -491,7 +492,7 @@ public class Eksternal {
 
     public static String Save(Map map){
         String fileName = "File.txt";
-        String file = "ABC";
+        String file = "";
         //catat data dari map
         file = addMap(file, map);
         //file = "ini contoh";
