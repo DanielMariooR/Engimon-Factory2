@@ -47,6 +47,7 @@ public class Eksternal {
         String newline = "\n";
         String spasi = " ";
         String engimonStr = "ENGIMON";
+        String pos = "POSITION";
         //file.concat(engimonStr);
         file += engimonStr;
         //file.concat(newline);
@@ -115,6 +116,10 @@ public class Eksternal {
                 //file += spasi;
             }
         }
+        //file.concat(pos);
+        file += pos;
+        //file.concat(newline);
+        file += newline;
         Point position = engimon.getPos();
         String posX = String.valueOf(position.getX());
         String posY = String.valueOf(position.getY());
