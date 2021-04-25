@@ -16,6 +16,17 @@ import java.awt.event.*;
 
 public class InvenPanel extends JPanel{
     private Image ice;
+
+    private Image water;
+    private Image fire;
+    private Image electric;
+    private Image ground;
+    private Image icy;
+    private Image felec;
+    private Image gwat;
+    private Image icewat;
+    private Image skillinven;
+
     private Image mountain;
     private Inventory<Item> skillItem;
     private Inventory<Engimon> engimons;
@@ -26,6 +37,16 @@ public class InvenPanel extends JPanel{
         ice = Toolkit.getDefaultToolkit().getImage("resource/tiles/ice.png");
         engimon = Toolkit.getDefaultToolkit().getImage("resource/tiles/pokemon.png");
         mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/mountain.png");
+        fire = Toolkit.getDefaultToolkit().getImage("resource/tiles/fire.png");
+        water = Toolkit.getDefaultToolkit().getImage("resource/tiles/waterelement.png");
+        electric = Toolkit.getDefaultToolkit().getImage("resource/tiles/electric.png");
+        ground = Toolkit.getDefaultToolkit().getImage("resource/tiles/ground.png");
+        icy = Toolkit.getDefaultToolkit().getImage("resource/tiles/icy.png");
+        felec = Toolkit.getDefaultToolkit().getImage("resource/tiles/felec.png");
+        gwat = Toolkit.getDefaultToolkit().getImage("resource/tiles/gwat.png");
+        icewat = Toolkit.getDefaultToolkit().getImage("resource/tiles/icewat.png");
+        skillinven = Toolkit.getDefaultToolkit().getImage("resource/tiles/skillinven.png");
+
         engimons = engi;
         skillItem = sk;
         timer = new Timer(10, new TimerListener());
@@ -61,15 +82,15 @@ public class InvenPanel extends JPanel{
             }
         }
         // Element + Skill icon  
-        g.drawImage(mountain, 0*32, 0*32, this); // Fire
-        g.drawImage(mountain, 0*32, 1*32, this); // Water
-        g.drawImage(mountain, 0*32, 2*32, this); // Electric
-        g.drawImage(mountain, 0*32, 3*32, this); // Ground
-        g.drawImage(mountain, 0*32, 4*32, this); // Ice
-        g.drawImage(mountain, 0*32, 5*32, this); // Fire Electric
-        g.drawImage(mountain, 0*32, 6*32, this); // Water Ground
-        g.drawImage(mountain, 0*32, 7*32, this); // Water Ice
-        g.drawImage(mountain, 0*32, 8*32, this); // Skill
+        g.drawImage(fire, 0*32, 0*32, this); // Fire
+        g.drawImage(water, 0*32, 1*32, this); // Water
+        g.drawImage(electric, 0*32, 2*32, this); // Electric
+        g.drawImage(ground, 0*32, 3*32, this); // Ground
+        g.drawImage(icy, 0*32, 4*32, this); // Ice
+        g.drawImage(felec, 0*32, 5*32, this); // Fire Electric
+        g.drawImage(gwat, 0*32, 6*32, this); // Water Ground
+        g.drawImage(icewat, 0*32, 7*32, this); // Water Ice
+        g.drawImage(skillinven, 0*32, 8*32, this); // Skill
 
         // Engimon
         for (index =  0; index < engimons.getInv().size(); index++) {
