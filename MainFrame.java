@@ -18,18 +18,28 @@ public class MainFrame extends JFrame {
         ArrayList<String> elem2 = new ArrayList<>();
         ArrayList<String> elem3 = new ArrayList<>();
         Inventory<Item> items = new Inventory<Item>();
+        
 
         // Inventory<Engimon> engi = P.getEngi();
         // engi.masuk(E);
         // engi.masuk(E);
         elem1.add("Ground");
-        // elem1.add("Fire");
+        elem1.add("Water");
         elem2.add("Ice");
         elem3.add("Water");
+        elem3.add("Ice");
         // items.masuk(null);
         Skill S = new Skill("Water Spurt",elem3,100,1);
-        Item It = new Item(S);
+        Skill T = new Skill("Ice Spurt",elem2,100,3);
+        Item It = new Item(S);Item Ip = new Item(T);
+        
         items.masuk(It);
+        items.masuk(Ip);
+        P.addSkillItem(It);
+        P.addSkillItem(Ip);
+        Inventory.showItem(P.getInventoryItem());
+        P.sortSkill();
+        Inventory.showItem(P.getInventoryItem());
         E1.setPos(new Point(3,5));
         E1.setElem(elem1);
         E2.setPos(new Point(12,8));
@@ -42,10 +52,13 @@ public class MainFrame extends JFrame {
         m.addEngimon(E1);
         m.addEngimon(E2);
         m.addEngimon(E3);
-        P.addEngimon(E);
         P.addEngimon(E4);
+        P.addEngimon(E);
         P.setActive(E);
         m.setPlayer(P);
+        P.ownedEngimon.show();
+        P.sortEngimon();
+        P.ownedEngimon.show();
         //child container with menu
         //other
         panel1 = new GameCanvas(m);

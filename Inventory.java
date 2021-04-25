@@ -51,4 +51,19 @@ public class Inventory<T> extends BaseInventory{
         }
     }
 
+    public static void showEngi(List<? extends Engimon> list){
+        String str = "";
+        for (Engimon engi : list) {
+            engi.showDetail();
+        }
+    }
+    
+    public static void showItem(List<? extends Item> list){
+        for (Item it : list) {
+            System.out.println(it.getSkill().getName());
+        }
+    }
+
+    
+
 }
