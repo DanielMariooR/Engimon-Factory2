@@ -68,15 +68,16 @@ class Map {
     }
 
 
-    public void movePlayer(int dx, int dy){
+    public void movePlayer(int dx, int dy) throws InvalidMoveException{
         if(isMoveValid(getPlayerX()+dx, getPlayerY()+dy)){
             int x = getPlayerX();
             int y = getPlayerY();
             Point temp = new Point(x,y);
             player.changePosition(dx, dy);
             moveActiveEngimon(temp);
+        } else {
+            throw new InvalidMoveException();
         }
-        
     }
 
     public void addEngimon(Engimon anEngimon) {
@@ -145,22 +146,35 @@ class Map {
     }
 
 
-    public void moveWildEngimon(){
+    public void moveWildEngimon(Engimon E, Random rand) throws InvalidMoveException{
+
+        int dx = rand.nextInt(3) - 1;
+        int dy = rand.nextInt(3) - 1;
+
+        if(isMoveValidEngimon(E.getPos().getX()+dx, E.getPos().getY()+dy) && isTileValid(E, E.getPos().getX()+dx, E.getPos().getY()+dy) && !isForbidden(new Point(E.getPos().getX()+dx, E.getPos().getY()+dy))){
+            E.move(dx, dy);
+            System.out.println(dx);
+            System.out.println(dy);
+            System.out.println(E.getPos().getX());
+            System.out.println(E.getPos().getY());
+        } else {
+            throw new InvalidMoveException();
+        }
+    }
+
+    public void moveAllWild(){
         Random rand = new Random();
-        
+        int count = 0;
         for(Engimon E: wild.getEngimonList()){
-            int count = 0;
+            count = 0;
 
             while(count < 3){
-                int dx = rand.nextInt(3) - 1;
-                int dy = rand.nextInt(3) - 1;
-
-                if(isMoveValidEngimon(E.getPos().getX()+dx, E.getPos().getY()+dy) && isTileValid(E, E.getPos().getX()+dx, E.getPos().getY()+dy) && !isForbidden(new Point(E.getPos().getX()+dx, E.getPos().getY()+dy))){
-                    E.move(dx, dy);
+                try{
+                    moveWildEngimon(E, rand);
                     break;
+                } catch(InvalidMoveException err) {
+                    count++;
                 }
-
-                count++;
             }
         }
     }

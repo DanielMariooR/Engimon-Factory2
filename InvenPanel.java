@@ -34,18 +34,18 @@ public class InvenPanel extends JPanel{
     private Timer timer;
 
     public InvenPanel(Inventory<Item> sk, Inventory<Engimon> engi){
-        ice = Toolkit.getDefaultToolkit().getImage("resource/tiles/ice.png");
+        ice = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/ice.png");
         engimon = Toolkit.getDefaultToolkit().getImage("resource/tiles/pokemon.png");
-        mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/mountain.png");
-        fire = Toolkit.getDefaultToolkit().getImage("resource/tiles/fire.png");
-        water = Toolkit.getDefaultToolkit().getImage("resource/tiles/waterelement.png");
-        electric = Toolkit.getDefaultToolkit().getImage("resource/tiles/electric.png");
-        ground = Toolkit.getDefaultToolkit().getImage("resource/tiles/ground.png");
-        icy = Toolkit.getDefaultToolkit().getImage("resource/tiles/icy.png");
-        felec = Toolkit.getDefaultToolkit().getImage("resource/tiles/felec.png");
-        gwat = Toolkit.getDefaultToolkit().getImage("resource/tiles/gwat.png");
-        icewat = Toolkit.getDefaultToolkit().getImage("resource/tiles/icewat.png");
-        skillinven = Toolkit.getDefaultToolkit().getImage("resource/tiles/skillinven.png");
+        mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/mountain.png");
+        fire = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/fire.png");
+        water = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/waterelement.png");
+        electric = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/electric.png");
+        ground = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/ground.png");
+        icy = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/icy.png");
+        felec = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/felec.png");
+        gwat = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/gwat.png");
+        icewat = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/icewat.png");
+        skillinven = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/skillinven.png");
 
         engimons = engi;
         skillItem = sk;
