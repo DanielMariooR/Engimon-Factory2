@@ -6,6 +6,7 @@ import java.util.*;
 // TODO : Sort Inventory, Add Element + Skill Icons, merge size inventory (size inventory kumulatif engimon + skill), Clickable Inventory (kalo bisa)
 public class MainFrame extends JFrame {
     private static final long serialVersionUID = 1L;
+
     public MainFrame(int width, int height) {
         Map m = new Map("Map.txt");
         Player P = new Player(1,0);
@@ -291,7 +292,7 @@ public class MainFrame extends JFrame {
                 public void actionPerformed(ActionEvent e){
                     String out = "Use Skill Item\n";
                     P.sortSkill();
-                    out+=P.skillItems.showStr();
+                    out+="Skill Item :\n " + P.skillItems.showStr()+"Engimon : "+P.ownedEngimon.showStr()+"\nInput Skill Item Index and Engimon index (split by space): ";
                     textPane1.setText(out);
                     
 
@@ -350,7 +351,7 @@ public class MainFrame extends JFrame {
             button8.setMargin(new Insets(10, 10, 10, 10));
             button8.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    textPane1.setText("Yes bisa");
+                    textPane1.setText(P.ownedEngimon.showStr());
                 }
             });
             button8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -387,7 +388,7 @@ public class MainFrame extends JFrame {
             button9.setMargin(new Insets(10, 10, 10, 10));
             button9.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    textPane1.setText("Yes bisa");
+                    textPane1.setText(P.skillItems.showStr());
                 }
             });
             panel2.add(button9);
@@ -444,7 +445,7 @@ public class MainFrame extends JFrame {
         {
 
             //---- textPane1 ----
-            textPane1.setText("Output :\nAAAAAAAAAAA\nBBBBBBBBB");
+            textPane1.setText("Output :");
             textPane1.setBackground(new Color(56, 38, 49));
             textPane1.setForeground(new Color(255, 255, 255));
             textPane1.setEditable(false);
@@ -491,23 +492,23 @@ public class MainFrame extends JFrame {
             button11.setFocusPainted(false);
             button11.setOpaque(true);
             button11.setMargin(new Insets(10, 10, 10, 10));
-            button11.addActionListener(new ActionListener(){
+            button11.addActionListener(new ActionListener(){  // Command Executor - sorta main game runner
                 public void actionPerformed(ActionEvent e){
                     String s = textPane2.getText();
                     String code = String.valueOf(textPane1.getText().split("\n")[0]);
                     System.out.println(code);
                     if(s.equals("P")) textPane1.setText(String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-1]));
-                    else if(s.toLowerCase().equals("gacha")){
+                    else if(s.toLowerCase().equals("gacha")){ // Gacha
                          textPane1.setText("Gacha Engimon");
                          P.addEngimon(E4);
                     }
-                    else if(code.equals("Pick Active Engimon : ")){
+                    else if(code.equals("Pick Active Engimon : ")){ // Change Engimon
                         Integer input = Integer.valueOf(textPane2.getText());
                         System.out.println(input);
                         P.Active = P.ownedEngimon.getItem(input - 1);
                         textPane1.setText(textPane1.getText() + "\n Active Engimon Changed to : " + P.getActive().getName());
-                    }
-                    else if(code.equals("Breeding")){
+                    } 
+                    else if(code.equals("Breeding")){ // Breeding
                         String out = textPane1.getText();
                         Integer input1 = Integer.valueOf(String.valueOf(textPane2.getText().split(" ")[0]));
                         Integer input2 = Integer.valueOf(String.valueOf(textPane2.getText().split(" ")[1]));
@@ -522,7 +523,46 @@ public class MainFrame extends JFrame {
                             out+= child.toString();
                         }
                         textPane1.setText(out);
-                    }   
+                    }
+                    else if(code.equals("Use Skill Item") && String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-2]).equals("Choose skill to forget! Input skill index :")==false){ // Use Skill Item
+                        String out = textPane1.getText();
+                        Integer input1 = Integer.valueOf(String.valueOf(textPane2.getText().split(" ")[0]));
+                        Integer input2 = Integer.valueOf(String.valueOf(textPane2.getText().split(" ")[1]));
+                        String log = P.useSkillItem(input1, input2, 0);
+                        if(String.valueOf(log.split("\n")[0]).equals("Your engimon cannot have more than 4 skills") == false && String.valueOf(log.split("\n")[0]).equals("The Engimon you choose are not compatible with the skill") == false){
+                            log+="\nSuccess";
+                            out+=log;
+                            textPane1.setText(log);
+    
+                        }
+                        else{
+                            String t ="\n"+ P.ownedEngimon.getInv().get(input2 - 1).toString(); 
+                            log = t + log + "\n"+ (input1) + " " + (input2);
+                            textPane1.setText(log);
+                        }
+                        
+                    }
+                    else if(String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-2]).equals("Choose skill to forget! Input skill index :")){
+                        String out = textPane1.getText();
+                        Integer input1 = Integer.valueOf(String.valueOf((textPane1.getText().split("\n")[textPane1.getText().split("\n").length-1]).split(" ")[0]));
+                        Integer input2 = Integer.valueOf(String.valueOf((textPane1.getText().split("\n")[textPane1.getText().split("\n").length-1]).split(" ")[1]));
+                        Integer input3 = Integer.valueOf(String.valueOf(textPane2.getText()));
+                        System.out.println(input1);
+                        System.out.println(input2);
+                        System.out.println(input3);
+                        String log = P.useSkillItem(input1, input2, input3);
+                        if(String.valueOf(log.split("\n")[0]).equals("Your engimon cannot have more than 4 skills") == false && String.valueOf(log.split("\n")[0]).equals("The Engimon you choose are not compatible with the skill") == false){
+                            log+="\nSuccess";
+                            out+=log;
+                            textPane1.setText(log);
+    
+                        }
+                        else{
+                            String t ="\n"+ P.ownedEngimon.getInv().get(input2 - 1).toString(); 
+                            log = t + log + "\n"+ (input1) + " " + (input2);
+                            textPane1.setText(log);
+                        }
+                    }
                     textPane2.setText("");
                     textPane4.setText( "---------------Player Status---------------\n" + "Total Owned Engimon : " + P.ownedEngimon.getInv().size() +"\nActive Engimon : "+ P.getActive().getName() + "\nTotal Owned Skill Items : "+P.skillItems.getInv().size()+"\nInventory Filled : "+(P.ownedEngimon.getInv().size() + P.skillItems.getInv().size()) + "/18");
                 }
@@ -601,7 +641,6 @@ public class MainFrame extends JFrame {
         
     }
 
-
     private JPanel panel1;
     private JPanel invPanel;
     private JPanel panel2;
@@ -629,12 +668,11 @@ public class MainFrame extends JFrame {
     private JScrollPane scrollPane4;
     private JTextPane textPane4;
 
-
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
-            MainFrame sc = new MainFrame(1035,675); // default gamecanvas : 495,675 ; 670,675
+            MainFrame sc = new MainFrame(1035, 675); // default gamecanvas : 495,675 ; 670,675
             sc.setVisible(true);
         });
-        
+
     }
 }

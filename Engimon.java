@@ -147,8 +147,10 @@ public class Engimon{
 
         if(!skills.isEmpty()){
             str.append("Skills:\n");
+            int idx = 1;
             for(Skill S : skills){
-                str.append(S.toString());
+                str.append(idx + " " + S.toString());
+                idx++;
             }
         }
 
