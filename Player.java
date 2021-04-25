@@ -31,6 +31,7 @@ public class Player{
     public Player(int x, int y){
         playerPos = new Point(x, y);
         this.ownedEngimon = new Inventory<>();
+        this.skillItems = new Inventory<Item>();
     }
 
     public void setActive(Engimon E){
@@ -143,5 +144,30 @@ public class Player{
     public Inventory<Engimon> getEngi(){
         return ownedEngimon;
     }
+    public void sortSkill(){
+        skillItems.getInv().sort((Item i1, Item i2)->i2.getSkill().getMasteryLevel() - i1.getSkill().getMasteryLevel());
+    }
+    public void sortEngimon(){
+        String[] order = {"Fire","Water","Electric","Ground","Ice","FireElectric","ElectricFire","WaterIce","IceWater","GroundWater","WaterGround"};
+        ownedEngimon.getInv().sort((Engimon e1, Engimon e2) ->{
+            if(e1.getElem().size()==1 && e2.getElem().size()==1){
+                if(e1.getElem().get(0).equals(e2.getElem().get(0))) return e2.getLevel() - e1.getLevel(); 
+                else{
+                    return (Arrays.asList(order).indexOf(e1.getElem().get(0)) - Arrays.asList(order).indexOf(e2.getElem().get(0)));
+                }
+            }
+            else if(e1.getElem().size()==2 && e2.getElem().size()==2){
+                if(((e1.getElem().get(0).equals(e2.getElem().get(0))) && (e1.getElem().get(1).equals(e2.getElem().get(1)))) || ((e1.getElem().get(0).equals(e2.getElem().get(1))) && (e1.getElem().get(1).equals(e2.getElem().get(0))))) return e2.getLevel() - e1.getLevel();
+            
+                else{
+                    return (Arrays.asList(order).indexOf(e1.getElem().get(0) + e1.getElem().get(1)) - Arrays.asList(order).indexOf(e2.getElem().get(0) + e2.getElem().get(1)));
+                }
+            }
+            else return (e1.getElem().size() - e2.getElem().size());
+        });
+    }
+
+ 
+
 
 }
