@@ -51,7 +51,11 @@ public class MainFrame extends JFrame {
         E.setElem(elem3);
         E4.setElem(elem1);
         E.insertSkill(S);
-        
+        E1.insertSkill(S);
+        E2.insertSkill(S);
+        E3.insertSkill(S);
+        E4.insertSkill(S);
+
         m.addEngimon(E1);
         m.addEngimon(E2);
         m.addEngimon(E3);
@@ -134,10 +138,11 @@ public class MainFrame extends JFrame {
             button1.setMargin(new Insets(10, 10, 10, 10));
             button1.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    textPane1.setText("Yes bisa");
                     Map a = new Map();
                     a = Eksternal.Load();
                     m.setTile(a.getTile());
+                    m.setPlayer(a.getPlayer());
+                    m.setWild(a.getWildEngimon());
                     textPane1.setText("Load Berhasil");
                 }
             });
