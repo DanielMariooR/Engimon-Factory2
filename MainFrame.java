@@ -323,7 +323,12 @@ public class MainFrame extends JFrame {
             button7.setMargin(new Insets(10, 10, 10, 10));
             button7.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    textPane1.setText("Yes bisa");
+                    if(m.isWild()==null){
+                        textPane1.setText("Tidak ada Engimon");
+                    }
+                    else{
+                        textPane1.setText(b.ShowStatus(P.getActive(), m.isWild(), P));
+                    }
                 }
             });
             button7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -542,6 +547,23 @@ public class MainFrame extends JFrame {
                         }
                         
                     }
+                    else if(s.equals("Y")){
+                        textPane1.setText(b.Result(P.getActive(), m.isWild(), P));
+                        if(P.getActive().getLives()==0){
+                            String out = P.switchActiveEngimon();
+                            textPane1.setText(out);
+                            Integer input = Integer.valueOf(textPane2.getText());
+                            System.out.println(input);
+                            P.Active = P.ownedEngimon.getItem(input - 1);
+                            textPane1.setText(textPane1.getText() + "\n Active Engimon Changed to : " + P.getActive().getName());
+                        }
+                        else if(b.Result(P.getActive(), m.isWild(), P)=="WIN"){
+                            m.getWildEngimon().delWildEngimon(m.isWild());
+                        }
+                        
+                    }
+                    else if(s.equals("N")){
+                        textPane1.setText("Berhasil Kabur");
                     else if(String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-2]).equals("Choose skill to forget! Input skill index :")){
                         String out = textPane1.getText();
                         Integer input1 = Integer.valueOf(String.valueOf((textPane1.getText().split("\n")[textPane1.getText().split("\n").length-1]).split(" ")[0]));

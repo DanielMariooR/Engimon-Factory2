@@ -77,6 +77,14 @@ public class Engimon{
     public Integer getLives(){
         return this.lives;
     }
+    
+    public void setLives(int live){
+        this.lives = live;
+    }
+    
+    public Skill getFirstSkill(){
+        return this.skills.get(0);
+    }
 
     public Integer getTotExp(){
         return this.totalxp;

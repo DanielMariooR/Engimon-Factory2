@@ -3,56 +3,54 @@ import java.util.*;
 
 /* 
 Whats NEW ?
-Cant battle if there are no active engimon (di main kah ??)
-Show Status and total power before battle (Y/N) 
-If lose : minus 1 life from that engimon. 
-If win : skill item not random, but first slot from enemies angimon 
+Cant battle if there are no active engimon (di main kah ??) done
+Show Status and total power before battle (Y/N) done
+If lose : minus 1 life from that engimon. done
+If win : skill item not random, but first slot from enemies angimon  DONE
 */
 
 public class Battle{
     public Battle(){
 
     }
-    public int Power(Engimon Active,Engimon e){
-        int power;
+    public double Power(Engimon Active,Engimon e){
+        double power;
         power = (Active.getLevel() * AdvElmt(Active,e)) + TotSkill(Active);
         return power;
     }
-    public void ShowStatus(Engimon Active, Engimon e){
+    public String ShowStatus(Engimon Active, Engimon e, Player p){
         //SHOW DETAIL ENGIMON
-        System.out.print("Your Engimon ");
-        System.out.print(Active.getname());
-        System.out.print("Power is : ");
-        System.out.println(Power(Active,e));
+        String out = "Your Engimon : " + Active.getName()+ "\n";
+        out += "Power is : " + Power(Active,e)+ "\n\n";
         //SHOW DETAIL ENEMY
-        System.out.print("Enemy Engimon ");
-        System.out.print(Active.getname());
-        System.out.print("Power is : ");
-        System.out.println(Power(e,Active));
+        out += "Enemy Engimon :" + e.getName()+ "\n";
+        out += "Power is : " + Power(e,Active) + "\n\n";
 
-        Scanner sc= new Scanner(System.in);
-        System.out.print("Baku Hantam tak ? (Y/N) ");
-        String jawaban = sc.nextLine();
-        if (jawaban.equals("Y")){
-            //Result(Active, e, player);
-        }
-        else if (jawaban.equals("N")){
-            System.out.print("Berhasil kabur");
-        }
+        //Scanner sc= new Scanner(System.in);
+        out +="Baku Hantam tak ? (Y/N) ";
+        //String jawaban = sc.nextLine();
+        //if (jawaban.equals("Y")){
+        //    Result(Active, e, p);
+        //}
+        //else if (jawaban.equals("N")){
+        //   System.out.print("Berhasil kabur");
+        //}
+        //sc.close();
+        return out;
     }
     public int TotSkill(Engimon Active){
         int total=0;
-        ArrayList<String> aSkills = Active.getSkills();
+        ArrayList<Skill> aSkills = Active.getSkills();
         for(int i=0;i<aSkills.size();i++){
-            total=total+(aSkills.get(i)).getMasteryLevel()*aSkills.get(i).getBasePower());
+            total=total+(aSkills.get(i)).getMasteryLevel()*aSkills.get(i).getBasePower();
         }
         return total;
     }
     
     public double AdvElmt(Engimon Active, Engimon e){
         double hasil =0;
-        ArrayList<String> pElmt = Active.getElements();
-        ArrayList<String> eElmt = e.getElements();
+        List<String> pElmt = Active.getElem();
+        List<String> eElmt = e.getElem();
         for(int i=0;i<pElmt.size();i++){
             for(int j=0;j<eElmt.size();j++){
                 if(pElmt.get(i) == "Fire"){
@@ -153,29 +151,32 @@ public class Battle{
         }
     }
     
-    public void Result(Engimon Active,Engimon e, Player p){
-        
+    public String Result(Engimon Active,Engimon e, Player p){
         if(Power(Active,e)>=Power(e,Active)){
-            Active.setExp(Active.getExp()+50);
-            Active.LevelUp();
+            Active.incrExp(50);
+            if(Active.getLevel()==45){
+                p.ownedEngimon.keluar(Active);
+            }
             p.addEngimon(e);
-            //vector<string> elA = e.getElements();
-            //srand((unsigned) time(0));
-            //int i= rand()% elA.size();
-            //vector<string> elAnew;
-            //elAnew.push_back(elA.at(i));
-            //string name = elAnew.at(0) + "attack";
-            //Item N(name,100,elAnew);
-            //p.addSkillItem(N);
-            System.out.println("WIN");
+            Skill get = e.getFirstSkill();
+            int power = get.getBasePower();
+            String name = get.getName()+" Scroll";
+            List<String> el = new ArrayList<String>(); 
+            el = get.getElem();
+            Item A = new Item(name, power, el);
+            p.addSkillItem(A);
+            String win = "WIN";
+            return win;
         }
         else {
-            
-            //minus 1 live engimon
-            //if live != 0
-            System.out.println("LOSE");
-            //else
-            System.out.println("LOSE");
-            p.killActive();
+            Active.setLives(Active.getLives()-1);
+            if(Active.getLives() == 0){            
+                p.ownedEngimon.keluar(Active);
+                //p.switchActive();
+            }
+            String lose = "LOSE";
+            return lose;
         }   
+    }
 }
+

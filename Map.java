@@ -79,6 +79,15 @@ class Map {
             throw new InvalidMoveException();
         }
     }
+    
+    public Engimon isWild() {
+        for(Engimon eng: wild.getEngimonList()){
+            if( eng.getPos().getX() == player.getPos().getX() && eng.getPos().getY() == player.getPos().getY()+1){
+                return eng;
+            }
+        }
+        return null;
+    }
 
     public void addEngimon(Engimon anEngimon) {
         wild.addWildEngimon(anEngimon);
