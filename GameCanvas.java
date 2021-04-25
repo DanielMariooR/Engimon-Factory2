@@ -28,14 +28,12 @@ public class GameCanvas extends JPanel{
     private int turn;
 
     public GameCanvas(Map m){
-        
-        
-        grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/grass.png");
-        water = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/water.png");
-        mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/mountain.png");
-        tundra = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/ice.png");
-        character = Toolkit.getDefaultToolkit().getImage("resource/tiles/char.png");
-        engimon = Toolkit.getDefaultToolkit().getImage("resource/tiles/pokemon.png");
+        Image grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/grass.png");
+        Image water = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/water.png");
+        Image mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/mountain.png");
+        Image tundra = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/ice.png");
+        Image character = Toolkit.getDefaultToolkit().getImage("resource/tiles/char.png");
+        Image engimon = Toolkit.getDefaultToolkit().getImage("resource/tiles/pokemon.png");
         image.put('-', grass);
         image.put('o', water);
         image.put('^', mountain);

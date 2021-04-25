@@ -20,7 +20,7 @@ public class Inventory<T> extends BaseInventory{
     }
 
     public void masuk(T inItem){
-        if(size < 9){
+        if(size < 19){
             inv.add(inItem);
             fill();
         } 
@@ -62,6 +62,15 @@ public class Inventory<T> extends BaseInventory{
         for (Item it : list) {
             System.out.println(it.getSkill().getName());
         }
+    }
+    public String showStr(){
+        String out = "";
+        int idx =1;
+        for (T item : inv) {
+            out+= idx +". " + item.toString() + "\n";
+            idx++;
+        }
+        return out;
     }
 
     

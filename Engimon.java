@@ -8,7 +8,7 @@ public class Engimon{
     private int lives;
     private int totalxp;
     private String species;
-    private ArrayList<String>  Elements;
+    public ArrayList<String>  Elements;
     private ArrayList<String> parentName;
     private ArrayList<String> parentSpecies;
     private ArrayList<Skill> skills;

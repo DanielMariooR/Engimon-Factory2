@@ -26,14 +26,32 @@ public class InvenPanel extends JPanel{
     private Image gwat;
     private Image icewat;
     private Image skillinven;
+    private Image EngimonElectric;
+    private Image EngimonFire;
+    private Image EngimonWater;
+    private Image EngimonIce;
+    private Image EngimonGround;
+    private Image EngimonFireElectric;
+    private Image EngimonWaterIce;
+    private Image EngimonWaterGround;
 
     private Image mountain;
-    private Inventory<Item> skillItem;
-    private Inventory<Engimon> engimons;
+    // private Inventory<Item> player.skillItems;
+    // private Inventory<Engimon> engimons;
     private Image engimon;
     private Timer timer;
+    private Player player;
+    public Engimon[][] slotEngi;
 
-    public InvenPanel(Inventory<Item> sk, Inventory<Engimon> engi){
+    public InvenPanel(Player P){
+        EngimonElectric = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonElectricSmall.png");
+        EngimonFire = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonFireSmall.png");
+        EngimonWater = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterSmall.png");
+        EngimonIce = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonIceSmall.png");
+        EngimonGround = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/engimonGroundSmall.png");
+        EngimonFireElectric = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonFireElectricSmall.png");
+        EngimonWaterIce = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterIceSmall.png");
+        EngimonWaterGround = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterGroundSmall.png");
         ice = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/ice.png");
         engimon = Toolkit.getDefaultToolkit().getImage("resource/tiles/pokemon.png");
         mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/mountain.png");
@@ -45,10 +63,9 @@ public class InvenPanel extends JPanel{
         felec = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/felec.png");
         gwat = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/gwat.png");
         icewat = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/icewat.png");
-        skillinven = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/skillinven.png");
-
-        engimons = engi;
-        skillItem = sk;
+        skillinven = Toolkit.getDefaultToolkit().getImage("resource/tiles/skillinven.png");
+        slotEngi = new Engimon[8][10];
+        player = P;
         timer = new Timer(10, new TimerListener());
         timer.start();
     }
@@ -62,6 +79,8 @@ public class InvenPanel extends JPanel{
     
     @Override
     public void paintComponent(Graphics g){
+        player.sortEngimon();
+        player.sortSkill();
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, getWidth(), getHeight());
         int i=0;
@@ -93,22 +112,22 @@ public class InvenPanel extends JPanel{
         g.drawImage(skillinven, 0*32, 8*32, this); // Skill
 
         // Engimon
-        for (index =  0; index < engimons.getInv().size(); index++) {
-            if(engimons.getInv().get(index).getElem().size() == 1){
-                if(engimons.getInv().get(index).getElem().get(0) == "Fire"){g.drawImage(engimon, fi*32, 0*32, this);filled[0][fi] = 1; fi++;}
-                else if(engimons.getInv().get(index).getElem().get(0) == "Water") {g.drawImage(engimon, wi*32, 1*32, this);filled[1][wi] = 1;wi++;}
-                else if(engimons.getInv().get(index).getElem().get(0).equals("Electric")){g.drawImage(engimon, ei*32, 2*32, this);filled[2][ei] = 1;ei++;}
-                else if(engimons.getInv().get(index).getElem().get(0) == "Ground"){g.drawImage(engimon, gi*32, 3*32, this);filled[3][gi] = 1;gi++;}
-                else if(engimons.getInv().get(index).getElem().get(0) == "Ice"){g.drawImage(engimon, ii*32, 4*32, this);filled[4][ii] = 1;ii++;}
+        for (index =  0; index < player.ownedEngimon.getInv().size(); index++) {
+            if(player.ownedEngimon.getInv().get(index).getElem().size() == 1){
+                if(player.ownedEngimon.getInv().get(index).getElem().get(0) == "Fire"){g.drawImage(EngimonFire, fi*32, 0*32, this);filled[0][fi] = 1;slotEngi[0][fi] = player.ownedEngimon.getInv().get(index); fi++;}
+                else if(player.ownedEngimon.getInv().get(index).getElem().get(0) == "Water") {g.drawImage(EngimonWater, wi*32, 1*32, this);filled[1][wi] = 1;slotEngi[1][wi] = player.ownedEngimon.getInv().get(index);wi++;}
+                else if(player.ownedEngimon.getInv().get(index).getElem().get(0).equals("Electric")){g.drawImage(EngimonElectric, ei*32, 2*32, this);filled[2][ei] = 1;slotEngi[2][ei] = player.ownedEngimon.getInv().get(index);ei++;}
+                else if(player.ownedEngimon.getInv().get(index).getElem().get(0) == "Ground"){g.drawImage(EngimonGround, gi*32, 3*32, this);filled[3][gi] = 1;slotEngi[3][gi] = player.ownedEngimon.getInv().get(index);gi++;}
+                else if(player.ownedEngimon.getInv().get(index).getElem().get(0) == "Ice"){g.drawImage(EngimonIce, ii*32, 4*32, this);filled[4][ii] = 1;slotEngi[4][ii] = player.ownedEngimon.getInv().get(index);ii++;}
             }
-            else if(engimons.getInv().get(index).getElem().size() == 2){
-                if((engimons.getInv().get(index).getElem().get(0) == "Fire" && engimons.getInv().get(index).getElem().get(1) == "Electric")||(engimons.getInv().get(index).getElem().get(0) == "Electric" && engimons.getInv().get(index).getElem().get(1) == "Fire")){g.drawImage(engimon, fei*32, 5*32, this);filled[5][fei] = 1;fei++;}
-                else if((engimons.getInv().get(index).getElem().get(0) == "Water" && engimons.getInv().get(index).getElem().get(1) == "Ground")||(engimons.getInv().get(index).getElem().get(0) == "Ground" && engimons.getInv().get(index).getElem().get(1) == "Water")){g.drawImage(engimon, gwi*32, 6*32, this);filled[6][gwi] = 1;gwi++;}
-                else if((engimons.getInv().get(index).getElem().get(0) == "Water" && engimons.getInv().get(index).getElem().get(1) == "Ice")||(engimons.getInv().get(index).getElem().get(0) == "Ice" && engimons.getInv().get(index).getElem().get(1) == "Water")){g.drawImage(engimon, wii*32, 7*32, this);filled[7][wii] = 1;wii++;}
+            else if(player.ownedEngimon.getInv().get(index).getElem().size() == 2){
+                if((player.ownedEngimon.getInv().get(index).getElem().get(0) == "Fire" && player.ownedEngimon.getInv().get(index).getElem().get(1) == "Electric")||(player.ownedEngimon.getInv().get(index).getElem().get(0) == "Electric" && player.ownedEngimon.getInv().get(index).getElem().get(1) == "Fire")){g.drawImage(EngimonFireElectric, fei*32, 5*32, this);filled[5][fei] = 1;slotEngi[5][fei] = player.ownedEngimon.getInv().get(index);fei++;}
+                else if((player.ownedEngimon.getInv().get(index).getElem().get(0) == "Water" && player.ownedEngimon.getInv().get(index).getElem().get(1) == "Ground")||(player.ownedEngimon.getInv().get(index).getElem().get(0) == "Ground" && player.ownedEngimon.getInv().get(index).getElem().get(1) == "Water")){g.drawImage(EngimonWaterGround, gwi*32, 6*32, this);filled[6][gwi] = 1;slotEngi[6][gwi] = player.ownedEngimon.getInv().get(index);gwi++;}
+                else if((player.ownedEngimon.getInv().get(index).getElem().get(0) == "Water" && player.ownedEngimon.getInv().get(index).getElem().get(1) == "Ice")||(player.ownedEngimon.getInv().get(index).getElem().get(0) == "Ice" && player.ownedEngimon.getInv().get(index).getElem().get(1) == "Water")){g.drawImage(EngimonWaterIce, wii*32, 7*32, this);filled[7][wii] = 1;slotEngi[7][wii] = player.ownedEngimon.getInv().get(index);wii++;}
             }
         }
         // Skill
-        for (int k = 0; k < skillItem.getInv().size(); k++) {
+        for (int k = 0; k < player.skillItems.getInv().size(); k++) {
             g.drawImage(engimon, (k+1)*32, 8*32, this);
             filled[8][k+1] = 1;
         }
