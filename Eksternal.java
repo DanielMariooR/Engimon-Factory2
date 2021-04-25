@@ -13,22 +13,33 @@ public class Eksternal {
         String newline = "\n";
         String spasi = " ";
         String skillStr = "SKILL";
-        file.concat(skillStr);
-        file.concat(newline);
-        file.concat(skill.getName());
-        file.concat(newline);
+        //file.concat(skillStr);
+        file += skillStr;
+        //file.concat(newline);
+        file += newline;
+        //file.concat(skill.getName());
+        file += skill.getName();
+        //file.concat(newline);
+        file += newline;
         List<String> elemen = skill.getElem();
         for (String elmt : elemen) {
             if(elmt != null){
-                file.concat(elmt);
-                file.concat(spasi);
+                //file.concat(elmt);
+                file += elmt;
+                //file.concat(spasi);
+                file += spasi;
             }    
         }
-        file.concat(newline);
-        file.concat(String.valueOf(skill.getBasePower()));
-        file.concat(newline);
-        file.concat(String.valueOf(skill.getMasteryLevel()));
-        file.concat(newline);
+        //file.concat(newline);
+        file += newline;
+        //file.concat(String.valueOf(skill.getBasePower()));
+        file += String.valueOf(skill.getBasePower());
+        //file.concat(newline);
+        file += newline;
+        //file.concat(String.valueOf(skill.getMasteryLevel()));
+        file += String.valueOf(skill.getMasteryLevel());
+        //file.concat(newline);
+        file += newline;
         return file;
     }
     
@@ -36,40 +47,61 @@ public class Eksternal {
         String newline = "\n";
         String spasi = " ";
         String engimonStr = "ENGIMON";
-        file.concat(engimonStr);
-        file.concat(newline);
-        file.concat(engimon.getName());
-        file.concat(newline);
-        file.concat(String.valueOf(engimon.getLevel()));
-        file.concat(newline);
-        file.concat(String.valueOf(engimon.getExp()));
-        file.concat(newline);
-        file.concat(String.valueOf(engimon.getLives()));
-        file.concat(newline);
-        file.concat(String.valueOf(engimon.getTotExp()));
-        file.concat(newline);
-        file.concat(String.valueOf(engimon.getSpecies()));
+        //file.concat(engimonStr);
+        file += engimonStr;
+        //file.concat(newline);
+        file += newline;
+        //file.concat(engimon.getName());
+        file += engimon.getName();
+        //file.concat(newline);
+        file += newline;
+        //file.concat(String.valueOf(engimon.getLevel()));
+        file += String.valueOf(engimon.getLevel());
+        //file.concat(newline);
+        file += newline;
+        //file.concat(String.valueOf(engimon.getExp()));
+        file += String.valueOf(engimon.getExp());
+        //file.concat(newline);
+        file += newline;
+        //file.concat(String.valueOf(engimon.getLives()));
+        file += String.valueOf(engimon.getLives());
+        //file.concat(newline);
+        file += newline;
+        //file.concat(String.valueOf(engimon.getTotExp()));
+        file += String.valueOf(engimon.getTotExp());
+        //file.concat(newline);
+        file += newline;
+        //file.concat(String.valueOf(engimon.getSpecies()));
+        file += engimon.getSpecies();
         List<String> elemen = engimon.getElem();
         for (String elmt : elemen) {
             if(elmt != null){
-                file.concat(elmt);
-                file.concat(spasi);
+                //file.concat(elmt);
+                file += elmt;
+                //file.concat(spasi);
+                file += spasi;
             }
         }
-        file.concat(newline);
+        //file.concat(newline);
+        file += newline;
         List<String> parentName = engimon.getParentName();
         for (String elmt : parentName) {
             if(elmt != null){
-                file.concat(elmt);
-                file.concat(spasi);
+                //file.concat(elmt);
+                file += elmt;
+                //file.concat(spasi);
+                file += spasi;
             }
         }
-        file.concat(newline);
+        //file.concat(newline);
+        file += newline;
         List<String> parentSpecies = engimon.getParentSpecies();
         for (String elmt : parentSpecies) {
             if(elmt != null){
-                file.concat(elmt);
-                file.concat(spasi);
+                //file.concat(elmt);
+                file += elmt;
+                //file.concat(spasi);
+                file += spasi;
             }
         }
         file.concat(newline);
@@ -77,15 +109,19 @@ public class Eksternal {
         for (Skill elmt : skill) {
             if(elmt != null){
                 file = addSkill(file, elmt);
-                file.concat(spasi);
+                //file.concat(spasi);
+                file += spasi;
             }
         }
         Point position = engimon.getPos();
         String posX = String.valueOf(position.getX());
         String posY = String.valueOf(position.getY());
-        file.concat(posX);
-        file.concat(" ");
-        file.concat(posY);
+        //file.concat(posX);
+        file += posX;
+        //file.concat(" ");
+        file += spasi;
+        //file.concat(posY);
+        file += posY;
         return file;
     }
 
@@ -98,47 +134,65 @@ public class Eksternal {
         String invenItemStr = "INVENTORY ITEM";
         String pos = "POSITION";
         //catat data player
-        file.concat(playerStr);
-        file.concat(newline);
-        file.concat(engiActiveStr);
-        file.concat(newline);
+        //file.concat(playerStr);
+        file += playerStr;
+        //file.concat(newline);
+        file += newline;
+        //file.concat(engiActiveStr);
+        file += engiActiveStr;
+        //file.concat(newline);
+        file += newline;
         Engimon active = player.getActive();
         if(active!=null){
             file = addEngi(file, active);
         }
-        file.concat(newline);
-        file.concat(invenEngiStr);
-        file.concat(newline);
+        //file.concat(newline);
+        file += newline;
+        //file.concat(invenEngiStr);
+        file += invenEngiStr;
+        //file.concat(newline);
+        file += newline;
         List<Engimon> engimon = player.getInventoryEngimons();
         for (Engimon elmt : engimon) {
             if(elmt != null){
                 file = addEngi(file, elmt);
-                file.concat(newline);
+                //file.concat(newline);
+                file += newline;
             }
             
         }
-        file.concat(invenItemStr);
-        file.concat(newline);
+        //file.concat(invenItemStr);
+        file += invenItemStr;
+        //file.concat(newline);
+        file += newline;
         List<Item> item = player.getInventoryItem() ;
         for (Item elmt : item) {
             if(elmt != null){
                 Skill skill = elmt.getSkill();
                 Integer jumlah = elmt.getJumlah();
                 file = addSkill(file, skill);
-                file.concat(newline);
-                file.concat(jumlah.toString());
-                file.concat(newline);
+                //file.concat(newline);
+                file += newline;
+                //file.concat(jumlah.toString());
+                file += jumlah.toString();
+                //file.concat(newline);
+                file += newline;
             }
             
         }
-        file.concat(pos);
-        file.concat(newline);
+        //file.concat(pos);
+        file += pos;
+        //file.concat(newline);
+        file += newline;
         Point position = player.getPos();
         String posX = String.valueOf(position.getX());
         String posY = String.valueOf(position.getY());
-        file.concat(posX);
-        file.concat(" ");
-        file.concat(posY);
+        //file.concat(posX);
+        file += posX;
+        //file.concat(" ");
+        file += " ";
+        //file.concat(posY);
+        file += posY;
         return file;
     }
 
@@ -149,8 +203,10 @@ public class Eksternal {
         String wildEngiStr = "WILDENGIMON";
         String tiles = "TILES";
         //catat data player
-        file.concat(wildEngiStr);
-        file.concat(newline);
+        //file.concat(wildEngiStr);
+        file += wildEngiStr;
+        //file.concat(newline);
+        file += newline;
         file = addPlayer(file, map.getPlayer());
         //catat wild Engimon
         WildEngimon wildEngimonn = map.getWildEngimon();
@@ -158,25 +214,32 @@ public class Eksternal {
         for (Engimon elmt : wildEngimon) {
             if(elmt != null){
                 file = addEngi(file, elmt);
-                file.concat(newline);
+                //file.concat(newline);
+                file += newline;
             }
             
         }
         //catat tile atau mapnya
-        file.concat(tiles);
-        file.concat(newline);
+        //file.concat(tiles);
+        file += tiles;
+        //file.concat(newline);
+        file += newline;
         char[][] tile = map.getTile();
         int row  = 20;
         int columns = 15;
         for(int i=0; i<row; i++){
             for(int j=0; j<columns; j++){
                 String str = String.valueOf(tile[i][j]);
-                file.concat(str);
-                file.concat(spasi);
+                //file.concat(str);
+                file += str;
+                //file.concat(spasi);
+                file += spasi;
             }
-            file.concat(newline);
+            //file.concat(newline);
+            file += newline;
         }
-        file.concat(endStr);
+        //file.concat(endStr);
+        file += endStr;
         return file;
     }
 
@@ -426,19 +489,24 @@ public class Eksternal {
         return map;
     }
 
-    public static void Save(Map map){
+    public static String Save(Map map){
         String fileName = "File.txt";
-        String file = "";
+        String file = "ABC";
         //catat data dari map
         file = addMap(file, map);
+        //file = "ini contoh";
         //tulis di file eksternal
         //teks lama akan ditimpa
         try {
             FileWriter fileWriter = new FileWriter(fileName);
             fileWriter.write(file);
             fileWriter.close();
+            String yrs="benar";
+            return yrs;
         } catch (IOException e) {
-            System.out.println("Terjadi kesalahan karena: " + e.getMessage());
+            //System.out.println("Terjadi kesalahan karena: " + e.getMessage());
+            String baru = "Terjadi kesalahan karena: ";
+            return baru;
         }
     }
 
