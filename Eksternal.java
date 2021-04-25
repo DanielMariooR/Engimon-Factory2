@@ -107,7 +107,8 @@ public class Eksternal {
                 file += spasi;
             }
         }
-        file.concat(newline);
+        //file.concat(newline);
+        file += newline;
         List<Skill> skill = engimon.getSkills();
         for (Skill elmt : skill) {
             if(elmt != null){
@@ -253,8 +254,8 @@ public class Eksternal {
 
     public static Map Load(){
         Map map = new Map();
+        String fileName = "File.txt";
         try {
-            String fileName = "File.txt";
             Scanner myReader = new Scanner(new File(fileName));
             String curr = "";
             int currBrs = 0;
@@ -319,7 +320,7 @@ public class Eksternal {
 
             // Position
             newBrs = currBrs;
-            String posisi = tempsArray[newBrs+2];
+            String posisi = tempsArray[newBrs+1];
             String[] arrOfPos = posisi.split(" ", -2);
             int posX = Integer.valueOf(arrOfPos[0]);
             int posY = Integer.valueOf(arrOfPos[1]);
@@ -375,7 +376,7 @@ public class Eksternal {
 
                 newBrs = currBrs;
                 // Position
-                String posi = tempsArray[newBrs+2];
+                String posi = tempsArray[newBrs+1];
                 String[] arrOfP = posi.split(" ", -2);
                 int X = Integer.valueOf(arrOfP[0]);
                 int Y = Integer.valueOf(arrOfP[1]);
@@ -384,11 +385,13 @@ public class Eksternal {
                 // Construct Engimon Active
                 Engimon inven = new Engimon(nama,pName,pSpecies,skill,spec,El,live,lev,ex,totxp,pos);
                 ownedEngimon.masuk(inven);
+
+                currBrs=newBrs+2;
             }
-            currBrs = newBrs+3;
+            currBrs = currBrs+1;
             // Load Inventory Item
             Inventory<Item> skillItems = new Inventory<Item>();
-            while(!tempsArray[currBrs].equals("POINT")){
+            while(!tempsArray[currBrs].equals("POSITION")){
                 String nameskill = tempsArray[currBrs+1];
                 ArrayList<String> elements = new ArrayList<String>();
                 String element = tempsArray[currBrs+2];
@@ -408,7 +411,7 @@ public class Eksternal {
             newBrs = currBrs;
             // Load Point 
             // Point
-            String pot = tempsArray[newBrs+2];
+            String pot = tempsArray[newBrs+1];
             String[] arrOfPo = pot.split(" ", -2);
             int iniX = Integer.valueOf(arrOfPo[0]);
             int iniY = Integer.valueOf(arrOfPo[1]);
@@ -464,7 +467,7 @@ public class Eksternal {
 
                 newBrs = currBrs;
                 // Position
-                String posi = tempsArray[newBrs+2];
+                String posi = tempsArray[newBrs+1];
                 String[] arrP = posi.split(" ", -2);
                 int XX = Integer.valueOf(arrP[0]);
                 int YY = Integer.valueOf(arrP[1]);
@@ -473,9 +476,10 @@ public class Eksternal {
                 // Construct WildEngimon
                 Engimon wld = new Engimon(nama,pName,pSpecies,skill,spec,El,live,lev,ex,totxp,posit);
                 wild.addWildEngimon(wld);
+                currBrs = newBrs+2;
             }
 
-            currBrs = newBrs+4;
+            currBrs = currBrs+1;
             // LOAD TILES
             char[][] tiles = new char[20][15];
             while(!tempsArray[currBrs].equals("END")){
@@ -492,7 +496,7 @@ public class Eksternal {
             map.setTile(tiles);
             
         } catch (Exception e) {
-            System.out.println("File Not found error!"); 
+            System.out.println(e); 
         }       
         return map;
     }

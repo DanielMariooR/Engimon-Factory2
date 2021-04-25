@@ -184,6 +184,10 @@ public class MainFrame extends JFrame {
             button1.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     textPane1.setText("Yes bisa");
+                    Map a = new Map();
+                    a = Eksternal.Load();
+                    m.setTile(a.getTile());
+                    textPane1.setText("Load Berhasil");
                 }
             });
             button1.addMouseListener(new java.awt.event.MouseAdapter() {
