@@ -11,7 +11,7 @@ public class CharmanPikamon implements Spesies{
         ArrayList<String> ps = new ArrayList<>();
 
         Skill S1 = new Skill("ThunderBolt", elem, 50, 1);
-        Skill S2 = new Skill("Fire blast ", elem, 150, 1);
+        Skill S2 = new Skill("Thunder Blaze", elem, 150, 1);
         ArrayList<Skill> skillset = new ArrayList<>();
         skillset.add(S1);
         skillset.add(S2);

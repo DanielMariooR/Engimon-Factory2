@@ -11,7 +11,7 @@ public class PikaCharmander implements Spesies{
         ArrayList<String> ps = new ArrayList<>();
 
         Skill S1 = new Skill("Fire ball", elem, 50, 1);
-        Skill S2 = new Skill("100k Volt", elem, 150, 1);
+        Skill S2 = new Skill("Fiery 100k Volt", elem, 150, 1);
         ArrayList<Skill> skillset = new ArrayList<>();
         skillset.add(S1);
         skillset.add(S2);
