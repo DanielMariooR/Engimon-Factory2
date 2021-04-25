@@ -76,7 +76,7 @@ public class Eksternal {
         List<Skill> skill = engimon.getSkills();
         for (Skill elmt : skill) {
             if(elmt != null){
-                file.concat(elmt);
+                file = addSkill(file, elmt);
                 file.concat(spasi);
             }
         }
