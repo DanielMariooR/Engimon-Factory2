@@ -1,4 +1,4 @@
-public class BaseInventory{
+public abstract class BaseInventory{
     protected static int size = 0;
     public BaseInventory(){
         // BaseInvetory constructor
