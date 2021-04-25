@@ -2,6 +2,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
+import javax.imageio.*;
+import java.awt.image.*;
+import java.io.IOException;
 
 // TODO : Sort Inventory, Add Element + Skill Icons, merge size inventory (size inventory kumulatif engimon + skill), Clickable Inventory (kalo bisa)
 public class MainFrame extends JFrame {
@@ -158,7 +161,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button1);
-            button1.setBounds(0, 65, 220, button1.getPreferredSize().height);
+            button1.setBounds(0, 15, 220, 30);
 
             //---- button2 ----
             button2.setText("Save Game");
@@ -187,7 +190,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button2);
-            button2.setBounds(0, 100, 220, 30);
+            button2.setBounds(0, 50, 220, 30);
 
             //---- button3 ----
             button3.setText("Show Active Engimon");
@@ -216,7 +219,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button3);
-            button3.setBounds(0, 135, 220, 30);
+            button3.setBounds(0, 85, 220, 30);
 
             //---- button4 ----
             button4.setText("Change Active Engimon");
@@ -245,7 +248,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button4);
-            button4.setBounds(0, 170, 220, 30);
+            button4.setBounds(0, 120, 220, 30);
 
             //---- button5 ----
             button5.setText("Breed Engimon");
@@ -276,7 +279,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button5);
-            button5.setBounds(0, 205, 220, 30);
+            button5.setBounds(0, 155, 220, 30);
 
             //---- button6 ----
             button6.setText("Use Skill Item");
@@ -309,7 +312,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button6);
-            button6.setBounds(0, 240, 220, 30);
+            button6.setBounds(0, 190, 220, 30);
 
             //---- button7 ----
             button7.setText("Battle");
@@ -342,7 +345,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button7);
-            button7.setBounds(0, 275, 220, 30);
+            button7.setBounds(0, 225, 220, 30);
 
             //---- button8 ----
             button8.setText("Show My Engimon");
@@ -370,7 +373,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button8);
-            button8.setBounds(0, 310, 220, 30);
+            button8.setBounds(0, 260, 220, 30);
 
             //---- button9 ----
             button9.setText("Show My Item");
@@ -398,7 +401,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button9);
-            button9.setBounds(0, 345, 220, 30);
+            button9.setBounds(0, 295, 220, 30);
 
             //---- button10 ----
             button10.setText("Walking Mode");
@@ -426,7 +429,7 @@ public class MainFrame extends JFrame {
                 }
             });
             panel2.add(button10);
-            button10.setBounds(0, 380, 220, 30);
+            button10.setBounds(0, 330, 220, 30);
             panel2.setBorder(null);
 
             {
@@ -445,7 +448,14 @@ public class MainFrame extends JFrame {
             }
         }
         this.add(panel2);
-        panel2.setBounds(480, 0, 220, 500);
+        panel2.setBounds(480, 75, 220, 430);
+        // BufferedImage gameLogo = ImageIO.read(this.getClass().getResource("resource/tiles/tile/GameLogo.png"));
+        JLabel logoGame = new JLabel(new ImageIcon("resource/tiles/GameLogo.png"));
+        logoGame.setBackground(new Color(38, 50, 56));
+        logoGame.setOpaque(true);
+        logoGame.setBorder(null);
+        this.add(logoGame);
+        logoGame.setBounds(480, 0, 220, 75);
 
         //======== scrollPane1 ========
         {
@@ -691,12 +701,15 @@ public class MainFrame extends JFrame {
     private JPanel enemyEngi;
     private JScrollPane scrollPane4;
     private JTextPane textPane4;
+    private BufferedImage gameLogo;
+    private JLabel logoGame;
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            MainFrame sc = new MainFrame(1035, 675); // default gamecanvas : 495,675 ; 670,675
-            sc.setVisible(true);
-        });
+            EventQueue.invokeLater(() -> {
+                MainFrame sc = new MainFrame(1035, 675); // default gamecanvas : 495,675 ; 670,675
+                sc.setVisible(true);
+            });
+
 
     }
 }

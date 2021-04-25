@@ -9,6 +9,8 @@ import javax.swing.ActionMap;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
+import java.awt.Rectangle;
+import javax.swing.JOptionPane;
 
 
 import java.awt.event.*;
@@ -42,6 +44,8 @@ public class InvenPanel extends JPanel{
     private Timer timer;
     private Player player;
     public Engimon[][] slotEngi;
+    public int[][] filled;
+    private Rectangle selectedCell = null;
 
     public InvenPanel(Player P){
         EngimonElectric = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonElectricSmall.png");
@@ -64,10 +68,35 @@ public class InvenPanel extends JPanel{
         gwat = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/gwat.png");
         icewat = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/icewat.png");
         skillinven = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/skillinven.png");
-        slotEngi = new Engimon[8][10];
+        slotEngi = new Engimon[9][10];
+        filled = new int[9][10];
+
         player = P;
         timer = new Timer(10, new TimerListener());
         timer.start();
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int w = getWidth();
+                int h = getHeight();
+                selectedCell = null;
+                for (int col = 0; col < 9 && selectedCell == null; col++) {
+                    for (int row = 0; row < 10; row++) {
+                        int x = (w / 9) * col;
+                        int y = (h / 10) * row;
+                        Rectangle cell = new Rectangle(x, y, w / 9, h / 10);
+                        if (cell.contains(e.getPoint())) {
+                            System.out.println(filled[row][col]);
+                            System.out.println(slotEngi[row][col]);
+                            JOptionPane.showMessageDialog(null, slotEngi[row][col]);
+                            selectedCell = cell;
+                            repaint();
+                            break;
+                        }
+                    }
+                }
+            }
+        });
     }
 
     private class TimerListener implements ActionListener {
@@ -94,12 +123,6 @@ public class InvenPanel extends JPanel{
         int fei = 1; // fireelectric index
         int wii = 1; // waterice index
         int gwi = 1; // groundwater index
-        int[][] filled = new int[9][10];
-        for (int k = 0; k <9; k++) {
-            for (int k2 = 0; k2 < 10; k2++) {
-                filled[k][k2] = 0;
-            }
-        }
         // Element + Skill icon  
         g.drawImage(fire, 0*32, 0*32, this); // Fire
         g.drawImage(water, 0*32, 1*32, this); // Water
@@ -110,7 +133,11 @@ public class InvenPanel extends JPanel{
         g.drawImage(gwat, 0*32, 6*32, this); // Water Ground
         g.drawImage(icewat, 0*32, 7*32, this); // Water Ice
         g.drawImage(skillinven, 0*32, 8*32, this); // Skill
-
+        for (int k = 0; k <9; k++) {
+            for (int k2 = 0; k2 < 10; k2++) {
+                filled[k][k2] = 0;
+            }
+        }
         // Engimon
         for (index =  0; index < player.ownedEngimon.getInv().size(); index++) {
             if(player.ownedEngimon.getInv().get(index).getElem().size() == 1){
@@ -139,5 +166,6 @@ public class InvenPanel extends JPanel{
         }
         Toolkit.getDefaultToolkit().sync();
     }
+
 
 }
