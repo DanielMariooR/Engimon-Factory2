@@ -1,3 +1,3 @@
-public interface Species{
-    public Engimon initSpecies(); // get spesies name --> buat display gambar 
+public interface Spesies{
+    public Engimon initSpesies(); 
 }

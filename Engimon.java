@@ -8,6 +8,7 @@ public class Engimon{
     private int lives;
     private int totalxp;
     private String species;
+    private String dialog;
     public ArrayList<String>  Elements;
     private ArrayList<String> parentName;
     private ArrayList<String> parentSpecies;
@@ -30,8 +31,9 @@ public class Engimon{
 
     
     // childName, PName, PSpecies, childSkills ,childSpec, childEl, lives, level, xp , cumm xp , location
-    public Engimon(String n,ArrayList<String> pn, ArrayList<String> ps, ArrayList<Skill> sk, String sp, ArrayList<String> el, int live, int lvl, int xp, int totxp, Point pos){
+    public Engimon(String n, String speech, ArrayList<String> pn, ArrayList<String> ps, ArrayList<Skill> sk, String sp, ArrayList<String> el, int live, int lvl, int xp, int totxp, Point pos){
         this.name = n;
+        this.dialog = speech;
         this.parentName = pn;
         this.parentSpecies = ps;
         this.skills = sk;
@@ -42,6 +44,14 @@ public class Engimon{
         this.exp = xp;
         this.totalxp = totxp;
         this.position = pos;
+    }
+
+    public void setDialog(String dialog){
+        this.dialog = dialog;
+    }
+
+    public String getDialog(){
+        return this.dialog;
     }
 
     public List<String> getParentName(){
