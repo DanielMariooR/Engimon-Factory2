@@ -1,3 +1,3 @@
 public interface Species{
-    public String initSpecies(); // get spesies name --> buat display gambar 
+    public Engimon initSpecies(); // get spesies name --> buat display gambar 
 }
