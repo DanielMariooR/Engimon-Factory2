@@ -31,12 +31,14 @@ public class InvenPanel extends JPanel{
         timer = new Timer(10, new TimerListener());
         timer.start();
     }
+
     private class TimerListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e){
             repaint();
         }
     }
+    
     @Override
     public void paintComponent(Graphics g){
         g.setColor(Color.WHITE);

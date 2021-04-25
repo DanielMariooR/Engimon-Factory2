@@ -69,8 +69,8 @@ public class Engimon{
     }
     
     public void setLevel(int lvl){
-
         this.level = lvl;
+        this.totalxp = this.level * 100;
     }
 
     public void setExp(int xp){
@@ -79,6 +79,19 @@ public class Engimon{
 
     public String getSpecies(){
         return this.species;
+    }
+
+    public void incrExp(int xp){
+        this.exp += xp;
+        this.totalxp += xp;
+        checkStatus();
+    }
+
+    public void checkStatus(){
+        if((this.level+1)*100 > this.exp){
+            this.level++;
+            this.exp -= this.level * 100;
+        }
     }
 
     public void setName(String name){

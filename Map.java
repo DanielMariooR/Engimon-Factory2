@@ -6,11 +6,17 @@ class Map {
     private Player player;
     private WildEngimon wild;
     public char[][] tiles;
+    public HashSet<Point> forbiddenPoints;
 
     public Map(){
         this.player = new Player();
         this.wild = new WildEngimon();
         this.tiles = new char[20][15];
+        forbiddenPoints = new HashSet<>();
+        forbiddenPoints.add(new Point(14,14));
+        forbiddenPoints.add(new Point(14,11));
+        forbiddenPoints.add(new Point(14,0));
+        forbiddenPoints.add(new Point(0,19));
     }
 
     public Map(String filepath) {
@@ -83,6 +89,16 @@ class Map {
         }
     }
 
+    public boolean isForbidden(Point P){
+        for(Point point: forbiddenPoints){
+            if(point.isEqual(point, P)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public boolean isMoveValidEngimon(int x, int y){
         if(x <= 14 && x>=0 && y<=19 && y>= 0){
             if(getPlayerX() != x && getPlayerY() != y && player.getActive().getPos().getX() != x && player.getActive().getPos().getY() != y){
@@ -127,11 +143,18 @@ class Map {
         Random rand = new Random();
         
         for(Engimon E: wild.getEngimonList()){
-            int dx = rand.nextInt(3) - 1;
-            int dy = rand.nextInt(3) - 1;
+            int count = 0;
 
-            if(isMoveValidEngimon(E.getPos().getX()+dx, E.getPos().getY()+dy) && isTileValid(E, E.getPos().getX()+dx, E.getPos().getY()+dy)){
-                E.move(dx, dy);
+            while(count < 3){
+                int dx = rand.nextInt(3) - 1;
+                int dy = rand.nextInt(3) - 1;
+
+                if(isMoveValidEngimon(E.getPos().getX()+dx, E.getPos().getY()+dy) && isTileValid(E, E.getPos().getX()+dx, E.getPos().getY()+dy) && !isForbidden(new Point(E.getPos().getX()+dx, E.getPos().getY()+dy))){
+                    E.move(dx, dy);
+                    break;
+                }
+
+                count++;
             }
         }
     }
