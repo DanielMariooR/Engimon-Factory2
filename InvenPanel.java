@@ -63,7 +63,7 @@ public class InvenPanel extends JPanel{
         felec = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/felec.png");
         gwat = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/gwat.png");
         icewat = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/icewat.png");
-        skillinven = Toolkit.getDefaultToolkit().getImage("resource/tiles/skillinven.png");
+        skillinven = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/skillinven.png");
         slotEngi = new Engimon[8][10];
         player = P;
         timer = new Timer(10, new TimerListener());
