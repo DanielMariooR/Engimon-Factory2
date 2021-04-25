@@ -63,6 +63,15 @@ public class Inventory<T> extends BaseInventory{
             System.out.println(it.getSkill().getName());
         }
     }
+    public String showStr(){
+        String out = "";
+        int idx =1;
+        for (T item : inv) {
+            out+= idx +". " + item.toString() + "\n";
+            idx++;
+        }
+        return out;
+    }
 
     
 

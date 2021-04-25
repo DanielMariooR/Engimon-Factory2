@@ -56,7 +56,9 @@ public class MainFrame extends JFrame {
         m.addEngimon(E2);
         m.addEngimon(E3);
         P.addEngimon(E4);
+        E4.setLevel(4);
         P.addEngimon(E);
+        E.setLevel(4);
         P.setActive(E);
         m.setPlayer(P);
         P.ownedEngimon.show();
@@ -96,71 +98,20 @@ public class MainFrame extends JFrame {
         setBackground(new Color(38, 50, 56));
         this.setLayout(null);
         //======== InvPanel ========
-        {
-            // invPanel.setMinimumSize(new Dimension(495, 675));
-            // invPanel.setPreferredSize(new Dimension(495, 675));
-            // invPanel.setMaximumSize(new Dimension(495, 675));
-            // panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
-            // javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax
-            // . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
-            // .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-            // . Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans.
-            // PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .
-            // equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
-            // panel1.setLayout(null);
 
-            // {
-            //     // compute preferred size
-            //     Dimension preferredSize = new Dimension();
-            //     for(int i = 0; i < panel1.getComponentCount(); i++) {
-            //         Rectangle bounds = panel1.getComponent(i).getBounds();
-            //         preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-            //         preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-            //     }
-            //     Insets insets = panel1.getInsets();
-            //     preferredSize.width += insets.right;
-            //     preferredSize.height += insets.bottom;
-            //     panel1.setMinimumSize(preferredSize);
-            //     panel1.setPreferredSize(preferredSize);
-            // }
-        }
         this.add(invPanel);
         invPanel.setBounds(700, 350, 335, 325);
         this.add(myEngi);
         myEngi.setBounds(480,500,220,32);
         myEngi.setBorder(null);
-        // this.add(enemyEngi);
-        // enemyEngi.setBounds(987,160,32,160);
-        // enemyEngi.setBorder(null);
+
 
         //======== panel1 ========
         {
             panel1.setMinimumSize(new Dimension(495, 675));
             panel1.setPreferredSize(new Dimension(495, 675));
             panel1.setMaximumSize(new Dimension(495, 675));
-            // panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
-            // javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax
-            // . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
-            // .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-            // . Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans.
-            // PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .
-            // equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
-            // panel1.setLayout(null);
 
-            // {
-            //     // compute preferred size
-            //     Dimension preferredSize = new Dimension();
-            //     for(int i = 0; i < panel1.getComponentCount(); i++) {
-            //         Rectangle bounds = panel1.getComponent(i).getBounds();
-            //         preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
-            //         preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
-            //     }
-            //     Insets insets = panel1.getInsets();
-            //     preferredSize.width += insets.right;
-            //     preferredSize.height += insets.bottom;
-            //     panel1.setMinimumSize(preferredSize);
-            //     panel1.setPreferredSize(preferredSize);
-            // }
         }
         this.add(panel1);
         panel1.setBounds(0, 0, 480, 675);
@@ -268,8 +219,8 @@ public class MainFrame extends JFrame {
             button4.setMargin(new Insets(10, 10, 10, 10));
             button4.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    P.setActive(E4);
-                    textPane1.setText("Yes bisa");
+                    String out = P.switchActiveEngimon();
+                    textPane1.setText(out);
                 }
             });
             button4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -297,7 +248,10 @@ public class MainFrame extends JFrame {
             button5.setMargin(new Insets(10, 10, 10, 10));
             button5.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    textPane1.setText("Yes bisa");
+                    String out = "Breeding\n";
+                    out+=P.getEngi().showStr() +"\nInput 2 Engimon Index and Child Name (Split by Space) : ";
+                    textPane1.setText(out);
+                    
                 }
             });
             button5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -325,7 +279,12 @@ public class MainFrame extends JFrame {
             button6.setMargin(new Insets(10, 10, 10, 10));
             button6.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    textPane1.setText("Yes bisa");
+                    String out = "Use Skill Item\n";
+                    P.sortSkill();
+                    out+=P.skillItems.showStr();
+                    textPane1.setText(out);
+                    
+
                 }
             });
             button6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -525,11 +484,35 @@ public class MainFrame extends JFrame {
             button11.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     String s = textPane2.getText();
+                    String code = String.valueOf(textPane1.getText().split("\n")[0]);
+                    System.out.println(code);
                     if(s.equals("P")) textPane1.setText(String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-1]));
                     else if(s.toLowerCase().equals("gacha")){
                          textPane1.setText("Gacha Engimon");
                          P.addEngimon(E4);
                     }
+                    else if(code.equals("Pick Active Engimon : ")){
+                        Integer input = Integer.valueOf(textPane2.getText());
+                        System.out.println(input);
+                        P.Active = P.ownedEngimon.getItem(input - 1);
+                        textPane1.setText(textPane1.getText() + "\n Active Engimon Changed to : " + P.getActive().getName());
+                    }
+                    else if(code.equals("Breeding")){
+                        String out = textPane1.getText();
+                        Integer input1 = Integer.valueOf(String.valueOf(textPane2.getText().split(" ")[0]));
+                        Integer input2 = Integer.valueOf(String.valueOf(textPane2.getText().split(" ")[1]));
+                        String  input3 = String.valueOf(textPane2.getText().split(" ")[2]);
+                        Engimon parentA = P.ownedEngimon.getItem(input1 - 1);
+                        Engimon parentB = P.ownedEngimon.getItem(input2 - 1);
+                        if(parentA.getLevel() < 4 || parentB.getLevel() < 4) out+="Insufficient Parent Engimon Level";
+                        else{
+                            Engimon child = Breeding.Breed(parentA, parentB, input3);
+                            P.addEngimon(child);
+                            out+="\nSuccess\n Child Info :\n";
+                            out+= child.toString();
+                        }
+                        textPane1.setText(out);
+                    }   
                     textPane2.setText("");
                     textPane4.setText( "---------------Player Status---------------\n" + "Total Owned Engimon : " + P.ownedEngimon.getInv().size() +"\nActive Engimon : "+ P.getActive().getName() + "\nTotal Owned Skill Items : "+P.skillItems.getInv().size()+"\nInventory Filled : "+(P.ownedEngimon.getInv().size() + P.skillItems.getInv().size()) + "/18");
                 }

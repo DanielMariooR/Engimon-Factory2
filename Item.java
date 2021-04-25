@@ -55,4 +55,12 @@ public class Item{
         
         return this.getSkill().getName().equals(item.getSkill().getName()) && this.getSkill().getElem().equals(item.getSkill().getElem());
     }
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        str.append("Nama: " + skill.getName() + "\n");
+        str.append("Power: " + skill.getBasePower() + "\n");
+        str.append("Mastery Level: " + skill.getMasteryLevel() + "\n");
+        return str.toString();
+    }
 }
