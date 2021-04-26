@@ -517,7 +517,7 @@ public class MainFrame extends JFrame {
                         Integer input = Integer.valueOf(textPane2.getText());
                         System.out.println(input);
                         P.Active = P.ownedEngimon.getItem(input - 1);
-                        textPane1.setText(textPane1.getText() + "\n Active Engimon Changed to : " + P.getActive().getName());
+                        textPane1.setText(textPane1.getText() + "\nActive Engimon Changed to : " + P.getActive().getName() + "\n\n"+"["+P.getActive().getName()+"] : "+P.getActive().getDialog());
                     } 
                     else if(code.equals("Breeding")){ // Breeding
                         String out = textPane1.getText();

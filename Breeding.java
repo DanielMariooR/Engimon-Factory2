@@ -5,8 +5,8 @@ import java.lang.Exception;
 
 public class Breeding{
 
-    private static Hashtable<String,String> dialogue = new Hashtable<String,String>(); 
-    private static String[] dial = {"Let's burn everything on our path!","Let's fight strong engimons with my water power!","Pika Pika","","","Being called the Operator of Overloading, I shalt overload anything!","My Fire will Electro-Cute our enemies","","","",""};
+    public static Hashtable<String,String> dialogue = new Hashtable<String,String>(); 
+    public static String[] dial = {"Let's burn everything on our path!","Let's fight strong engimons with my water power!","Pika Pika","SMASH!!!!!","Lets froze together","Being called the Operator of Overloading, I shalt overload anything!","My Fire will Electro-Cute our enemies","Let's freeze the enemy!","Let's freeze the enemy!","Water and Earth means life!","Water and Earth means life!"};
 
 
     public static Engimon Breed(Engimon A, Engimon B,String childName) throws IllegalStateException{
@@ -218,15 +218,15 @@ public class Breeding{
             if(el.get(0)=="Fire") S = new Skill("Fire blast", el, 150, 1);
             else if(el.get(0)=="Water") S = new Skill("water bullet", el, 150, 1);
             else if(el.get(0)=="Electric") S = new Skill("100k Volt", el, 150, 1);
-            else if(el.get(0)=="Ground")  S = new Skill("Earthshake", el, 150, 1);
+            else if(el.get(0)=="Ground")  S = new Skill("Earth Quake", el, 150, 1);
             else if(el.get(0)=="Ice")  S = new Skill("Bitter Frost", el, 150, 1);
             
         }
         else{
             if(el.get(0)=="Fire" && el.get(1)=="Electric") S = new Skill("Thunder Blaze", el, 150, 1);
             else if(el.get(0)=="Electric" && el.get(1)=="Fire")  S = new Skill("Fiery 100k Volt", el, 150, 1);
-            else if(el.get(0)=="Water" && el.get(1)=="Ground") S = new Skill("water bullet", el, 150, 1);
-            else if(el.get(0)=="Ground" && el.get(1)=="Water")  S = new Skill("water bullet", el, 150, 1);
+            else if(el.get(0)=="Water" && el.get(1)=="Ground") S = new Skill("Tsunami", el, 150, 1);
+            else if(el.get(0)=="Ground" && el.get(1)=="Water")  S = new Skill("Tsunami", el, 150, 1);
             else if(el.get(0)=="Ice" && el.get(1)=="Water")  S = new Skill("Cold Destruction", el, 150, 1);
             else if(el.get(0)=="Water" && el.get(1)=="Ice") S = new Skill("Cold Destruction", el, 150, 1);
             
@@ -248,34 +248,34 @@ public class Breeding{
         }
         as.sort((Skill s1, Skill s2)->s2.getMasteryLevel() - s1.getMasteryLevel());
     }
-    public static void main(String[] args) {
-        ArrayList<String> Pname = new ArrayList<String>();
-        init();
-        Point Pos = new Point(11,3);
-        ArrayList<Skill> skillA = new ArrayList<Skill>();
-        ArrayList<String> elA  = new ArrayList<String>();
-        ArrayList<String> elD  = new ArrayList<String>();
-        elA.add("Water");
+    // public static void main(String[] args) {
+    //     ArrayList<String> Pname = new ArrayList<String>();
+    //     init();
+    //     Point Pos = new Point(11,3);
+    //     ArrayList<Skill> skillA = new ArrayList<Skill>();
+    //     ArrayList<String> elA  = new ArrayList<String>();
+    //     ArrayList<String> elD  = new ArrayList<String>();
+    //     elA.add("Water");
 
-        Skill S = new Skill("Water Spurt",elA,100,1); // Masih ngasal
-        skillA.add(S);
-        // childName, PName, PSpecies, childSkills ,childSpec, childEl, lives, level, xp , cumm xp , location
-        Engimon A = new Engimon("Squirmon",dialogue.get("Water"),Pname,Pname,skillA,"Squirmon",elA,3,5,0,0,Pos);
+    //     Skill S = new Skill("Water Spurt",elA,100,1); // Masih ngasal
+    //     skillA.add(S);
+    //     // childName, PName, PSpecies, childSkills ,childSpec, childEl, lives, level, xp , cumm xp , location
+    //     Engimon A = new Engimon("Squirmon",dialogue.get("Water"),Pname,Pname,skillA,"Squirmon",elA,3,5,0,0,Pos);
 
-        ArrayList<Skill> skillC = new ArrayList<Skill>();
-        ArrayList<String> elC  = new ArrayList<String>();
-        elC.add("Ice");
-        elD.add("Ice");
-        elD.add("Water");
-        Skill U = new Skill("Frost Br",elC,150,3);
-        skillC.add(U);
-        Engimon C = new Engimon("Dinginmon",dialogue.get("Ice"),Pname,Pname,skillC,"Dinginmon",elC,4,5,0,0,Pos);
+    //     ArrayList<Skill> skillC = new ArrayList<Skill>();
+    //     ArrayList<String> elC  = new ArrayList<String>();
+    //     elC.add("Ice");
+    //     elD.add("Ice");
+    //     elD.add("Water");
+    //     Skill U = new Skill("Frost Br",elC,150,3);
+    //     skillC.add(U);
+    //     Engimon C = new Engimon("Dinginmon",dialogue.get("Ice"),Pname,Pname,skillC,"Dinginmon",elC,4,5,0,0,Pos);
 
-        Engimon X = Breed(A, C, "SonMon");
-        System.out.println(X.toString());
+    //     Engimon X = Breed(A, C, "SonMon");
+    //     System.out.println(X.toString());
         
 
-    }
+    // }
 
 
 }

@@ -11,7 +11,7 @@ public class GroundSquir implements Spesies {
         ArrayList<String> ps = new ArrayList<>();
 
         Skill S1 = new Skill("Sandstorm", elem, 50, 1 );
-        Skill S2 = new Skill("water bullet", elem, 150, 1);
+        Skill S2 = new Skill("Tsunami", elem, 150, 1);
         ArrayList<Skill> skillset = new ArrayList<>();
         skillset.add(S1);
         skillset.add(S2);

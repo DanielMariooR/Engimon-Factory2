@@ -327,7 +327,15 @@ public class Eksternal {
             Point position = new Point(posX,posY);
 
             // Construct Engimon Active
-            Engimon Active = new Engimon(name,parentName,parentSpecies,skills,species,Elements,lives,level,exp,totalxp,position);
+            Breeding.init();
+            String dia = "";
+            if(Elements.size()==1){
+                dia = Breeding.dialogue.get(Elements.get(0));
+            }
+            else if(Elements.size()==2){
+                dia = Breeding.dialogue.get(Elements.get(0)+Elements.get(1));
+            }
+            Engimon Active = new Engimon(name,dia,parentName,parentSpecies,skills,species,Elements,lives,level,exp,totalxp,position);
     
             currBrs = newBrs+3;
             // Load Inventory Engimon
@@ -383,7 +391,14 @@ public class Eksternal {
                 Point pos = new Point(X,Y);
 
                 // Construct Engimon Active
-                Engimon inven = new Engimon(nama,pName,pSpecies,skill,spec,El,live,lev,ex,totxp,pos);
+                Breeding.init();
+                if(Elements.size()==1){
+                    dia = Breeding.dialogue.get(Elements.get(0));
+                }
+                else if(Elements.size()==2){
+                    dia = Breeding.dialogue.get(Elements.get(0)+Elements.get(1));
+                }
+                Engimon inven = new Engimon(nama,dia,pName,pSpecies,skill,spec,El,live,lev,ex,totxp,pos);
                 ownedEngimon.masuk(inven);
 
                 currBrs=newBrs+2;
@@ -474,7 +489,14 @@ public class Eksternal {
                 Point posit = new Point(XX,YY);
 
                 // Construct WildEngimon
-                Engimon wld = new Engimon(nama,pName,pSpecies,skill,spec,El,live,lev,ex,totxp,posit);
+                Breeding.init();
+                if(Elements.size()==1){
+                    dia = Breeding.dialogue.get(Elements.get(0));
+                }
+                else if(Elements.size()==2){
+                    dia = Breeding.dialogue.get(Elements.get(0)+Elements.get(1));
+                }
+                Engimon wld = new Engimon(nama,dia,pName,pSpecies,skill,spec,El,live,lev,ex,totxp,posit);
                 wild.addWildEngimon(wld);
                 currBrs = newBrs+2;
             }
