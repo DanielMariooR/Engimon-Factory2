@@ -46,6 +46,7 @@ public class InvenPanel extends JPanel{
     public Engimon[][] slotEngi;
     public Item[] slotSkill;
     public int[][] filled;
+    private Resource loader = new Resource();
     private Rectangle selectedCell = null;
 
     public InvenPanel(Player P){
@@ -160,7 +161,8 @@ public class InvenPanel extends JPanel{
         }
         // Skill
         for (int k = 0; k < player.skillItems.getInv().size(); k++) {
-            g.drawImage(engimon, (k+1)*32, 8*32, this);
+            String args = player.skillItems.getInv().get(k).getSkill().getName().replaceAll("\\s+","").toLowerCase()+player.skillItems.getInv().get(k).getSkill().getMasteryLevel();
+            g.drawImage(loader.skillIcon.get(args), (k+1)*32, 8*32, this);
             slotSkill[k+1] = player.skillItems.getInv().get(k);
             filled[8][k+1] = 1;
         }

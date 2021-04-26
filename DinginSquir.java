@@ -10,7 +10,7 @@ public class DinginSquir implements Spesies {
         ArrayList<String> pn = new ArrayList<>();
         ArrayList<String> ps = new ArrayList<>();
 
-        Skill S1 = new Skill("water attack", elem, 50, 1 );
+        Skill S1 = new Skill("water bullet", elem, 50, 1 );
         Skill S2 = new Skill("Cold Destruction", elem, 150, 1);
         ArrayList<Skill> skillset = new ArrayList<>();
         skillset.add(S1);

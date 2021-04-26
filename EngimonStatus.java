@@ -43,8 +43,10 @@ public class EngimonStatus extends JPanel {
     public Skill[] slotSkill;
     private Engimon engi;
     private Player Pa;
+    private Resource loader = new Resource();
 
     public EngimonStatus(Player P) {
+        
         EngimonElectric = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonElectricSmall.png");
         EngimonFire = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonFireSmall.png");
         EngimonWater = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterSmall.png");
@@ -143,7 +145,8 @@ public class EngimonStatus extends JPanel {
             }
         }
         for (int i = 0; i < engi.getSkills().size(); i++) {
-            g.drawImage(fire, (i + 2) * 32, 0 * 32, this);
+            String args = Pa.skillItems.getInv().get(i).getSkill().getName().replaceAll("\\s+","").toLowerCase()+Pa.skillItems.getInv().get(i).getSkill().getMasteryLevel();
+            g.drawImage(loader.skillIcon.get(args), (i + 2) * 32, 0 * 32, this);
             slotSkill[i+1] = engi.getSkills().get(i);
             filled[i + 1] = 1;
         }

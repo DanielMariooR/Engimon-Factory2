@@ -160,7 +160,7 @@ public class Battle{
             p.addEngimon(e);
             Skill get = e.getFirstSkill();
             int power = get.getBasePower();
-            String name = get.getName()+" Scroll";
+            String name = get.getName();
             List<String> el = new ArrayList<String>(); 
             el = get.getElem();
             Item A = new Item(name, power, el);

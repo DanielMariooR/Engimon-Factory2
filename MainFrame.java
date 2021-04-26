@@ -42,8 +42,8 @@ public class MainFrame extends JFrame {
         elem3.add("Water");
         elem3.add("Ice");
         // items.masuk(null);
-        Skill S = new Skill("Water Spurt",elem3,100,1);
-        Skill T = new Skill("Ice Spurt",elem2,100,3);
+        Skill S = new Skill("ThunderBolt",elem3,100,1);
+        Skill T = new Skill("Earthquake",elem2,100,3);
         Item It = new Item(S);Item Ip = new Item(T);
         
         items.masuk(It);
@@ -509,9 +509,28 @@ public class MainFrame extends JFrame {
                     String code = String.valueOf(textPane1.getText().split("\n")[0]);
                     System.out.println(code);
                     if(s.equals("P")) textPane1.setText(String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-1]));
-                    else if(s.toLowerCase().equals("gacha")){ // Gacha
-                         textPane1.setText("Gacha Engimon");
-                         P.addEngimon(E4);
+                    else if(s.toLowerCase().equals("gacha")){ // Gacha 
+                        String gch = "Gacha Engimon";
+                        textPane1.setText(gch);
+                         Engimon gachaed = new Engimon();
+                         Random rand = new Random();
+                         int luck = rand.nextInt(9);
+                         if(luck==0) gachaed = new Charmander().initSpesies();
+                         else if(luck==1) gachaed = new Squirmon().initSpesies();
+                         else if(luck==1) gachaed = new Pikamon().initSpesies();
+                         else if(luck==1) gachaed = new Groundomon().initSpesies();
+                         else if(luck==1) gachaed = new Dinginmon().initSpesies();
+                         else if(luck==1) gachaed = new CharmanPikamon().initSpesies();
+                         else if(luck==1) gachaed = new GroundSquir().initSpesies();
+                         else gachaed = new DinginSquir().initSpesies();
+                         if(P.ownedEngimon.getInv().size() < 9){
+                             P.addEngimon(gachaed);
+                             gch+="\nYou got "+gachaed.getName();
+                             textPane1.setText(gch);
+
+                         }
+                         
+                         
                     }
                     else if(code.equals("Pick Active Engimon : ")){ // Change Engimon
                         Integer input = Integer.valueOf(textPane2.getText());

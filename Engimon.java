@@ -17,8 +17,10 @@ public class Engimon{
 
     public Engimon(){
         this.name = "XXX";
+        this.dialog = "";
         this.level = 0;
         this.exp = 1;
+        this.totalxp =1; 
         this.lives = 3;
         this.species = "Basic";
         this.skills = new ArrayList<>();
