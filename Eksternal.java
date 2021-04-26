@@ -315,7 +315,7 @@ public class Eksternal {
                 int masteryLevel = Integer.valueOf(tempsArray[currBrs+4]);
                 Skill lisSkill = new Skill(nameskill,elements,basePower,masteryLevel);
                 skills.add(lisSkill);
-                System.out.println(lisSkill.toString());
+                //System.out.println(lisSkill.toString());
                 currBrs+=5;
             }
 
@@ -379,7 +379,7 @@ public class Eksternal {
                     int basePower = Integer.valueOf(tempsArray[currBrs+3]);
                     int masteryLevel = Integer.valueOf(tempsArray[currBrs+4]);
                     Skill lisSkill = new Skill(nameskill,elements,basePower,masteryLevel);
-                    skills.add(lisSkill);
+                    skill.add(lisSkill);
                     currBrs+=5;
                 }
 
@@ -478,7 +478,7 @@ public class Eksternal {
                     int basePower = Integer.valueOf(tempsArray[currBrs+3]);
                     int masteryLevel = Integer.valueOf(tempsArray[currBrs+4]);
                     Skill lisSkill = new Skill(nameskill,elements,basePower,masteryLevel);
-                    skills.add(lisSkill);
+                    skill.add(lisSkill);
                     currBrs+=5;
                 }
 
@@ -523,6 +523,7 @@ public class Eksternal {
         } catch (Exception e) {
             System.out.println(e); 
         }       
+        Save(map);
         return map;
     }
 
