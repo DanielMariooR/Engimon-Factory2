@@ -208,7 +208,9 @@ public class Engimon{
             System.out.println(S.toString());
         }
     }
-
+    public String getSpecies(){
+        return this.species;
+    }
     public void showDetail(){
         System.out.println("Nama : " + this.name);
         System.out.println("Species : " + this.species);

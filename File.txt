@@ -1,124 +1,248 @@
 PLAYER
 ENGIMON ACTIVE
 ENGIMON
-A
+Pikamon
 4
-1
+100
 3
 400
-Basic
-Water Ice 
-
-
+Pikamon
+Electric   
+  
+  
 SKILL
-Water Spurt
-Water Ice 
-100
+ThunderBolt
+Electric   
+50
+1
+SKILL
+100k Volt
+Electric   
+150
+1
+SKILL
+ThunderBolt
+Electric   
+50
+1
+SKILL
+100k Volt
+Electric   
+150
+1
+SKILL
+Ground Pound
+Ground   
+50
+1
+SKILL
+Earth Quake
+Ground   
+150
+1
+SKILL
+Ground Pound
+Ground   
+50
+1
+SKILL
+Earth Quake
+Ground   
+150
+1
+SKILL
+Cold Destruction
+Ice   
+280
+1
+SKILL
+Bitter Frost
+Ice   
+50
+1
+SKILL
+ThunderBolt
+Electric   
+50
+1
+SKILL
+100k Volt
+Electric   
+150
+1
+SKILL
+ThunderBolt
+Electric   
+50
+1
+SKILL
+100k Volt
+Electric   
+150
+1
+SKILL
+Ground Pound
+Ground   
+50
+1
+SKILL
+Earth Quake
+Ground   
+150
+1
+SKILL
+Ground Pound
+Ground   
+50
+1
+SKILL
+Earth Quake
+Ground   
+150
+1
+SKILL
+Cold Destruction
+Ice   
+280
+1
+SKILL
+Bitter Frost
+Ice   
+50
+1
+SKILL
+water attack
+Water  
+50
+1
+SKILL
+water bullet
+Water  
+150
+1
+SKILL
+water attack
+Water Ice  
+50
+1
+SKILL
+Cold Destruction
+Water Ice  
+150
+1
+SKILL
+Ground Pound
+Ground  
+50
+1
+SKILL
+Earth Quake
+Ground  
+150
 1
 POSITION
-0 0
+6 11
 INVENTORY ENGIMON
 ENGIMON
-A
+Pikamon
 4
-1
+100
 3
 400
-Basic
-Water Ice 
-
-
-SKILL
-Water Spurt
-Water Ice 
-100
-1
+Pikamon
+Electric   
+  
+  
 POSITION
 0 0
 ENGIMON
-XXX
+A
 4
-1
+100
 3
 400
-Basic
-Ground Water 
-
-
-SKILL
-Water Spurt
-Water Ice 
-100
-1
+Groundomon
+Ground   
+  
+  
 POSITION
 0 0
 INVENTORY ITEM
-SKILL
-Ice Spurt
-Ice 
-100
-3
-1
-SKILL
-Water Spurt
-Water Ice 
-100
-1
-1
 POSITION
-1 0
+7 11
 WILDENGIMON
 ENGIMON
 B
-0
-1
+2
+300
 3
-0
-Basic
-Ground Water 
-
-
-SKILL
-Water Spurt
-Water Ice 
-100
-1
+500
+Groundomon
+Ground   
+  
+  
 POSITION
-3 5
+6 3
+ENGIMON
+Dinginmon
+2
+300
+3
+500
+Dinginmon
+Ice   
+  
+  
+POSITION
+11 9
 ENGIMON
 XXX
-0
-1
+2
+201
 3
-0
+500
 Basic
-Ice 
-
-
-SKILL
-Water Spurt
-Water Ice 
-100
-1
+Ground  
+ 
+ 
 POSITION
-12 8
+12 14
 ENGIMON
-XXX
-0
-1
+Squirmon
+2
+200
 3
-0
-Basic
-Water Ice 
-
-
-SKILL
-Water Spurt
-Water Ice 
-100
-1
+400
+Squirmon
+Water  
+ 
+ 
 POSITION
-10 1
+13 0
+ENGIMON
+DinginSquir
+2
+100
+3
+300
+DinginSquir
+Water Ice  
+ 
+ 
+POSITION
+14 0
+ENGIMON
+Groundomon
+1
+200
+3
+200
+Groundomon
+Ground  
+ 
+ 
+POSITION
+13 15
 TILES
 - - - - - - - - o o o o o o o 
 - - - - - - - - o o o o o o o 
