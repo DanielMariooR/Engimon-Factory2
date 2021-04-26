@@ -99,10 +99,16 @@ public class Breeding{
                     
             }
             else{ // Kasus Elemen Advantage Sama
-                String aSpecies = A.getSpesies();
-                aSpecies = aSpecies.substring(0,aSpecies.length()-3);
-                String species = aSpecies + B.getSpesies(); 
-                elSpec.add(species);
+                // String aSpecies = A.getSpesies();
+                // aSpecies = aSpecies.substring(0,aSpecies.length()-3);
+                // String species = aSpecies + B.getSpesies(); 
+                // elSpec.add(species);
+                String spes = "";
+                if(A.getElem().get(0) == "Fire" && B.getElem().get(0) == "Electric") spes = "CharmanPikamon";
+                else if( A.getElem().get(0) == "Electric" && B.getElem().get(0) == "Fire") spes ="PikaCharmanmon";
+                else if((A.getElem().get(0) == "Water" && B.getElem().get(0) == "Ground") || A.getElem().get(0) == "Ground" && B.getElem().get(0) == "Water") spes ="GroundSquir";
+                else if((A.getElem().get(0) == "Water" && B.getElem().get(0) == "Ice") || A.getElem().get(0) == "Ice" && B.getElem().get(0) == "Water") spes ="DinginSquir";
+                elSpec.add(spes);
                 elSpec.add(A.getElem().get(0));
                 elSpec.add(B.getElem().get(0));
             }

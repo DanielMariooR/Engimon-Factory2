@@ -19,7 +19,7 @@ public class MainFrame extends JFrame {
         Groundomon G = new Groundomon();
         Pikamon Pi = new Pikamon();
 
-        Engimon E = G.initSpesies();
+        Engimon E = C.initSpesies();
         Engimon E1 = G.initSpesies();
         Engimon E2 = Sq.initSpesies();
         Engimon E3 = D.initSpesies();
@@ -34,8 +34,6 @@ public class MainFrame extends JFrame {
         // Inventory<Engimon> engi = P.getEngi();
         // engi.masuk(E);
         // engi.masuk(E);
-        E.setName("A");
-        E1.setName("B");
         elem1.add("Ground");
         elem1.add("Water");
         elem2.add("Ice");
@@ -65,6 +63,7 @@ public class MainFrame extends JFrame {
         E.setLevel(1);
         P.setActive(E);
         m.setPlayer(P);
+        P.switchPlayer(m.getPlayer());
         P.ownedEngimon.show();
         P.sortEngimon();
         P.ownedEngimon.show();
@@ -141,8 +140,10 @@ public class MainFrame extends JFrame {
                     Map a = new Map();
                     a = Eksternal.Load();
                     m.setTile(a.getTile());
-                    m.setPlayer(a.getPlayer());
+                    // m.setPlayer(a.getPlayer());
                     m.setWild(a.getWildEngimon());
+                    P.switchPlayer(a.getPlayer());
+                    m.setPlayer(P);
                     textPane1.setText("Load Berhasil");
                 }
             });
@@ -523,6 +524,7 @@ public class MainFrame extends JFrame {
                          else if(luck==5) gachaed = new CharmanPikamon().initSpesies();
                          else if(luck==6) gachaed = new GroundSquir().initSpesies();
                          else gachaed = new DinginSquir().initSpesies();
+                         gachaed.setLevel(5);
                          if(P.ownedEngimon.getInv().size() < 9){
                              P.addEngimon(gachaed);
                              gch+="\nYou got "+gachaed.getName();
@@ -725,12 +727,4 @@ public class MainFrame extends JFrame {
     private BufferedImage gameLogo;
     private JLabel logoGame;
 
-    public static void main(String[] args) {
-            EventQueue.invokeLater(() -> {
-                MainFrame sc = new MainFrame(1035, 675); // default gamecanvas : 495,675 ; 670,675
-                sc.setVisible(true);
-            });
-
-
-    }
 }
