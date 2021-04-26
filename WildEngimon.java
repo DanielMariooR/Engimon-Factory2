@@ -99,7 +99,7 @@ public class WildEngimon {
         ArrayList<Engimon> delEngimonList = new ArrayList<>();
         for(Engimon E: engimonList){
             E.incrExp(100);
-            if(E.getLevel() >= 3){
+            if(E.getLevel() >= 15){
                 delEngimonList.add(E);
             }
         }

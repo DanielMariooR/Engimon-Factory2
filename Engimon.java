@@ -115,6 +115,13 @@ public class Engimon{
         if((this.level+1)*100 < this.exp){
             this.level++;
             this.exp -= this.level * 100;
+            if(this.level % 4 == 0){
+                for(Skill S: skills){
+                    if(S.getMasteryLevel() < 3){
+                        S.setMastery(S.getMasteryLevel()+1);
+                    }
+                }
+            }
         }
     }
 
