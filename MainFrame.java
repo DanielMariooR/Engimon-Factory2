@@ -727,12 +727,4 @@ public class MainFrame extends JFrame {
     private BufferedImage gameLogo;
     private JLabel logoGame;
 
-    public static void main(String[] args) {
-            EventQueue.invokeLater(() -> {
-                MainFrame sc = new MainFrame(1035, 675); // default gamecanvas : 495,675 ; 670,675
-                sc.setVisible(true);
-            });
-
-
-    }
 }
