@@ -63,10 +63,10 @@ public class Resource {
         engimonIcon.put("CharmanPikamonBig", fireelecEngimonBig);
         engimonIcon.put("PikaChamander", fireEngimonSmall);
         engimonIcon.put("PikaCharmanderBig", fireelecEngimonBig);
-        engimonIcon.put("GroundSquir", groundEngimonSmall);
-        engimonIcon.put("GroundSquirBig", groundEngimonBig);
+        engimonIcon.put("GroundSquir", groundwaterEngimonSmall);
+        engimonIcon.put("GroundSquirBig", groundwaterEngimonBig);
         engimonIcon.put("DinginSquir", watericeEngimonSmall);
-        engimonIcon.put("DinginSquirBig", waterEngimonBig);  
+        engimonIcon.put("DinginSquirBig", watericeEngimonBig);  
     }
     public void loadSkillImage(){
         Image fireblast1 = Toolkit.getDefaultToolkit().getImage("resource/tiles/skill/s21.png");

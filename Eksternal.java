@@ -279,9 +279,9 @@ public class Eksternal {
             // LOAD ENGIMON ACTIVE
             String name = tempsArray[3];
             int level = Integer.valueOf(tempsArray[4]);
-            int exp = Integer.valueOf(tempsArray[5]);;
-            int lives = Integer.valueOf(tempsArray[6]);;
-            int totalxp = Integer.valueOf(tempsArray[7]);;
+            int exp = Integer.valueOf(tempsArray[5]);
+            int lives = Integer.valueOf(tempsArray[6]);
+            int totalxp = Integer.valueOf(tempsArray[7]);
             String species = tempsArray[8];
             ArrayList<String>  Elements = new ArrayList<String>();
             String el = tempsArray[9];
@@ -315,6 +315,7 @@ public class Eksternal {
                 int masteryLevel = Integer.valueOf(tempsArray[currBrs+4]);
                 Skill lisSkill = new Skill(nameskill,elements,basePower,masteryLevel);
                 skills.add(lisSkill);
+                System.out.println(lisSkill.toString());
                 currBrs+=5;
             }
 
@@ -343,9 +344,9 @@ public class Eksternal {
             while(!tempsArray[currBrs].equals("INVENTORY ITEM")){
                 String nama = tempsArray[currBrs+1];
                 int lev = Integer.valueOf(tempsArray[currBrs+2]);
-                int ex = Integer.valueOf(tempsArray[currBrs+3]);;
-                int live = Integer.valueOf(tempsArray[currBrs+4]);;
-                int totxp = Integer.valueOf(tempsArray[currBrs+5]);;
+                int ex = Integer.valueOf(tempsArray[currBrs+3]);
+                int live = Integer.valueOf(tempsArray[currBrs+4]);
+                int totxp = Integer.valueOf(tempsArray[currBrs+5]);
                 String spec = tempsArray[currBrs+6];
                 ArrayList<String>  El = new ArrayList<String>();
                 String elem = tempsArray[currBrs+7];
@@ -408,6 +409,7 @@ public class Eksternal {
             Inventory<Item> skillItems = new Inventory<Item>();
             while(!tempsArray[currBrs].equals("POSITION")){
                 String nameskill = tempsArray[currBrs+1];
+                System.out.println(nameskill);
                 ArrayList<String> elements = new ArrayList<String>();
                 String element = tempsArray[currBrs+2];
                 String[] arrOfele = element.split(" ", -2);
@@ -441,9 +443,9 @@ public class Eksternal {
             while(!tempsArray[currBrs].equals("TILES")){
                 String nama = tempsArray[currBrs+1];
                 int lev = Integer.valueOf(tempsArray[currBrs+2]);
-                int ex = Integer.valueOf(tempsArray[currBrs+3]);;
-                int live = Integer.valueOf(tempsArray[currBrs+4]);;
-                int totxp = Integer.valueOf(tempsArray[currBrs+5]);;
+                int ex = Integer.valueOf(tempsArray[currBrs+3]);
+                int live = Integer.valueOf(tempsArray[currBrs+4]);
+                int totxp = Integer.valueOf(tempsArray[currBrs+5]);
                 String spec = tempsArray[currBrs+6];
                 ArrayList<String>  El = new ArrayList<String>();
                 String elem = tempsArray[currBrs+7];

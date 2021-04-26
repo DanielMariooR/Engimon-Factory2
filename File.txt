@@ -1,390 +1,132 @@
 PLAYER
 ENGIMON ACTIVE
 ENGIMON
-Pikamon
-4
+A
+1
 100
 3
-400
-Pikamon
-Electric    
-   
-   
-SKILL
-ThunderBolt
-Electric    
-50
-1
-SKILL
-100k Volt
-Electric    
-150
-1
-SKILL
-ThunderBolt
-Electric    
-50
-1
-SKILL
-100k Volt
-Electric    
-150
-1
+100
+Groundomon
+Ground 
+
+
 SKILL
 Ground Pound
-Ground    
+Ground 
 50
 1
 SKILL
 Earth Quake
-Ground    
-150
-1
-SKILL
-Ground Pound
-Ground    
-50
-1
-SKILL
-Earth Quake
-Ground    
-150
-1
-SKILL
-Cold Destruction
-Ice    
-280
-1
-SKILL
-Bitter Frost
-Ice    
-50
-1
-SKILL
-ThunderBolt
-Electric    
-50
-1
-SKILL
-100k Volt
-Electric    
-150
-1
-SKILL
-ThunderBolt
-Electric    
-50
-1
-SKILL
-100k Volt
-Electric    
-150
-1
-SKILL
-Ground Pound
-Ground    
-50
-1
-SKILL
-Earth Quake
-Ground    
-150
-1
-SKILL
-Ground Pound
-Ground    
-50
-1
-SKILL
-Earth Quake
-Ground    
-150
-1
-SKILL
-Cold Destruction
-Ice    
-280
-1
-SKILL
-Bitter Frost
-Ice    
-50
-1
-SKILL
-water attack
-Water   
-50
-1
-SKILL
-water bullet
-Water   
-150
-1
-SKILL
-water attack
-Water Ice   
-50
-1
-SKILL
-Cold Destruction
-Water Ice   
-150
-1
-SKILL
-Ground Pound
-Ground   
-50
-1
-SKILL
-Earth Quake
-Ground   
+Ground 
 150
 1
 POSITION
-6 11
+0 0
 INVENTORY ENGIMON
 ENGIMON
 Pikamon
-4
+1
 100
 3
-400
+100
 Pikamon
-Electric    
-   
-   
+Electric 
+
+
+SKILL
+ThunderBolt
+Electric 
+50
+1
+SKILL
+100k Volt
+Electric 
+150
+1
 POSITION
 0 0
 ENGIMON
 A
-4
+1
 100
 3
-400
+100
 Groundomon
-Ground    
-   
-   
+Ground 
+
+
+SKILL
+Ground Pound
+Ground 
+50
+1
+SKILL
+Earth Quake
+Ground 
+150
+1
 POSITION
 0 0
-ENGIMON
-Pikamon
-4
+INVENTORY ITEM
+SKILL
+Earthquake
+Ice 
 100
 3
-400
-Pikamon
-Electric    
-   
-   
-SKILL
-ThunderBolt
-Electric    
-50
-1
-SKILL
-100k Volt
-Electric    
-150
 1
 SKILL
 ThunderBolt
-Electric    
-50
+Water Ice 
+100
 1
-SKILL
-100k Volt
-Electric    
-150
-1
-SKILL
-Ground Pound
-Ground    
-50
-1
-SKILL
-Earth Quake
-Ground    
-150
-1
-SKILL
-Ground Pound
-Ground    
-50
-1
-SKILL
-Earth Quake
-Ground    
-150
-1
-SKILL
-Cold Destruction
-Ice    
-280
-1
-SKILL
-Bitter Frost
-Ice    
-50
-1
-SKILL
-ThunderBolt
-Electric    
-50
-1
-SKILL
-100k Volt
-Electric    
-150
-1
-SKILL
-ThunderBolt
-Electric    
-50
-1
-SKILL
-100k Volt
-Electric    
-150
-1
-SKILL
-Ground Pound
-Ground    
-50
-1
-SKILL
-Earth Quake
-Ground    
-150
-1
-SKILL
-Ground Pound
-Ground    
-50
-1
-SKILL
-Earth Quake
-Ground    
-150
-1
-SKILL
-Cold Destruction
-Ice    
-280
-1
-SKILL
-Bitter Frost
-Ice    
-50
-1
-SKILL
-water attack
-Water   
-50
-1
-SKILL
-water bullet
-Water   
-150
-1
-SKILL
-water attack
-Water Ice   
-50
-1
-SKILL
-Cold Destruction
-Water Ice   
-150
-1
-SKILL
-Ground Pound
-Ground   
-50
-1
-SKILL
-Earth Quake
-Ground   
-150
 1
 POSITION
-6 11
-INVENTORY ITEM
-POSITION
-7 11
+1 0
 WILDENGIMON
 ENGIMON
 B
-2
-300
-3
-500
-Groundomon
-Ground    
-   
-   
-POSITION
-6 3
-ENGIMON
-Dinginmon
-2
-300
-3
-500
-Dinginmon
-Ice    
-   
-   
-POSITION
-11 9
-ENGIMON
-XXX
-2
-201
-3
-500
-Basic
-Ground   
-  
-  
-POSITION
-12 14
-ENGIMON
-Squirmon
-2
-200
-3
-400
-Squirmon
-Water   
-  
-  
-POSITION
-13 0
-ENGIMON
-DinginSquir
-2
+1
 100
 3
-300
-DinginSquir
-Water Ice   
-  
-  
-POSITION
-14 0
-ENGIMON
+100
 Groundomon
+Ground 
+
+
+SKILL
+Ground Pound
+Ground 
+50
 1
-200
-3
-200
-Groundomon
-Ground   
-  
-  
+SKILL
+Earth Quake
+Ground 
+150
+1
 POSITION
-13 15
+3 5
+ENGIMON
+Dinginmon
+1
+100
+3
+100
+Dinginmon
+Ice 
+
+
+SKILL
+Cold Destruction
+Ice 
+280
+1
+SKILL
+Bitter Frost
+Ice 
+50
+1
+POSITION
+12 8
 TILES
 - - - - - - - - o o o o o o o 
 - - - - - - - - o o o o o o o 

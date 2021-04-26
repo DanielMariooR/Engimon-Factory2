@@ -246,5 +246,11 @@ public class Player {
         }
         return count;
     }
+    public void switchPlayer(Player pp){
+        this.Active = pp.Active;
+        this.ownedEngimon = pp.ownedEngimon;
+        this.skillItems = pp.skillItems;
+        this.playerPos = pp.playerPos;
+    }
 
 }

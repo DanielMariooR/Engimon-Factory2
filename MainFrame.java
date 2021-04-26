@@ -143,6 +143,7 @@ public class MainFrame extends JFrame {
                     m.setTile(a.getTile());
                     m.setPlayer(a.getPlayer());
                     m.setWild(a.getWildEngimon());
+                    // P.switchPlayer(m.getPlayer());
                     textPane1.setText("Load Berhasil");
                 }
             });
@@ -523,6 +524,7 @@ public class MainFrame extends JFrame {
                          else if(luck==5) gachaed = new CharmanPikamon().initSpesies();
                          else if(luck==6) gachaed = new GroundSquir().initSpesies();
                          else gachaed = new DinginSquir().initSpesies();
+                         gachaed.setLevel(5);
                          if(P.ownedEngimon.getInv().size() < 9){
                              P.addEngimon(gachaed);
                              gch+="\nYou got "+gachaed.getName();
