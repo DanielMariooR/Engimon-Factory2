@@ -44,7 +44,7 @@ public class InvenPanel extends JPanel{
     private Timer timer;
     private Player player;
     public Engimon[][] slotEngi;
-    public Skill[] slotSkill;
+    public Item[] slotSkill;
     public int[][] filled;
     private Rectangle selectedCell = null;
 
@@ -70,7 +70,7 @@ public class InvenPanel extends JPanel{
         icewat = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/icewat.png");
         skillinven = Toolkit.getDefaultToolkit().getImage("resource/tiles/element/skillinven.png");
         slotEngi = new Engimon[9][10];
-        slotSkill = new Skill[9];
+        slotSkill = new Item[9];
         filled = new int[9][10];
 
         player = P;
@@ -161,7 +161,7 @@ public class InvenPanel extends JPanel{
         // Skill
         for (int k = 0; k < player.skillItems.getInv().size(); k++) {
             g.drawImage(engimon, (k+1)*32, 8*32, this);
-            slotSkill[k+1] = player.skillItems.getInv().get(k).getSkill();
+            slotSkill[k+1] = player.skillItems.getInv().get(k);
             filled[8][k+1] = 1;
         }
         // Empty

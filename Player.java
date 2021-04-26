@@ -139,7 +139,8 @@ public class Player {
                         if(flag > 0){
                             current.removeSkill(flag-1);
                             current.insertSkill(skill);
-                            skillItems.keluar(temp);
+                            if(temp.getJumlah() <= 1) skillItems.keluar(temp);
+                            else temp.setJumlah(temp.getJumlah() - 1);
                             return "Success";     
                         }
                         found = true;
@@ -147,7 +148,8 @@ public class Player {
                     }
                     else{
                         current.insertSkill(skill);
-                        skillItems.keluar(temp);
+                        if(temp.getJumlah() <= 1) skillItems.keluar(temp);
+                        else temp.setJumlah(temp.getJumlah() - 1);
                         found = true;
                         break;
                     }
@@ -235,9 +237,9 @@ public class Player {
     public int countEl(ArrayList<String> el) {
         int count = 0;
         for (Engimon engi : ownedEngimon.getInv()) {
-            if (engi.getElem().size() == 1 && engi.getElem().get(0).equals(el.get(0)))
+            if (engi.getElem().size() == 1 && el.size()==1 && engi.getElem().get(0).equals(el.get(0)))
                 count++;
-            else if (engi.getElem().size() == 2
+            else if (engi.getElem().size() == 2 && el.size()==2
                     && ((engi.getElem().get(0).equals(el.get(0)) && engi.getElem().get(1).equals(el.get(1)))
                             || (engi.getElem().get(0).equals(el.get(1)) && engi.getElem().get(1).equals(el.get(0)))))
                 count++;

@@ -556,8 +556,9 @@ public class MainFrame extends JFrame {
                         }
                         
                     }
-                    else if(s.equals("Y")){
-                        textPane1.setText(b.Result(P.getActive(), m.isWild(), P));
+                    else if(s.toLowerCase().equals("y")){
+                        String out1 = b.Result(P.getActive(), m.isWild(), P);
+                        textPane1.setText(out1);
                         if(P.getActive().getLives() <= 0){
                             String out = P.switchActiveEngimon();
                             textPane1.setText(out);
@@ -569,12 +570,12 @@ public class MainFrame extends JFrame {
                             P.Active.setPos(new Point(x, y));
                             textPane1.setText(textPane1.getText() + "\n Active Engimon Changed to : " + P.getActive().getName());
                         }
-                        else if(b.Result(P.getActive(), m.isWild(), P)=="WIN"){
+                        else if(out1=="WIN"){
                             m.getWildEngimon().delWildEngimon(m.isWild());
                         }
                         
                     }
-                    else if(s.equals("N")){
+                    else if(s.toLowerCase().equals("n")){
                         textPane1.setText("Berhasil Kabur");
                     }
                     else if(String.valueOf(textPane1.getText().split("\n")[textPane1.getText().split("\n").length-2]).equals("Choose skill to forget! Input skill index :")){

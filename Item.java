@@ -61,6 +61,7 @@ public class Item{
         str.append("Nama: " + skill.getName() + "\n");
         str.append("Power: " + skill.getBasePower() + "\n");
         str.append("Mastery Level: " + skill.getMasteryLevel() + "\n");
+        str.append("Count : " + jumlah + "\n");
         return str.toString();
     }
 }
