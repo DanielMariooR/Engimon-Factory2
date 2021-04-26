@@ -1,36 +1,11 @@
 PLAYER
 ENGIMON ACTIVE
 ENGIMON
-A
-1
-
-100
-3
-100
-
-Groundomon
-Ground 
-
-
-SKILL
-Ground Pound
-Ground 
-50
-1
-SKILL
-Earth Quake
-Ground 
-150
-1
-POSITION
-0 0
-INVENTORY ENGIMON
-ENGIMON
 Pikamon
 1
-100
+200
 3
-100
+200
 Pikamon
 Electric 
 
@@ -46,29 +21,96 @@ Electric
 150
 1
 POSITION
-0 0
+11 3
+INVENTORY ENGIMON
 ENGIMON
-A
+Charmander
 1
 100
-3
+2
 100
-Groundomon
-Ground 
+Charmander
+Fire 
 
 
 SKILL
-Ground Pound
-Ground 
+Fire ball
+Fire 
 50
 1
 SKILL
-Earth Quake
-Ground 
+Fire blast
+Fire 
 150
 1
 POSITION
-0 0
+10 1
+ENGIMON
+Squirmon
+2
+200
+3
+400
+Squirmon
+Water 
+
+
+SKILL
+water attack
+Water 
+50
+1
+SKILL
+water bullet
+Water 
+150
+1
+POSITION
+11 2
+ENGIMON
+Pikamon
+1
+200
+3
+200
+Pikamon
+Electric 
+
+
+SKILL
+ThunderBolt
+Electric 
+50
+1
+SKILL
+100k Volt
+Electric 
+150
+1
+POSITION
+11 3
+ENGIMON
+DinginSquir
+2
+300
+3
+500
+DinginSquir
+Water Ice 
+
+
+SKILL
+water bullet
+Water Ice 
+50
+1
+SKILL
+Cold Destruction
+Water Ice 
+150
+1
+POSITION
+13 3
 INVENTORY ITEM
 SKILL
 Earthquake
@@ -82,15 +124,27 @@ Water Ice
 100
 1
 1
+SKILL
+water attack
+Water 
+50
+1
+1
+SKILL
+water bullet
+Water Ice 
+50
+1
+1
 POSITION
-1 0
+11 4
 WILDENGIMON
 ENGIMON
-B
-1
-100
+Groundomon
+4
+200
 3
-100
+1100
 Groundomon
 Ground 
 
@@ -99,20 +153,20 @@ SKILL
 Ground Pound
 Ground 
 50
-1
+2
 SKILL
 Earth Quake
 Ground 
 150
-1
+2
 POSITION
-3 5
+4 5
 ENGIMON
 Dinginmon
-1
-100
+4
+200
 3
-100
+1100
 Dinginmon
 Ice 
 
@@ -121,14 +175,104 @@ SKILL
 Cold Destruction
 Ice 
 280
-1
+2
 SKILL
 Bitter Frost
 Ice 
 50
+2
+POSITION
+11 10
+ENGIMON
+Groundomon
+4
+100
+3
+1000
+Groundomon
+Ground 
+
+
+SKILL
+Ground Pound
+Ground 
+50
+2
+SKILL
+Earth Quake
+Ground 
+150
+2
+POSITION
+14 16
+ENGIMON
+Pikamon
+3
+400
+3
+900
+Pikamon
+Electric 
+
+
+SKILL
+ThunderBolt
+Electric 
+50
+1
+SKILL
+100k Volt
+Electric 
+150
 1
 POSITION
-12 8
+13 14
+ENGIMON
+XXX
+3
+201
+3
+800
+Basic
+Ground 
+
+
+POSITION
+13 13
+ENGIMON
+XXX
+3
+101
+3
+700
+Basic
+Ground 
+
+
+POSITION
+14 15
+ENGIMON
+GroundSquir
+1
+200
+3
+200
+GroundSquir
+Ground Water 
+
+
+SKILL
+Sandstorm
+Ground Water 
+50
+1
+SKILL
+Tsunami
+Ground Water 
+150
+1
+POSITION
+14 13
 TILES
 - - - - - - - - o o o o o o o 
 - - - - - - - - o o o o o o o 
