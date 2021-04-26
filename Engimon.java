@@ -189,7 +189,7 @@ public class Engimon{
         }
         
         if(!parentName.isEmpty() && !parentSpecies.isEmpty()){
-            for(int i=0; i<2; i++){
+            for(int i=0; i< parentName.size(); i++){
                 str.append("Nama Parent: " + this.parentName.get(i) + "\n");
                 str.append("Spesies Parent: " + this.parentSpecies.get(i) + "\n");
             }

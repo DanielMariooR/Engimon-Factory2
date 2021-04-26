@@ -1,32 +1,32 @@
 PLAYER
 ENGIMON ACTIVE
 ENGIMON
-Charmander
-1
-100
-2
-100
-Charmander
-Fire 
+Squirmon
+3
+150
+3
+650
+Squirmon
+Water 
 
 
 SKILL
-Fire ball
-Fire 
+water attack
+Water 
 50
 1
 SKILL
-Fire blast
-Fire 
+water bullet
+Water 
 150
 1
 POSITION
-6 6
+11 11
 INVENTORY ENGIMON
 ENGIMON
 Charmander
 1
-200
+100
 3
 100
 Charmander
@@ -44,13 +44,35 @@ Fire
 150
 1
 POSITION
-6 6
+14 15
+ENGIMON
+Squirmon
+3
+150
+3
+650
+Squirmon
+Water 
+
+
+SKILL
+water attack
+Water 
+50
+1
+SKILL
+water bullet
+Water 
+150
+1
+POSITION
+11 11
 ENGIMON
 Pikamon
 1
-100
+150
 3
-100
+150
 Pikamon
 Electric 
 
@@ -66,7 +88,73 @@ Electric
 150
 1
 POSITION
-13 3
+10 12
+ENGIMON
+Groundomon
+2
+300
+3
+500
+Groundomon
+Ground 
+
+
+SKILL
+Ground Pound
+Ground 
+50
+1
+SKILL
+Earth Quake
+Ground 
+150
+1
+POSITION
+11 13
+ENGIMON
+DinginSquir
+3
+300
+3
+800
+DinginSquir
+Water Ice 
+
+
+SKILL
+water bullet
+Water Ice 
+50
+1
+SKILL
+Cold Destruction
+Water Ice 
+150
+1
+POSITION
+10 2
+ENGIMON
+GroundSquir
+3
+200
+3
+700
+GroundSquir
+Ground Water 
+
+
+SKILL
+Sandstorm
+Ground Water 
+50
+1
+SKILL
+Tsunami
+Ground Water 
+150
+1
+POSITION
+11 13
 INVENTORY ITEM
 SKILL
 Earthquake
@@ -87,64 +175,32 @@ Water
 1
 1
 SKILL
+Ground Pound
+Ground 
+50
+1
+1
+SKILL
 water bullet
 Water Ice 
 50
 1
 1
+SKILL
+Sandstorm
+Ground Water 
+50
+1
+1
 POSITION
-6 7
+11 12
 WILDENGIMON
 ENGIMON
-Groundomon
-2
-200
-3
-400
-Groundomon
-Ground 
-
-
-SKILL
-Ground Pound
-Ground 
-50
-2
-SKILL
-Earth Quake
-Ground 
-150
-2
-POSITION
-0 8
-ENGIMON
-Dinginmon
-2
-200
-3
-400
-Dinginmon
-Ice 
-
-
-SKILL
-Cold Destruction
-Ice 
-280
-1
-SKILL
-Bitter Frost
-Ice 
-50
-1
-POSITION
-11 8
-ENGIMON
 Pikamon
-2
-200
-3
+4
 400
+3
+1300
 Pikamon
 Electric 
 
@@ -153,70 +209,26 @@ SKILL
 ThunderBolt
 Electric 
 50
-1
+2
 SKILL
 100k Volt
 Electric 
 150
-1
+2
 POSITION
-11 14
+12 16
 ENGIMON
 XXX
-2
-1
+4
+201
 3
-300
+1200
 Basic
 Ground 
 
 
 POSITION
-14 13
-ENGIMON
-Dinginmon
-1
-200
-3
-200
-Dinginmon
-Ice 
-
-
-SKILL
-Cold Destruction
-Ice 
-280
-2
-SKILL
-Bitter Frost
-Ice 
-50
-2
-POSITION
-11 10
-ENGIMON
-Groundomon
-4
-100
-3
-1000
-Groundomon
-Ground 
-
-
-SKILL
-Ground Pound
-Ground 
-50
-2
-SKILL
-Earth Quake
-Ground 
-150
-2
-POSITION
-14 16
+12 12
 ENGIMON
 Pikamon
 3
@@ -238,53 +250,73 @@ Electric
 150
 1
 POSITION
-13 14
-ENGIMON
-XXX
-3
-201
-3
-800
-Basic
-Ground 
-
-
-POSITION
 13 13
 ENGIMON
-XXX
+Squirmon
 3
-101
+300
 3
-700
-Basic
-Ground 
-
-
-POSITION
-14 15
-ENGIMON
-GroundSquir
-1
-200
-3
-200
-GroundSquir
-Ground Water 
+800
+Squirmon
+Water 
 
 
 SKILL
-Sandstorm
-Ground Water 
+water attack
+Water 
 50
 1
 SKILL
-Tsunami
-Ground Water 
+water bullet
+Water 
 150
 1
 POSITION
-14 11
+11 0
+ENGIMON
+Dinginmon
+3
+100
+3
+600
+Dinginmon
+Ice 
+
+
+SKILL
+Cold Destruction
+Ice 
+280
+1
+SKILL
+Bitter Frost
+Ice 
+50
+1
+POSITION
+13 11
+ENGIMON
+PikaCharmander
+2
+200
+3
+400
+PikaCharmander
+Electric Fire 
+
+
+SKILL
+Fire ball
+Electric Fire 
+50
+1
+SKILL
+Fiery 100k Volt
+Electric Fire 
+150
+1
+POSITION
+13 16
 TILES
 - - - - - - - - o o o o o o o 
 - - - - - - - - o o o o o o o 

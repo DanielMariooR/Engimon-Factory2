@@ -58,8 +58,8 @@ public class WildEngimon {
                 E = GS.initSpesies();
                 break;
             default:
-                E = new Engimon();
-                System.out.println("");
+                Squirmon Sd = new Squirmon();
+                E = Sd.initSpesies();
         }
 
         String elem = E.getElem().get(0);
