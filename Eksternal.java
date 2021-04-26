@@ -405,7 +405,7 @@ public class Eksternal {
                 currBrs=newBrs+2;
             }
             currBrs = currBrs+1;
-            // Load Inventory Item
+            // Load Inventory Item Skill
             Inventory<Item> skillItems = new Inventory<Item>();
             while(!tempsArray[currBrs].equals("POSITION")){
                 String nameskill = tempsArray[currBrs+1];
@@ -523,7 +523,7 @@ public class Eksternal {
         } catch (Exception e) {
             System.out.println(e); 
         }       
-        Save(map);
+        //Save(map);
         return map;
     }
 

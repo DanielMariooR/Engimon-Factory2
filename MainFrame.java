@@ -140,7 +140,7 @@ public class MainFrame extends JFrame {
                     Map a = new Map();
                     a = Eksternal.Load();
                     m.setTile(a.getTile());
-                    // m.setPlayer(a.getPlayer());
+                    //m.setPlayer(a.getPlayer());
                     m.setWild(a.getWildEngimon());
                     P.switchPlayer(a.getPlayer());
                     m.setPlayer(P);
