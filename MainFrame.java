@@ -326,7 +326,7 @@ public class MainFrame extends JFrame {
                         textPane1.setText("Tidak ada Engimon");
                     }
                     else{
-                        textPane1.setText(b.ShowStatus(P.getActive(), m.isWild(), P));
+                        textPane1.setText("Your Engimon : \n" + P.showActiveDetail()+"\n\n"+"Enemy Engimon : \n" + m.isWild().toString()+"\n\n"+b.ShowStatus(P.getActive(), m.isWild(), P));
                     }
                 }
             });
@@ -558,7 +558,7 @@ public class MainFrame extends JFrame {
                     }
                     else if(s.equals("Y")){
                         textPane1.setText(b.Result(P.getActive(), m.isWild(), P));
-                        if(P.getActive().getLives()==0){
+                        if(P.getActive().getLives() <= 0){
                             String out = P.switchActiveEngimon();
                             textPane1.setText(out);
                             Integer input = Integer.valueOf(textPane2.getText());
