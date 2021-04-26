@@ -139,12 +139,15 @@ public class MainFrame extends JFrame {
                 public void actionPerformed(ActionEvent e){
                     Map a = new Map();
                     a = Eksternal.Load();
+                    String te = a.getPlayer().ownedEngimon.showStr();
                     m.setTile(a.getTile());
                     //m.setPlayer(a.getPlayer());
                     m.setWild(a.getWildEngimon());
+                    P.showActiveDetail();
                     P.switchPlayer(a.getPlayer());
+                    P.showActiveDetail();
                     m.setPlayer(P);
-                    textPane1.setText("Load Berhasil");
+                    textPane1.setText(te);
                 }
             });
             button1.addMouseListener(new java.awt.event.MouseAdapter() {
