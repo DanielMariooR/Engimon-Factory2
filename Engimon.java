@@ -106,7 +106,6 @@ public class Engimon{
     public void incrExp(int xp){
         this.exp += xp;
         this.totalxp += xp;
-        System.out.printf("exp: %d%n", this.exp);
         this.checkStatus();
     }
 
@@ -114,7 +113,6 @@ public class Engimon{
         if((this.level+1)*100 < this.exp){
             this.level++;
             this.exp -= this.level * 100;
-            System.out.println("Naik!");
         }
     }
 
@@ -133,7 +131,6 @@ public class Engimon{
     public void move(int x, int y){
         this.position.setX(position.getX()+x);
         this.position.setY(position.getY()+y);
-        System.out.printf("Level: %d%n", this.level);
     }
 
     public void setPos(Point p){

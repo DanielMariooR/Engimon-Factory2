@@ -60,9 +60,9 @@ public class MainFrame extends JFrame {
         m.addEngimon(E1);
         m.addEngimon(E3);
         P.addEngimon(E4);
-        E4.setLevel(4);
+        E4.setLevel(1);
         P.addEngimon(E);
-        E.setLevel(4);
+        E.setLevel(1);
         P.setActive(E);
         m.setPlayer(P);
         P.ownedEngimon.show();

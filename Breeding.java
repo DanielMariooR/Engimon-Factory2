@@ -33,8 +33,8 @@ public class Breeding{
         ArrayList<String> PSpecies = new ArrayList<String>();
         PName.add(A.getName());
         PName.add(B.getName());
-        PSpecies.add(A.getSpecies());
-        PSpecies.add(B.getSpecies());
+        PSpecies.add(A.getSpesies());
+        PSpecies.add(B.getSpesies());
         Point P = new Point(0,0);
         String dia = "";
         if(childEl.size()==1){
@@ -84,24 +84,24 @@ public class Breeding{
         ArrayList<String> elSpec = new ArrayList<String>();
         if(A.getElem().size() == 2 || B.getElem().size()==2) System.out.println("Elemen salah satu / kedua parent lebih dari 1. Akan diambil elemen pertama masing-masing parent");
         if(A.getElem().get(0) == B.getElem().get(0)){  // Same elements
-            elSpec.add(A.getSpecies()); // Aturan : ambil species parent A
+            elSpec.add(A.getSpesies()); // Aturan : ambil species parent A
             elSpec.add(A.getElem().get(0));
             }
         else{ // Diff elements
             if(strongerEl(A.getElem().get(0),B.getElem().get(0)) == 1){ // ambil elemen dan species A
-                elSpec.add(A.getSpecies());
+                elSpec.add(A.getSpesies());
                 elSpec.add(A.getElem().get(0));
                  
             }
             else if(strongerEl(A.getElem().get(0),B.getElem().get(0)) == -1){ // ambil elemen dan species B
-                elSpec.add(B.getSpecies()); 
+                elSpec.add(B.getSpesies()); 
                 elSpec.add(B.getElem().get(0));
                     
             }
             else{ // Kasus Elemen Advantage Sama
-                String aSpecies = A.getSpecies();
+                String aSpecies = A.getSpesies();
                 aSpecies = aSpecies.substring(0,aSpecies.length()-3);
-                String species = aSpecies + B.getSpecies(); 
+                String species = aSpecies + B.getSpesies(); 
                 elSpec.add(species);
                 elSpec.add(A.getElem().get(0));
                 elSpec.add(B.getElem().get(0));
