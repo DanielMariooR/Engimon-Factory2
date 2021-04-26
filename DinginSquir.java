@@ -18,6 +18,6 @@ public class DinginSquir implements Spesies {
 
         Point P = new Point(0,0);
 
-        return new Engimon("DinginSquir", "Let's burn everything on our path!", pn, ps, skillset, "DinginSquir", elem, 3, 1, 100, 100, P);
+        return new Engimon("DinginSquir", "Let's freeze the enemy!", pn, ps, skillset, "DinginSquir", elem, 3, 1, 100, 100, P);
     }
 }

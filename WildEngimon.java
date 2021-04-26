@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -25,34 +26,36 @@ public class WildEngimon {
 
         switch(pick){
             case 1:
-                E = new Engimon();
+                Squirmon S = new Squirmon();
+                E = S.initSpesies();
                 break;
             case 2:
-                E = new Engimon();
+                Charmander C = new Charmander();
+                E = C.initSpesies();
                 break;
             case 3:
-                E = new Engimon();
+                Dinginmon D = new Dinginmon();
+                E = D.initSpesies();
                 break;
             case 4:
-                E = new Engimon();
+                Pikamon Pi = new Pikamon();
+                E = Pi.initSpesies();
                 break;
             case 5:
-                E = new Engimon();
+                DinginSquir DS = new DinginSquir();
+                E = DS.initSpesies();
                 break;
             case 6:
-                E = new Engimon();
+                PikaCharmander PC = new PikaCharmander();
+                E = PC.initSpesies();
                 break;
             case 7:
-                E = new Engimon();
+                Groundomon G = new Groundomon();
+                E = G.initSpesies();
                 break;
             case 8:
-                E = new Engimon();
-                break;
-            case 9:
-                E = new Engimon();
-                break;
-            case 10:
-                E = new Engimon();
+                GroundSquir GS = new GroundSquir();
+                E = GS.initSpesies();
                 break;
             default:
                 E = new Engimon();
@@ -74,6 +77,10 @@ public class WildEngimon {
         engimonList.remove(engimon);
     }
 
+    public void delFromList(List<Engimon> deleteList){
+        engimonList.removeAll(deleteList);
+    }
+
     public ArrayList<Engimon> getEngimonList(){
         return this.engimonList;
     }
@@ -89,12 +96,14 @@ public class WildEngimon {
     }
 
     public void incrExpWild(){
+        ArrayList<Engimon> delEngimonList = new ArrayList<>();
         for(Engimon E: engimonList){
             E.incrExp(100);
-            if(E.getLevel() > 15){
-                delWildEngimon(E);
+            if(E.getLevel() >= 3){
+                delEngimonList.add(E);
             }
         }
+        delFromList(delEngimonList);
     }
 
     public int getListSize() {

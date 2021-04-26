@@ -49,7 +49,9 @@ public class Player {
         ownedEngimon.show();
         Scanner scan = new Scanner(System.in);
         int idx = scan.nextInt();
+        Point temp = this.Active.getPos();
         this.Active = ownedEngimon.getItem(idx - 1);
+        this.Active.setPos(temp);
         scan.close();
     }
 

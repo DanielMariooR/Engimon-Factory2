@@ -16,10 +16,7 @@ import java.util.HashMap;
 
 
 public class GameCanvas extends JPanel{
-    private Image grass;
-    private Image water;
-    private Image mountain;
-    private Image tundra;
+    private Resource loader = new Resource();
     private Image character;
     private Image engimon;
     private HashMap<Character, Image> image = new HashMap<>();
@@ -28,16 +25,8 @@ public class GameCanvas extends JPanel{
     private int turn;
 
     public GameCanvas(Map m){
-        grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/grass.png");
-        water = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/water.png");
-        mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/mountain.png");
-        tundra = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/ice.png");
         character = Toolkit.getDefaultToolkit().getImage("resource/tiles/char.png");
         engimon = Toolkit.getDefaultToolkit().getImage("resource/tiles/pokemon.png");
-        image.put('-', grass);
-        image.put('o', water);
-        image.put('^', mountain);
-        image.put('#', tundra);
         this.objects = m;
         addBinding();
         timer = new Timer(10, new TimerListener());
@@ -86,9 +75,10 @@ public class GameCanvas extends JPanel{
             
             if(turn == 3){
                 turn = 0;
-                if(objects.getWildEngimon().getListSize() < 6){
-                    //objects.getWildEngimon().spawn(5);
+                if(objects.getWildEngimon().getListSize() <= 6){
+                    objects.getWildEngimon().spawn(1);
                 }
+                objects.getWildEngimon().incrExpWild();
                 objects.moveAllWild();
             } else {
                 turn++;
@@ -111,18 +101,29 @@ public class GameCanvas extends JPanel{
         int j=0;
         while(i<20){
             while(j<15){
-                g.drawImage(image.get(objects.tiles[i][j]), j*32, i*32, this);
+                g.drawImage(loader.blocks.get(objects.tiles[i][j]), j*32, i*32, this);
                 j++;
             }
             i++;
             j = 0;
         }
         g.drawImage(character, objects.getPlayerX()*32, objects.getPlayerY()*32, this);
-        g.drawImage(engimon, objects.getPlayer().getActive().getPos().getX()*32, objects.getPlayer().getActive().getPos().getY()*32 , this);
-        for(Engimon E : objects.getWildEngimon().getEngimonList()){
-            g.drawImage(engimon, E.getPos().getX()*32, E.getPos().getY()*32 , this);
-        }
+        g.drawImage(loader.engimonIcon.get(objects.getPlayer().getActive().getSpesies()), objects.getPlayer().getActive().getPos().getX()*32, objects.getPlayer().getActive().getPos().getY()*32 , this);
+        drawWildEngimon(g);
         Toolkit.getDefaultToolkit().sync();
+    }
+
+    public void drawWildEngimon(Graphics g){
+        for(Engimon E : objects.getWildEngimon().getEngimonList()){
+            String args;
+            if(E.getLevel() >= objects.getPlayer().getActive().getLevel() + 2){
+                args = E.getSpesies() + "Big";  
+            } else {
+                args = E.getSpesies();
+            }
+            
+            g.drawImage(loader.engimonIcon.get(args), E.getPos().getX()*32, E.getPos().getY()*32 , this);
+        }
     }
 
 }

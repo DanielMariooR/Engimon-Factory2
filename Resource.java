@@ -11,9 +11,12 @@ public class Resource {
     public Resource(){
         blocks = new HashMap<>();
         engimonIcon = new HashMap<>();
+
+        loadTileImage();
+        loadEngimonImage();
     }
 
-    public loadTileImage(){
+    public void loadTileImage(){
         Image grass = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/grass.png");
         Image water = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/water.png");
         Image mountain = Toolkit.getDefaultToolkit().getImage("resource/tiles/tile/mountain.png");
@@ -25,26 +28,42 @@ public class Resource {
         blocks.put('#', tundra);
     }
 
-    public loadEngimonImage(){
-        Image waterEngimonSmall = Toolkit.getDefaultToolkit().getImage(url);
-        Image waterEngimonBig = Toolkit.getDefaultToolkit().getImage(url);
-        Image fireEngimonBig = Toolkit.getDefaultToolkit().getImage(url);
-        Image fireEngimonSmall = Toolkit.getDefaultToolkit().getImage(url);
-        Image groundEngimonBig = Toolkit.getDefaultToolkit().getImage(url);
-        Image groundEngimonSmall = Toolkit.getDefaultToolkit().getImage(url);
-        Image iceEngimonBig = Toolkit.getDefaultToolkit().getImage(url);
-        Image iceEngimonSmall = Toolkit.getDefaultToolkit().getImage(url);
-        Image elecEngimonBig = Toolkit.getDefaultToolkit().getImage(url);
-        Image elecEngimonSmall = Toolkit.getDefaultToolkit().getImage(url);
-        Image watericeEngimonBig = Toolkit.getDefaultToolkit().getImage(url);
-        Image watericeEngimonSmall = Toolkit.getDefaultToolkit().getImage(url);
-        Image groundwaterEngimonBig = Toolkit.getDefaultToolkit().getImage(url);
-        Image groundwaterEngimonSmall = Toolkit.getDefaultToolkit().getImage(url);
-        Image fireelecEngimonSmall = Toolkit.getDefaultToolkit().getImage(url);
-        Image fireelecEngimonBig = Toolkit.getDefaultToolkit().getImage(url);
+    public void loadEngimonImage(){
+        Image waterEngimonSmall = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterSmall.png");
+        Image waterEngimonBig = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterBig.png");
+        Image fireEngimonBig = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonFireBig.png");
+        Image fireEngimonSmall = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonFireSmall.png");
+        Image groundEngimonBig = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/engimonGroundBig.png");
+        Image groundEngimonSmall = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/engimonGroundSmall.png");
+        Image iceEngimonBig = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonIceBig.png");
+        Image iceEngimonSmall = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonIceSmall.png");
+        Image elecEngimonBig = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonElectricBig.png");
+        Image elecEngimonSmall = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonElectricSmall.png");
+        Image watericeEngimonBig = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterIceBig.png");
+        Image watericeEngimonSmall = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterIceSmall.png");
+        Image groundwaterEngimonBig = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterGroundBig.png");
+        Image groundwaterEngimonSmall = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonWaterGroundSmall.png");
+        Image fireelecEngimonSmall = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonFireElectricSmall.png");
+        Image fireelecEngimonBig = Toolkit.getDefaultToolkit().getImage("resource/tiles/Engimon/EngimonFireElectricBig.png");
 
-        
-        
+        engimonIcon.put("SquirmonBig", waterEngimonBig);
+        engimonIcon.put("Squirmon", waterEngimonSmall);
+        engimonIcon.put("Charmander", fireEngimonSmall);
+        engimonIcon.put("CharmanderBig", fireEngimonBig);
+        engimonIcon.put("Groundomon", groundEngimonSmall);
+        engimonIcon.put("GroundomonBig", groundEngimonBig);
+        engimonIcon.put("Dinginmon", iceEngimonSmall);
+        engimonIcon.put("DinginmonBig", iceEngimonBig);
+        engimonIcon.put("Pikamon", elecEngimonSmall);
+        engimonIcon.put("PikamonBig", elecEngimonBig);
+        engimonIcon.put("CharmanPikamon", fireelecEngimonSmall);
+        engimonIcon.put("CharmanPikamonBig", fireelecEngimonBig);
+        engimonIcon.put("PikaChamander", fireEngimonSmall);
+        engimonIcon.put("PikaCharmanderBig", fireelecEngimonBig);
+        engimonIcon.put("GroundSquir", groundEngimonSmall);
+        engimonIcon.put("GroundSquirBig", groundEngimonBig);
+        engimonIcon.put("DinginSquir", watericeEngimonSmall);
+        engimonIcon.put("DinginSquirBig", waterEngimonBig);  
     }
 
 

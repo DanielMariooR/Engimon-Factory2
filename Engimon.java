@@ -99,20 +99,22 @@ public class Engimon{
         this.exp = xp;
     }
 
-    public String getSpecies(){
+    public String getSpesies(){
         return this.species;
     }
 
     public void incrExp(int xp){
         this.exp += xp;
         this.totalxp += xp;
-        checkStatus();
+        System.out.printf("exp: %d%n", this.exp);
+        this.checkStatus();
     }
 
     public void checkStatus(){
-        if((this.level+1)*100 > this.exp){
+        if((this.level+1)*100 < this.exp){
             this.level++;
             this.exp -= this.level * 100;
+            System.out.println("Naik!");
         }
     }
 
@@ -131,6 +133,7 @@ public class Engimon{
     public void move(int x, int y){
         this.position.setX(position.getX()+x);
         this.position.setY(position.getY()+y);
+        System.out.printf("Level: %d%n", this.level);
     }
 
     public void setPos(Point p){
@@ -197,7 +200,7 @@ public class Engimon{
 
         Engimon E = (Engimon) o;
 
-        return this.name.equals(E.getName()) && this.species.equals(E.getSpecies()) && this.Elements.equals(E.getElem()) && this.parentName.equals(E.getParentName());
+        return this.name.equals(E.getName()) && this.species.equals(E.getSpesies()) && this.Elements.equals(E.getElem()) && this.parentName.equals(E.getParentName());
     }
 
     public void showSkills(){
