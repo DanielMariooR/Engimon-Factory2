@@ -1,29 +1,6 @@
 PLAYER
 ENGIMON ACTIVE
 ENGIMON
-Pikamon
-1
-200
-3
-200
-Pikamon
-Electric 
-
-
-SKILL
-ThunderBolt
-Electric 
-50
-1
-SKILL
-100k Volt
-Electric 
-150
-1
-POSITION
-11 3
-INVENTORY ENGIMON
-ENGIMON
 Charmander
 1
 100
@@ -44,35 +21,36 @@ Fire
 150
 1
 POSITION
-10 1
+6 6
+INVENTORY ENGIMON
 ENGIMON
-Squirmon
-2
+Charmander
+1
 200
 3
-400
-Squirmon
-Water 
+100
+Charmander
+Fire 
 
 
 SKILL
-water attack
-Water 
+Fire ball
+Fire 
 50
 1
 SKILL
-water bullet
-Water 
+Fire blast
+Fire 
 150
 1
 POSITION
-11 2
+6 6
 ENGIMON
 Pikamon
 1
-200
+100
 3
-200
+100
 Pikamon
 Electric 
 
@@ -85,28 +63,6 @@ Electric
 SKILL
 100k Volt
 Electric 
-150
-1
-POSITION
-11 3
-ENGIMON
-DinginSquir
-2
-300
-3
-500
-DinginSquir
-Water Ice 
-
-
-SKILL
-water bullet
-Water Ice 
-50
-1
-SKILL
-Cold Destruction
-Water Ice 
 150
 1
 POSITION
@@ -137,14 +93,14 @@ Water Ice
 1
 1
 POSITION
-11 4
+6 7
 WILDENGIMON
 ENGIMON
 Groundomon
-4
+2
 200
 3
-1100
+400
 Groundomon
 Ground 
 
@@ -160,13 +116,69 @@ Ground
 150
 2
 POSITION
-4 5
+0 8
 ENGIMON
 Dinginmon
-4
+2
 200
 3
-1100
+400
+Dinginmon
+Ice 
+
+
+SKILL
+Cold Destruction
+Ice 
+280
+1
+SKILL
+Bitter Frost
+Ice 
+50
+1
+POSITION
+11 8
+ENGIMON
+Pikamon
+2
+200
+3
+400
+Pikamon
+Electric 
+
+
+SKILL
+ThunderBolt
+Electric 
+50
+1
+SKILL
+100k Volt
+Electric 
+150
+1
+POSITION
+11 14
+ENGIMON
+XXX
+2
+1
+3
+300
+Basic
+Ground 
+
+
+POSITION
+14 13
+ENGIMON
+Dinginmon
+1
+200
+3
+200
 Dinginmon
 Ice 
 
@@ -272,7 +284,7 @@ Ground Water
 150
 1
 POSITION
-14 13
+14 11
 TILES
 - - - - - - - - o o o o o o o 
 - - - - - - - - o o o o o o o 

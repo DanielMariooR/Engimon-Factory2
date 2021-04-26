@@ -26,7 +26,7 @@ public class Player {
         this.playerPos = playerPos;
         this.ownedEngimon = ownedEngimon;
         this.skillItems = skillItems;
-        ownedEngimon.masuk(E);
+        //ownedEngimon.masuk(E);
     }
 
     public Player(int x, int y) {
