@@ -99,7 +99,14 @@ class Map {
 
     public boolean isMoveValid(int x, int y){
         if(x <= 14 && x >=0 && y<=19 && y>=0){
+            for(Engimon eng: wild.getEngimonList()){
+                if(eng.getPos().getX() == x && eng.getPos().getY() == y){
+                    return false;
+                }
+            }
+
             return true;
+            
         } else {
             return false;
         }
