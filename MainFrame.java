@@ -13,11 +13,17 @@ public class MainFrame extends JFrame {
     public MainFrame(int width, int height) {
         Map m = new Map("Map.txt");
         Player P = new Player(1,0);
-        Engimon E = new Engimon();
-        Engimon E1 = new Engimon();
-        Engimon E2 = new Engimon();
-        Engimon E3 = new Engimon();
-        Engimon E4 = new Engimon();
+        Charmander C = new Charmander();
+        Squirmon Sq = new Squirmon();
+        Dinginmon D = new Dinginmon();
+        Groundomon G = new Groundomon();
+        Pikamon Pi = new Pikamon();
+
+        Engimon E = G.initSpesies();
+        Engimon E1 = G.initSpesies();
+        Engimon E2 = Sq.initSpesies();
+        Engimon E3 = D.initSpesies();
+        Engimon E4 = Pi.initSpesies();
         Battle b = new Battle();
         ArrayList<String> elem1 = new ArrayList<>();
         ArrayList<String> elem2 = new ArrayList<>();
@@ -48,21 +54,10 @@ public class MainFrame extends JFrame {
         P.sortSkill();
         Inventory.showItem(P.getInventoryItem());
         E1.setPos(new Point(3,5));
-        E1.setElem(elem1);
         E2.setPos(new Point(12,8));
-        E2.setElem(elem2);
-        E3.setPos(new Point(10,1));
-        E3.setElem(elem3);
-        E.setElem(elem3);
-        E4.setElem(elem1);
-        E.insertSkill(S);
-        E1.insertSkill(S);
-        E2.insertSkill(S);
-        E3.insertSkill(S);
-        E4.insertSkill(S);
+        E3.setPos(new Point(12,8));
 
         m.addEngimon(E1);
-        m.addEngimon(E2);
         m.addEngimon(E3);
         P.addEngimon(E4);
         E4.setLevel(4);
