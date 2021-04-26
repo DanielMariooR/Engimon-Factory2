@@ -1,27 +1,27 @@
 PLAYER
 ENGIMON ACTIVE
 ENGIMON
-Squirmon
+Pikamon
+2
+50
 3
-150
-3
-650
-Squirmon
-Water 
+250
+Pikamon
+Electric 
 
 
 SKILL
-water attack
-Water 
+ThunderBolt
+Electric 
 50
 1
 SKILL
-water bullet
-Water 
+100k Volt
+Electric 
 150
 1
 POSITION
-11 11
+13 2
 INVENTORY ENGIMON
 ENGIMON
 Charmander
@@ -44,13 +44,13 @@ Fire
 150
 1
 POSITION
-14 15
+4 4
 ENGIMON
 Squirmon
+2
+200
 3
-150
-3
-650
+400
 Squirmon
 Water 
 
@@ -66,13 +66,35 @@ Water
 150
 1
 POSITION
-11 11
+13 2
+ENGIMON
+Squirmon
+2
+200
+3
+400
+Squirmon
+Water 
+
+
+SKILL
+water attack
+Water 
+50
+1
+SKILL
+water bullet
+Water 
+150
+1
+POSITION
+13 2
 ENGIMON
 Pikamon
-1
-150
+2
+50
 3
-150
+250
 Pikamon
 Electric 
 
@@ -88,35 +110,13 @@ Electric
 150
 1
 POSITION
-10 12
-ENGIMON
-Groundomon
-2
-300
-3
-500
-Groundomon
-Ground 
-
-
-SKILL
-Ground Pound
-Ground 
-50
-1
-SKILL
-Earth Quake
-Ground 
-150
-1
-POSITION
-11 13
+13 2
 ENGIMON
 DinginSquir
 3
-300
+200
 3
-800
+700
 DinginSquir
 Water Ice 
 
@@ -132,29 +132,7 @@ Water Ice
 150
 1
 POSITION
-10 2
-ENGIMON
-GroundSquir
-3
-200
-3
-700
-GroundSquir
-Ground Water 
-
-
-SKILL
-Sandstorm
-Ground Water 
-50
-1
-SKILL
-Tsunami
-Ground Water 
-150
-1
-POSITION
-11 13
+13 1
 INVENTORY ITEM
 SKILL
 Earthquake
@@ -173,112 +151,22 @@ water attack
 Water 
 50
 1
-1
-SKILL
-Ground Pound
-Ground 
-50
-1
-1
+2
 SKILL
 water bullet
 Water Ice 
 50
 1
 1
-SKILL
-Sandstorm
-Ground Water 
-50
-1
-1
 POSITION
-11 12
+13 3
 WILDENGIMON
 ENGIMON
-Pikamon
-4
-400
-3
-1300
-Pikamon
-Electric 
-
-
-SKILL
-ThunderBolt
-Electric 
-50
-2
-SKILL
-100k Volt
-Electric 
-150
-2
-POSITION
-12 16
-ENGIMON
-XXX
-4
-201
-3
-1200
-Basic
-Ground 
-
-
-POSITION
-12 12
-ENGIMON
-Pikamon
+Dinginmon
 3
 400
 3
 900
-Pikamon
-Electric 
-
-
-SKILL
-ThunderBolt
-Electric 
-50
-1
-SKILL
-100k Volt
-Electric 
-150
-1
-POSITION
-13 13
-ENGIMON
-Squirmon
-3
-300
-3
-800
-Squirmon
-Water 
-
-
-SKILL
-water attack
-Water 
-50
-1
-SKILL
-water bullet
-Water 
-150
-1
-POSITION
-11 0
-ENGIMON
-Dinginmon
-3
-100
-3
-600
 Dinginmon
 Ice 
 
@@ -294,29 +182,95 @@ Ice
 50
 1
 POSITION
-13 11
+10 8
 ENGIMON
-PikaCharmander
+Charmander
 2
-200
+300
 3
-400
-PikaCharmander
-Electric Fire 
+500
+Charmander
+Fire 
 
 
 SKILL
 Fire ball
-Electric Fire 
+Fire 
 50
 1
 SKILL
-Fiery 100k Volt
-Electric Fire 
+Fire blast
+Fire 
 150
 1
 POSITION
-13 16
+4 19
+ENGIMON
+GroundSquir
+2
+200
+3
+400
+GroundSquir
+Ground Water 
+
+
+SKILL
+Sandstorm
+Ground Water 
+50
+1
+SKILL
+Tsunami
+Ground Water 
+150
+1
+POSITION
+13 12
+ENGIMON
+Squirmon
+2
+100
+3
+300
+Squirmon
+Water 
+
+
+SKILL
+water attack
+Water 
+50
+1
+SKILL
+water bullet
+Water 
+150
+1
+POSITION
+14 0
+ENGIMON
+Squirmon
+1
+200
+3
+200
+Squirmon
+Water 
+
+
+SKILL
+water attack
+Water 
+50
+1
+SKILL
+water bullet
+Water 
+150
+1
+POSITION
+14 0
 TILES
 - - - - - - - - o o o o o o o 
 - - - - - - - - o o o o o o o 

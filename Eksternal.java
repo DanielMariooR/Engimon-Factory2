@@ -287,7 +287,9 @@ public class Eksternal {
             String el = tempsArray[9];
             String[] arrOfEl = el.split(" ", -2);
             for (String a : arrOfEl){
-                Elements.add(a);
+                if(a.length() >= 3){
+                    Elements.add(a);
+                }
             }
             ArrayList<String> parentName = new ArrayList<String>();
             String PN = tempsArray[10];
@@ -352,8 +354,11 @@ public class Eksternal {
                 String elem = tempsArray[currBrs+7];
                 String[] arrOfElem = elem.split(" ", -2);
                 for (String a : arrOfElem){
-                    El.add(a);
+                    if(a.length() >= 3){
+                        El.add(a);
+                    }
                 }
+                
                 ArrayList<String> pName = new ArrayList<String>();
                 String PName = tempsArray[currBrs+8];
                 String[] arrOfPName = PName.split(" ", -2);

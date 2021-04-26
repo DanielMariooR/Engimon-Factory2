@@ -144,6 +144,7 @@ public class EngimonStatus extends JPanel {
 
             }
         }
+
         for (int i = 0; i < engi.getSkills().size(); i++) {
             String args = engi.getSkills().get(i).getName().replaceAll("\\s+","").toLowerCase()+engi.getSkills().get(i).getMasteryLevel();
             g.drawImage(loader.skillIcon.get(args), (i + 2) * 32, 0 * 32, this);
