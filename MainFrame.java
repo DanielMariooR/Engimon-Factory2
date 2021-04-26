@@ -514,14 +514,14 @@ public class MainFrame extends JFrame {
                         textPane1.setText(gch);
                          Engimon gachaed = new Engimon();
                          Random rand = new Random();
-                         int luck = rand.nextInt(9);
+                         int luck = rand.nextInt(8);
                          if(luck==0) gachaed = new Charmander().initSpesies();
                          else if(luck==1) gachaed = new Squirmon().initSpesies();
-                         else if(luck==1) gachaed = new Pikamon().initSpesies();
-                         else if(luck==1) gachaed = new Groundomon().initSpesies();
-                         else if(luck==1) gachaed = new Dinginmon().initSpesies();
-                         else if(luck==1) gachaed = new CharmanPikamon().initSpesies();
-                         else if(luck==1) gachaed = new GroundSquir().initSpesies();
+                         else if(luck==2) gachaed = new Pikamon().initSpesies();
+                         else if(luck==3) gachaed = new Groundomon().initSpesies();
+                         else if(luck==4) gachaed = new Dinginmon().initSpesies();
+                         else if(luck==5) gachaed = new CharmanPikamon().initSpesies();
+                         else if(luck==6) gachaed = new GroundSquir().initSpesies();
                          else gachaed = new DinginSquir().initSpesies();
                          if(P.ownedEngimon.getInv().size() < 9){
                              P.addEngimon(gachaed);
