@@ -516,7 +516,10 @@ public class MainFrame extends JFrame {
                     else if(code.equals("Pick Active Engimon : ")){ // Change Engimon
                         Integer input = Integer.valueOf(textPane2.getText());
                         System.out.println(input);
+                        int x = P.Active.getPos().getX();
+                        int y = P.Active.getPos().getY();
                         P.Active = P.ownedEngimon.getItem(input - 1);
+                        P.Active.setPos(new Point(x, y));
                         textPane1.setText(textPane1.getText() + "\nActive Engimon Changed to : " + P.getActive().getName() + "\n\n"+"["+P.getActive().getName()+"] : "+P.getActive().getDialog());
                     } 
                     else if(code.equals("Breeding")){ // Breeding
@@ -560,7 +563,10 @@ public class MainFrame extends JFrame {
                             textPane1.setText(out);
                             Integer input = Integer.valueOf(textPane2.getText());
                             System.out.println(input);
+                            int x = P.Active.getPos().getX();
+                            int y = P.Active.getPos().getY();
                             P.Active = P.ownedEngimon.getItem(input - 1);
+                            P.Active.setPos(new Point(x, y));
                             textPane1.setText(textPane1.getText() + "\n Active Engimon Changed to : " + P.getActive().getName());
                         }
                         else if(b.Result(P.getActive(), m.isWild(), P)=="WIN"){
